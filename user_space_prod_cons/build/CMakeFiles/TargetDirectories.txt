@@ -1,0 +1,4 @@
+/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build/CMakeFiles/cc_inteligence.dir
+/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build/CMakeFiles/inteligent_cc.dir
+/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build/CMakeFiles/edit_cache.dir
+/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build/CMakeFiles/rebuild_cache.dir

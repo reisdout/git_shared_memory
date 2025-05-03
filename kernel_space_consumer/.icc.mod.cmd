@@ -1,0 +1,1 @@
+savedcmd_/home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/icc.mod := printf '%s\n'   icc.o | awk '!x[$$0]++ { print("/home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/"$$0) }' > /home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/icc.mod

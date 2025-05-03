@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "shared_memeory",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cc_inteligence::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cc_inteligence-Debug-c6838ff9eab823435550.json",
+					"name" : "cc_inteligence",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "inteligent_cc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-inteligent_cc-Debug-b1a5a9bbdb8d09337d50.json",
+					"name" : "inteligent_cc",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build",
+		"source" : "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

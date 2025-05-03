@@ -1,0 +1,1 @@
+savedcmd_/home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/modules.order := {   echo /home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/icc.o; :; } > /home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/modules.order

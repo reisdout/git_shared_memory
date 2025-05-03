@@ -1,1 +1,0 @@
-/usr/bin/gcc -O3 -DNDEBUG CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o -o inteligent_cc  /usr/lib/x86_64-linux-gnu/libuv.so 

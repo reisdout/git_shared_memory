@@ -1,1 +1,0 @@
-/usr/bin/gcc -O3 -DNDEBUG CMakeFiles/cc_inteligence.dir/cc_inteligence.c.o -o cc_inteligence  /usr/lib/x86_64-linux-gnu/libuv.so 

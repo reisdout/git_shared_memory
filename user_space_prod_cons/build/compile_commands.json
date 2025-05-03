@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/cc_inteligence.dir/cc_inteligence.c.o -c /home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/cc_inteligence.c",
+  "file": "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/cc_inteligence.c",
+  "output": "CMakeFiles/cc_inteligence.dir/cc_inteligence.c.o"
+},
+{
+  "directory": "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o -c /home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/inteligent_cc.c",
+  "file": "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/inteligent_cc.c",
+  "output": "CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o"
+}
+]

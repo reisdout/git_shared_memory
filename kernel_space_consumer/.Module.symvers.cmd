@@ -1,0 +1,1 @@
+savedcmd_/home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/Module.symvers -T /home/ns/c++/shared_memory/git_shared_memory/kernel_space_consumer/modules.order -i Module.symvers -e 

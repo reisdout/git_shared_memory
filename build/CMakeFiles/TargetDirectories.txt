@@ -1,4 +1,0 @@
-/home/ns/c++/shared_memory/build/CMakeFiles/cc_inteligence.dir
-/home/ns/c++/shared_memory/build/CMakeFiles/inteligent_cc.dir
-/home/ns/c++/shared_memory/build/CMakeFiles/edit_cache.dir
-/home/ns/c++/shared_memory/build/CMakeFiles/rebuild_cache.dir

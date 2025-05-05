@@ -7,6 +7,8 @@ int main(int argc, char* argv[])
 {
     cout << "Making the difference!" << endl;
 
+    string str_model_file = "/proc/icc_vegas_driver";
+
     if (argc < 2)
     {
         cout << "Consumer or Prodicer?" << endl;
@@ -18,7 +20,7 @@ int main(int argc, char* argv[])
         
         cout << "consuming from kernel!" << endl;
         string line;
-        ifstream myfile ("/proc/icc_driver");
+        ifstream myfile (str_model_file.c_str());
         if (myfile.is_open())
         {
 
@@ -37,7 +39,7 @@ int main(int argc, char* argv[])
     {
 
         cout << "Producing to kernel!" << endl;
-        ofstream myfile ("/proc/icc_driver");
+        ofstream myfile (str_model_file.c_str());
         if (myfile.is_open())
         {
           myfile << "C";

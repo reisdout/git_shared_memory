@@ -9,6 +9,58 @@ MODULE_LICENSE("GPL");
 
 static struct proc_dir_entry *icc_proc_entry;
 
+
+
+
+/*ssize_t	(*proc_write)(struct file *, 
+                      const char __user *, 
+                      size_t, 
+                      loff_t *);
+
+*/
+
+
+static ssize_t icc_write (struct file * file_pointer, 
+                          const char* user_space_buffer, 
+                          size_t count, 
+                          loff_t* offset)
+{
+
+
+    printk("icc write \n");    
+    
+    char cc_level[2];
+    
+    int write_res;
+
+    write_res = copy_from_user(cc_level,user_space_buffer,2);
+
+    cc_level[1] = '\0';
+    
+    int len = strlen(cc_level);
+
+    if(len > 1)//just one char
+    {
+        printk("Too much for me\n");
+        return 0;
+    }
+
+    printk("cc_level: %s", cc_level);
+
+    int value = cc_level[0]  - 'A' + 1;
+    printk("cc_level: %d\n", value);
+
+
+    return len;
+    
+
+
+}
+
+
+
+
+
 /*ssize_t	(*proc_read)(struct file *, 
                      char __user *, 
                      size_t, loff_t *);
@@ -17,17 +69,39 @@ static struct proc_dir_entry *icc_proc_entry;
 static ssize_t icc_read(struct file * file_pointer, 
                      char* user_space_buffer, 
                      size_t count, 
-                     loff_t* offset)
+                     loff_t* offset) //pode ser a posicao do proximo byte a
+                                     // ser lido do buffer em trans
+                                     //ferencia para o user space
+                                     //se o buffer e msg, pe,
+                                     //msg[*offset] aponta para
+                                     //o 1o byte nao transtrerido
+                                     //para o user space...    
 {
-
     printk("icc read \n");
-    return 0;
+    size_t len;
+    int read_result;
+
+    char icc_ack[] = "A\n";
+    len = strlen(icc_ack);
+    
+    //if(*offset >= len)
+        //return 0; //faz o cat parar.
+
+
+    read_result = copy_to_user(user_space_buffer,icc_ack,len);
+
+    *offset += len;
+    
+
+    return len; // deve-se retornar o numero de bytes que se pasa para
+                // o user space.    
 
 }
 
 struct proc_ops icc_proc_ops = {
 
-    .proc_read = icc_read;
+    .proc_read = icc_read,
+    .proc_write = icc_write
 
 };
 
@@ -40,7 +114,7 @@ static int inteligent_cc_init(void){
     icc_proc_entry = proc_create("icc_driver", //cria /proc/icc_driver
                                  0, 
                                  NULL, 
-                                 &icc_proc_ops);
+                                 &icc_proc_ops); //veja linha 28
 
 
     if(! icc_proc_entry)

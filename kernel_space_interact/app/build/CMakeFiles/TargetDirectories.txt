@@ -1,0 +1,3 @@
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles/kernel_ineteraction.dir
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles/edit_cache.dir
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles/rebuild_cache.dir

@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
         ofstream myfile (str_model_file.c_str());
         if (myfile.is_open())
         {
-          myfile << "C";
+          myfile << "F";
           myfile.close();
         }
         else cout << "Unable to open file";

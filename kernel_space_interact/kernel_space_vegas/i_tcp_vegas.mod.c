@@ -71,10 +71,12 @@ __used __section("__versions") =
 	"tcp_unregister_congestion_control\0\0\0"
 	"\x14\x00\x00\x00\xa8\x55\x13\xc4"
 	"proc_remove\0"
-	"\x18\x00\x00\x00\x17\x3b\x4d\x62"
-	"tcp_slow_start\0\0"
 	"\x1c\x00\x00\x00\x45\xe6\xd4\xab"
 	"tcp_reno_cong_avoid\0"
+	"\x18\x00\x00\x00\x17\x3b\x4d\x62"
+	"tcp_slow_start\0\0"
+	"\x2c\x00\x00\x00\xc6\xfa\xb1\x54"
+	"__ubsan_handle_load_invalid_value\0\0\0"
 	"\x1c\x00\x00\x00\xd6\xe3\x19\xed"
 	"tcp_reno_ssthresh\0\0\0"
 	"\x1c\x00\x00\x00\x05\xf0\x5b\xc6"
@@ -88,4 +90,4 @@ __used __section("__versions") =
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "BCEEE36C9FD16E1AFB8F3A2");
+MODULE_INFO(srcversion, "67B9B8265201DF7AD998A8A");

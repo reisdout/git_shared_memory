@@ -1,1 +1,1 @@
-savedcmd_/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/Module.symvers -T /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/modules.order -i Module.symvers -e 
+savedcmd_Module.symvers :=  /home/ns/linux-6.14.4/scripts/mod/modpost -M -m -b  -a      -o Module.symvers -T modules.order -i /home/ns/linux-6.14.4/Module.symvers -e 

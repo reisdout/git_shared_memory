@@ -167,7 +167,10 @@
  
  static void tcp_vegas_cong_avoid(struct sock *sk, u32 ack, u32 acked)
  {
-     struct tcp_sock *tp = tcp_sk(sk);
+     
+    printk("intelligent cc: updating cwnd\n");
+    
+    struct tcp_sock *tp = tcp_sk(sk);
      struct vegas *vegas = inet_csk_ca(sk);
  
      if (!vegas->doing_vegas_now) {

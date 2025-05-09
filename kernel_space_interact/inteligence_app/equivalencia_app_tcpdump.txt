@@ -1,0 +1,40 @@
+1746818737.394917528* IP 192.168.15.143.56566 > 200.144.235.134.443: Flags [S], seq 501132648, win 64240, options [mss 1460,sackOK,TS val 435067595 ecr 0(**),nop,wscale 7], length 0
+
+arrival (sec): 1746818737(*)
+arrival (usec): 394917(*)
+TCP  192.168.15.143:56566 -> 200.144.235.134:443
+ID:6394 TOS:0x0, TTL:64 IpLen:20 DgLen:60
+****SF Seq: 0x1ddead68 Ack: 0x0 Win: 0xfaf0 TcpLen: 40
+No-op option with no length. Going ahead
+.ecr: 0 (**)
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+
+
+
+1746818737.401804722(*) IP 192.168.15.143.56566 > 200.144.235.134.443: Flags [.], ack 873198881, win 502, options [nop,nop,TS val 435067602 ecr 21910451(**)], length 0
+
+arrival (sec): 1746818737(*)
+arrival (usec): 401804(*)
+TCP  192.168.15.143:56566 -> 200.144.235.134:443
+ID:6395 TOS:0x0, TTL:64 IpLen:20 DgLen:52
+*A**** Seq: 0x1ddead69 Ack: 0x340bf521 Win: 0x1f6 TcpLen: 32
+No-op option with no length. Going ahead
+.No-op option with no length. Going ahead
+.ecr: 21910451 (**)
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+
+
+1746818737.410050637 IP 192.168.15.143.56566 > 200.144.235.134.443: Flags [.], ack 873199037, win 501, options [nop,nop,TS val 435067610 ecr 21910460], length 0
+
+
+arrival (sec): 1746818737
+arrival (usec): 410050
+TCP  192.168.15.143:56566 -> 200.144.235.134:443
+ID:6398 TOS:0x0, TTL:64 IpLen:20 DgLen:52
+*A**** Seq: 0x1ddeb591 Ack: 0x340bf5bd Win: 0x1f5 TcpLen: 32
+No-op option with no length. Going ahead
+.No-op option with no length. Going ahead
+.ecr: 21910460
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+

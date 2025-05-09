@@ -131,8 +131,8 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
     switch (iphdr->ip_p)
     {
     case IPPROTO_TCP:
-        printf("arrival (sec): %ld\n", packethdr->ts.tv_sec);
-        printf("arrival (usec): %ld\n", packethdr->ts.tv_usec);
+        printf("arrival (sec): %ld\n", packethdr->ts.tv_sec); //aqui um e o complemento do outro. sec e a parte inteira e
+        printf("arrival (usec): %ld\n", packethdr->ts.tv_usec);//usec e a parte fracionaria em micro-segundos(usec)
         tcphdr = (struct tcphdr*)packetptr;
         printf("TCP  %s:%d -> %s:%d\n", srcip, ntohs(tcphdr->th_sport),
                dstip, ntohs(tcphdr->th_dport));

@@ -518,6 +518,8 @@ int main(int argc, char *argv[])
 
     class_input_output_configurator *pt_input_output_configurator;
 
+    std::ofstream file;
+
 
     //O numero de testes é definido pelos  numelo de outputs dento do array keras_output. Mas os modelos 2D (CNN e LSTM)
     //precisam de dois vetores iniciais para irem formando as matrizes de entrada 3X3
@@ -611,7 +613,6 @@ int main(int argc, char *argv[])
         }
 
         pt_input_output_configurator->configure_input_output(input, keras_output);
-        std::ofstream file;
         file.open("./models_response_time.csv", std::ios::out | std::ios::app);
         if(file.fail())
         {
@@ -619,8 +620,8 @@ int main(int argc, char *argv[])
             exit(0);
         }
 
-        if(model_architeture == MLP_MODEL)
-            file << "Model,"<<"Response Time" << endl;
+        //if(model_architeture == MLP_MODEL)
+            //file << "Model,"<<"Response Time" << endl;
 
         //auto start_time = high_resolution_clock::now();
         for(int i = 0; i < NUMTEST + 2; i++)
@@ -669,12 +670,12 @@ int main(int argc, char *argv[])
         file.close();
 
 
+
+
         delete ptModel;
         delete tensor_fill;
         delete pt_input_output_configurator;
     }
-
-
 
 
 

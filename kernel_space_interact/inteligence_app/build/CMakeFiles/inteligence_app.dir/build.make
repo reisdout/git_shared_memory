@@ -83,22 +83,199 @@ CMakeFiles/inteligence_app.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/main.cpp -o CMakeFiles/inteligence_app.dir/main.cpp.s
 
+CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/tensor_fill/src/class_tensor_fill.cpp
+CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o -MF CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o.d -o CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/tensor_fill/src/class_tensor_fill.cpp
+
+CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/tensor_fill/src/class_tensor_fill.cpp > CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.i
+
+CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/tensor_fill/src/class_tensor_fill.cpp -o CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_Model_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_Model_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_Model_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_Model_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_Model_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_Model_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_Model_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_Model_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/flags.make
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o: CMakeFiles/inteligence_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o -MF CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o.d -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp > CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i
+
+CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp -o CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s
+
 # Object files for target inteligence_app
 inteligence_app_OBJECTS = \
-"CMakeFiles/inteligence_app.dir/main.cpp.o"
+"CMakeFiles/inteligence_app.dir/main.cpp.o" \
+"CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o" \
+"CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o"
 
 # External object files for target inteligence_app
 inteligence_app_EXTERNAL_OBJECTS =
 
-inteligence_app: CMakeFiles/inteligence_app.dir/main.cpp.o
-inteligence_app: CMakeFiles/inteligence_app.dir/build.make
-inteligence_app: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/libpcap/libpcap.a
-inteligence_app: CMakeFiles/inteligence_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable inteligence_app"
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/main.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/build.make
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/libpcap/libpcap.a
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Debug/static\ libs/libpoc_keras2c.a
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inteligence_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/inteligence_app.dir/build: inteligence_app
+CMakeFiles/inteligence_app.dir/build: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app
 .PHONY : CMakeFiles/inteligence_app.dir/build
 
 CMakeFiles/inteligence_app.dir/clean:

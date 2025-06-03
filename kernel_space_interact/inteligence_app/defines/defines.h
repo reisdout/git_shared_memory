@@ -1,0 +1,45 @@
+# define MYSELF REIS
+
+
+#define NUM_FLATTENED_FEATURES 9
+
+
+#define FEATURES_DIMENSION 3
+
+
+
+#define NUM_MODELS 9
+
+
+#define MLP_MODEL 0
+#define LSTM_MODEL 1
+#define CNN_MODEL 2
+#define MLP_ACK_RTT 3
+#define LSTM_ACK_RTT 4
+#define CNN_ACK_RTT 5
+#define MLP_SND_RTT 6
+#define LSTM_SND_RTT 7
+#define CNN_SND_RTT 8
+
+
+
+#define ROUND_0000000 0
+#define ROUND_0000001 1
+#define ROUND_0000002 2
+#define ROUND_0000001_10MBPS 3
+#define ROUND_0000002_100MBPS 4
+#define ROUND_0000003_500MBPS 5
+#define ROUND_0000004_1000MBPS 6
+#define ROUND_REC_100MBPS 7
+#define ROUND_POC_0000001_10MBPS 8
+#define ROUND_POC_0000002_100MBPS 9
+#define ROUND_POC_0000003_300MBPS 10
+#define ROUND_POC_000004_500MBPS 11
+#define ROUND_COMPLXETY_TIME 12
+#define NUMTEST 2000
+
+#define NUM_INPUT_TEST1D 2002 //Despreza-se os dois iniciai, por isso 2000+2
+
+#define NUM_INPUT_TEST2D  6000//sendo 2D cada imput tem 3 linhas, por isso é o triplo de NUMTEST
+
+#define DIMENSION 3

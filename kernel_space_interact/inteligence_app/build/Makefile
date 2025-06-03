@@ -129,6 +129,259 @@ inteligence_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/build
 .PHONY : inteligence_app/fast
 
+#=============================================================================
+# Target rules for targets named poc_keras2c
+
+# Build rule for target.
+poc_keras2c: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 poc_keras2c
+.PHONY : poc_keras2c
+
+# fast build rule for target.
+poc_keras2c/fast:
+	$(MAKE) $(MAKESILENT) -f keras2c/CMakeFiles/poc_keras2c.dir/build.make keras2c/CMakeFiles/poc_keras2c.dir/build
+.PHONY : poc_keras2c/fast
+
+input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.o: input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.o
+
+input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.i: input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.i
+
+input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.s: input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp.s
+
+input_output_configurator/src/CNN_Model_input_output_configurator.o: input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/CNN_Model_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/CNN_Model_input_output_configurator.cpp.o
+
+input_output_configurator/src/CNN_Model_input_output_configurator.i: input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/CNN_Model_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/CNN_Model_input_output_configurator.cpp.i
+
+input_output_configurator/src/CNN_Model_input_output_configurator.s: input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/CNN_Model_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/CNN_Model_input_output_configurator.cpp.s
+
+input_output_configurator/src/CNN_SND_RTT_input_output_configurator.o: input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/CNN_SND_RTT_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.o
+
+input_output_configurator/src/CNN_SND_RTT_input_output_configurator.i: input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/CNN_SND_RTT_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.i
+
+input_output_configurator/src/CNN_SND_RTT_input_output_configurator.s: input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/CNN_SND_RTT_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp.s
+
+input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.o: input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.o
+
+input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.i: input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.i
+
+input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.s: input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.cpp.s
+
+input_output_configurator/src/LSTM_Model_input_output_configurator.o: input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/LSTM_Model_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.o
+
+input_output_configurator/src/LSTM_Model_input_output_configurator.i: input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/LSTM_Model_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.i
+
+input_output_configurator/src/LSTM_Model_input_output_configurator.s: input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/LSTM_Model_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/LSTM_Model_input_output_configurator.cpp.s
+
+input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.o: input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.o
+
+input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.i: input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.i
+
+input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.s: input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.cpp.s
+
+input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.o: input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.o
+
+input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.i: input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.i
+
+input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.s: input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.cpp.s
+
+input_output_configurator/src/MLP_Model_input_output_configurator.o: input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/MLP_Model_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/MLP_Model_input_output_configurator.cpp.o
+
+input_output_configurator/src/MLP_Model_input_output_configurator.i: input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/MLP_Model_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/MLP_Model_input_output_configurator.cpp.i
+
+input_output_configurator/src/MLP_Model_input_output_configurator.s: input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/MLP_Model_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/MLP_Model_input_output_configurator.cpp.s
+
+input_output_configurator/src/MLP_SND_RTT_input_output_configurator.o: input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/MLP_SND_RTT_input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.o
+
+input_output_configurator/src/MLP_SND_RTT_input_output_configurator.i: input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/MLP_SND_RTT_input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.i
+
+input_output_configurator/src/MLP_SND_RTT_input_output_configurator.s: input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/MLP_SND_RTT_input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/MLP_SND_RTT_input_output_configurator.cpp.s
+
+input_output_configurator/src/input_output_configurator.o: input_output_configurator/src/input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/input_output_configurator.o
+
+# target to build an object file
+input_output_configurator/src/input_output_configurator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.o
+.PHONY : input_output_configurator/src/input_output_configurator.cpp.o
+
+input_output_configurator/src/input_output_configurator.i: input_output_configurator/src/input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/input_output_configurator.i
+
+# target to preprocess a source file
+input_output_configurator/src/input_output_configurator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.i
+.PHONY : input_output_configurator/src/input_output_configurator.cpp.i
+
+input_output_configurator/src/input_output_configurator.s: input_output_configurator/src/input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/input_output_configurator.s
+
+# target to generate assembly for a file
+input_output_configurator/src/input_output_configurator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/input_output_configurator/src/input_output_configurator.cpp.s
+.PHONY : input_output_configurator/src/input_output_configurator.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -153,6 +406,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+tensor_fill/src/class_tensor_fill.o: tensor_fill/src/class_tensor_fill.cpp.o
+.PHONY : tensor_fill/src/class_tensor_fill.o
+
+# target to build an object file
+tensor_fill/src/class_tensor_fill.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.o
+.PHONY : tensor_fill/src/class_tensor_fill.cpp.o
+
+tensor_fill/src/class_tensor_fill.i: tensor_fill/src/class_tensor_fill.cpp.i
+.PHONY : tensor_fill/src/class_tensor_fill.i
+
+# target to preprocess a source file
+tensor_fill/src/class_tensor_fill.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.i
+.PHONY : tensor_fill/src/class_tensor_fill.cpp.i
+
+tensor_fill/src/class_tensor_fill.s: tensor_fill/src/class_tensor_fill.cpp.s
+.PHONY : tensor_fill/src/class_tensor_fill.s
+
+# target to generate assembly for a file
+tensor_fill/src/class_tensor_fill.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/tensor_fill/src/class_tensor_fill.cpp.s
+.PHONY : tensor_fill/src/class_tensor_fill.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +439,43 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... inteligence_app"
+	@echo "... poc_keras2c"
+	@echo "... input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.o"
+	@echo "... input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.i"
+	@echo "... input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.s"
+	@echo "... input_output_configurator/src/CNN_Model_input_output_configurator.o"
+	@echo "... input_output_configurator/src/CNN_Model_input_output_configurator.i"
+	@echo "... input_output_configurator/src/CNN_Model_input_output_configurator.s"
+	@echo "... input_output_configurator/src/CNN_SND_RTT_input_output_configurator.o"
+	@echo "... input_output_configurator/src/CNN_SND_RTT_input_output_configurator.i"
+	@echo "... input_output_configurator/src/CNN_SND_RTT_input_output_configurator.s"
+	@echo "... input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.o"
+	@echo "... input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.i"
+	@echo "... input_output_configurator/src/LSTM_ACK_RTT_input_output_configurator.s"
+	@echo "... input_output_configurator/src/LSTM_Model_input_output_configurator.o"
+	@echo "... input_output_configurator/src/LSTM_Model_input_output_configurator.i"
+	@echo "... input_output_configurator/src/LSTM_Model_input_output_configurator.s"
+	@echo "... input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.o"
+	@echo "... input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.i"
+	@echo "... input_output_configurator/src/LSTM_SND_RTT_input_output_configurator.s"
+	@echo "... input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.o"
+	@echo "... input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.i"
+	@echo "... input_output_configurator/src/MLP_ACK_RTT_input_output_configurator.s"
+	@echo "... input_output_configurator/src/MLP_Model_input_output_configurator.o"
+	@echo "... input_output_configurator/src/MLP_Model_input_output_configurator.i"
+	@echo "... input_output_configurator/src/MLP_Model_input_output_configurator.s"
+	@echo "... input_output_configurator/src/MLP_SND_RTT_input_output_configurator.o"
+	@echo "... input_output_configurator/src/MLP_SND_RTT_input_output_configurator.i"
+	@echo "... input_output_configurator/src/MLP_SND_RTT_input_output_configurator.s"
+	@echo "... input_output_configurator/src/input_output_configurator.o"
+	@echo "... input_output_configurator/src/input_output_configurator.i"
+	@echo "... input_output_configurator/src/input_output_configurator.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... tensor_fill/src/class_tensor_fill.o"
+	@echo "... tensor_fill/src/class_tensor_fill.i"
+	@echo "... tensor_fill/src/class_tensor_fill.s"
 .PHONY : help
 
 

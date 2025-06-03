@@ -64,15 +64,32 @@ CMAKE_BINARY_DIR = /home/ns/c++/shared_memory/git_shared_memory/kernel_space_int
 
 # The main recursive "all" target.
 all: CMakeFiles/inteligence_app.dir/all
+all: keras2c/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: keras2c/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/inteligence_app.dir/clean
+clean: keras2c/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory keras2c
+
+# Recursive "all" directory target.
+keras2c/all: keras2c/CMakeFiles/poc_keras2c.dir/all
+.PHONY : keras2c/all
+
+# Recursive "preinstall" directory target.
+keras2c/preinstall:
+.PHONY : keras2c/preinstall
+
+# Recursive "clean" directory target.
+keras2c/clean: keras2c/CMakeFiles/poc_keras2c.dir/clean
+.PHONY : keras2c/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/inteligence_app.dir
@@ -81,12 +98,12 @@ clean: CMakeFiles/inteligence_app.dir/clean
 CMakeFiles/inteligence_app.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=1,2 "Built target inteligence_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target inteligence_app"
 .PHONY : CMakeFiles/inteligence_app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/inteligence_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/inteligence_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles 0
 .PHONY : CMakeFiles/inteligence_app.dir/rule
@@ -99,6 +116,32 @@ inteligence_app: CMakeFiles/inteligence_app.dir/rule
 CMakeFiles/inteligence_app.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteligence_app.dir/build.make CMakeFiles/inteligence_app.dir/clean
 .PHONY : CMakeFiles/inteligence_app.dir/clean
+
+#=============================================================================
+# Target rules for target keras2c/CMakeFiles/poc_keras2c.dir
+
+# All Build rule for target.
+keras2c/CMakeFiles/poc_keras2c.dir/all:
+	$(MAKE) $(MAKESILENT) -f keras2c/CMakeFiles/poc_keras2c.dir/build.make keras2c/CMakeFiles/poc_keras2c.dir/depend
+	$(MAKE) $(MAKESILENT) -f keras2c/CMakeFiles/poc_keras2c.dir/build.make keras2c/CMakeFiles/poc_keras2c.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 "Built target poc_keras2c"
+.PHONY : keras2c/CMakeFiles/poc_keras2c.dir/all
+
+# Build rule for subdir invocation for target.
+keras2c/CMakeFiles/poc_keras2c.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles 19
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 keras2c/CMakeFiles/poc_keras2c.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles 0
+.PHONY : keras2c/CMakeFiles/poc_keras2c.dir/rule
+
+# Convenience name for target.
+poc_keras2c: keras2c/CMakeFiles/poc_keras2c.dir/rule
+.PHONY : poc_keras2c
+
+# clean rule for target.
+keras2c/CMakeFiles/poc_keras2c.dir/clean:
+	$(MAKE) $(MAKESILENT) -f keras2c/CMakeFiles/poc_keras2c.dir/build.make keras2c/CMakeFiles/poc_keras2c.dir/clean
+.PHONY : keras2c/CMakeFiles/poc_keras2c.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

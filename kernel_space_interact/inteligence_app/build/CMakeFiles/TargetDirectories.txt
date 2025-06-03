@@ -1,3 +1,6 @@
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles/inteligence_app.dir
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles/edit_cache.dir
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles/rebuild_cache.dir
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/keras2c/CMakeFiles/poc_keras2c.dir
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/keras2c/CMakeFiles/edit_cache.dir
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/keras2c/CMakeFiles/rebuild_cache.dir

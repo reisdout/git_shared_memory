@@ -1,5 +1,7 @@
+#include <chrono>
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 
 //pcap
@@ -9,14 +11,247 @@
 #include <string.h>
 #include <signal.h>
 #include <./libpcap/pcap/pcap.h>
+
+#include <math.h>
+
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netinet/ip_icmp.h>
+
+#include "./tensor_fill/include/class_tensor_fill.h"
+
+#include "./input_output_configurator/include/input_output_configurator.h"
+
+#include "./input_output_configurator/include/MLP_Model_input_output_configurator.h"
+#include "./input_output_configurator/include/MLP_ACK_RTT_input_output_configurator.h"
+#include "./input_output_configurator/include/MLP_SND_RTT_input_output_configurator.h"
+
+#include "./input_output_configurator/include/LSTM_Model_input_output_configurator.h"
+#include "./input_output_configurator/include/LSTM_ACK_RTT_input_output_configurator.h"
+#include "./input_output_configurator/include/LSTM_SND_RTT_input_output_configurator.h"
+
+#include "./input_output_configurator/include/CNN_Model_input_output_configurator.h"
+#include "./input_output_configurator/include/CNN_ACK_RTT_input_output_configurator.h"
+#include "./input_output_configurator/include/CNN_SND_RTT_input_output_configurator.h"
+
+
+#include "./keras2c/keras2c/MLP_3000_epocas/keras2c_model_MLP.h"
+#include "./keras2c/keras2c/LSTM_3000_epocas/keras2c_model_LSTM.h"
+#include "./keras2c/keras2c/CNN_3000_epocas/keras2c_model_CNN.h"
+
+#include "./keras2c/keras2c/MLP_3000_epocas_ACK_RTT/keras2c_model_MLP_ACK_RTT.h"
+#include "./keras2c/keras2c/LSTM_3000_epocas_ACK_RTT/keras2c_model_LSTM_ACK_RTT.h"
+#include "./keras2c/keras2c/CNN_3000_epocas_ACK_RTT/keras2c_model_CNN_ACK_RTT.h" 
+
+
+#include "./keras2c/keras2c/MLP_3000_epocas_SND_RTT/keras2c_model_MLP_SND_RTT.h"
+#include "./keras2c/keras2c/LSTM_3000_epocas_SND_RTT/keras2c_model_LSTM_SND_RTT.h"
+#include "./keras2c/keras2c/CNN_3000_epocas_SND_RTT/keras2c_model_CNN_SND_RTT.h"
+
+#include "./keras2c/keras2c/Model/Model.h"
+
 using namespace std;
+using namespace std::chrono;
 
 pcap_t* handle;
 int linkhdrlen;
 int packets;
+
+k2c_tensor myInput,myOutput;
+
+float flattenedFeatures[MAX_TERMINALS][MAX_TERMINALS][NUM_FLATTENED_FEATURES];
+
+float myfloatOutput[1] = {0};
+
+float kerasarray_1D_ACK_RTT[2];
+float kerasarray_1D_SND_RTT[2];
+//float kerasarray_CNN_ACK_RTT[6];
+float kerasarray_2D_ACK_RTT[6];
+float kerasarray_2D_SND_RTT[6];
+
+
+
+Model *ptModel;
+
+
+bool check_bidimensional_model(int par_model_architecture)
+{
+    if(par_model_architecture == LSTM_MODEL   ||
+       par_model_architecture == LSTM_ACK_RTT ||
+       par_model_architecture == LSTM_SND_RTT ||
+       par_model_architecture == CNN_MODEL    ||
+       par_model_architecture == CNN_ACK_RTT  ||
+       par_model_architecture == CNN_SND_RTT)
+       return true;
+    
+    return false;
+}
+
+
+bool check_big_error(float par_keras_prevision, float par_keras2c_prevision, int par_input_position)
+{
+    //char c;
+    bool big_error = false;
+    bool all_prints = false;
+    //if(fabs(keras_output[i] - myOutput.array[0]) >= 0.0001)
+    float error = par_keras_prevision - par_keras2c_prevision;
+    cout << "Keras: " << par_keras_prevision << endl;
+    cout << "Keras2c: " << par_keras2c_prevision << endl;
+    cout << "The error was: " << fixed << setprecision(8) << error << endl;
+    if(//par_input_position == 109  || //linha 108 / 324
+        //par_input_position == 110 || //linha 188
+        //par_input_position == 111 || //linha 189
+        //par_input_position == 251 || //linha 250
+        //par_input_position == 270 || //linha 269
+        all_prints)
+        cin.ignore();
+    if(fabs(error) > 0.0001)
+    {
+       std::cout << "Big error to " << par_input_position << " output";
+       big_error = true;
+       cin.ignore();
+    }
+
+    return big_error;
+
+}
+
+
+int make_prevision(int par_experiment_round)
+{
+
+ if(par_experiment_round == ROUND_0000001)
+  {
+    std::cout << "Round0000001\n";
+    ptModel->keras2c_model_Round0000001(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_0000002)
+  {
+    std::cout << "Round0000002\n";
+    ptModel->keras2c_model_Round0000002(&myInput,&myOutput);
+  }
+
+  else if (par_experiment_round == ROUND_0000001_10MBPS){
+    ptModel->keras2c_model_Round0000001_10Mbps(&myInput,&myOutput);
+    //myPause();
+  
+  }
+
+  else if(par_experiment_round == ROUND_0000002_100MBPS)
+  {
+    ptModel->keras2c_model_Round0000002_100Mbps(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_0000003_500MBPS)
+  {
+    ptModel->keras2c_model_Round0000003_500Mbps(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_0000004_1000MBPS)
+  {
+    ptModel->keras2c_model_Round0000004_1000Mbps(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_REC_100MBPS)
+  {
+    ptModel->keras2c_model_Round_REC_100Mbps(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_COMPLXETY_TIME)
+    ptModel->keras2c_model_Round_COMPLEXITY(&myInput,&myOutput);
+  
+  else //default
+    ptModel->keras2c_model(&myInput,&myOutput);
+
+  std::cout <<"Resposta Modelo: " << myOutput.array[0]<<"\n";
+  if(myOutput.array[0] <= 0.5 )
+    return 1;
+         
+  return 2;
+
+}
+
+
+std::string get_model_name_str(int par_model)
+{
+  if(par_model == MLP_MODEL)
+    return "MLP\u2081\u2082\u2083";
+
+  else if (par_model == LSTM_MODEL)
+    return "LSTM\u2081\u2082\u2083";
+
+  else if (par_model == CNN_MODEL)
+    return "CNN\u2081\u2082\u2083";
+
+  else if (par_model == MLP_ACK_RTT)
+    return "MLP\u2081\u2083";
+
+  else if (par_model == LSTM_ACK_RTT)
+    return "LSTM\u2081\u2083";
+  
+  else if (par_model == CNN_ACK_RTT)
+    return  "CNN\u2081\u2083";
+
+  else if (par_model == MLP_SND_RTT)
+    return "MLP\u2082\u2083";
+
+  else if (par_model == LSTM_SND_RTT)
+    return "LSTM\u2082\u2083";
+
+  else if (par_model == CNN_SND_RTT)
+    return "CNN\u2082\u2083";
+
+
+
+
+  else
+      return "TEST_MODEL";
+
+}
+
+
+
+double get_model_time_response(int par_experiment_round)
+{
+    
+    double dt;
+    
+
+
+    if(par_experiment_round == ROUND_COMPLXETY_TIME)
+    {
+        auto start_time = high_resolution_clock::now();
+
+        for(int n =0; n < NUMTEST; n++)
+            ptModel->keras2c_model_Round_COMPLEXITY(&myInput,&myOutput);
+
+        auto end_time = high_resolution_clock::now();
+
+        auto duration = duration_cast<microseconds>(end_time - start_time);
+
+        dt =  duration.count()/2000;
+    
+    }
+
+    else
+    {
+        cout << "Invalid Round" << endl;
+        exit(0);
+    }
+
+    cout << "Model dt computed!!" << endl;
+    cin.ignore();
+
+    return dt;
+
+}
+
+
+
+
+
+
 
 pcap_t* create_pcap_handle(char* device, char* filter)
 {
@@ -98,6 +333,7 @@ void get_link_header_len(pcap_t* handle)
 
 void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_char *packetptr)
 {
+    //k2c_tensor myInput,myOutput;
     struct ip* iphdr;
     struct icmp* icmphdr;
     struct tcphdr* tcphdr;
@@ -220,7 +456,8 @@ void stop_capture(int signo)
 
 int main(int argc, char *argv[])
 {
-    char device[256];
+    
+    /*char device[256];
     char filter[256]; 
     int count = 0;
     int opt;
@@ -274,5 +511,174 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    stop_capture(0);
+    stop_capture(0);*/
+
+
+    class_tensor_fill *tensor_fill;
+
+    class_input_output_configurator *pt_input_output_configurator;
+
+
+    //O numero de testes é definido pelos  numelo de outputs dento do array keras_output. Mas os modelos 2D (CNN e LSTM)
+    //precisam de dois vetores iniciais para irem formando as matrizes de entrada 3X3
+    //por isso + 2 na linha da variavel float input. Daí quando for modelo 1D, deve-se pegar dois iniciais, sem 
+    // correspondente no output, que serão desprezados no for dos testes
+    //LEMBRE-SE:
+    //Quando for modelo unidimensional (MLP) deve-se buscar duas linhas a mais de inputs em
+    //relação aos outputs, pois,nesse caso, as primeiras duas entras seão desprezadas
+
+    float input[NUMTEST +2][DIMENSION];
+
+    //float input_1D[NUMTEST][DIMENSION];
+
+    float keras_output[NUMTEST];
+
+    int model_list[] = {MLP_MODEL, MLP_ACK_RTT, MLP_SND_RTT, LSTM_MODEL, LSTM_ACK_RTT, LSTM_SND_RTT, CNN_MODEL, CNN_ACK_RTT, CNN_SND_RTT};
+
+    int model_architeture;
+
+    double dt; //guarda a media dos tempos de resposta. 
+
+    for (int model = 0; model < NUM_MODELS; model++)
+    {
+
+        model_architeture = model_list[model]; //LSTM_MODEL;
+        tensor_fill = new class_tensor_fill();
+
+        tensor_fill->set_model_architeture(model_architeture);
+
+
+        if(model_architeture == MLP_MODEL)
+        {
+
+            ptModel =  new MLPModel();
+            pt_input_output_configurator = new MLP_Model_input_output_configurator();
+
+        }
+
+        else if(model_architeture == MLP_ACK_RTT)
+        {
+            ptModel = new MLP_ACK_RTTModel();
+            pt_input_output_configurator = new MLP_ACK_RTTModel_input_output_configurator();
+        }
+
+        else if(model_architeture == MLP_SND_RTT)
+        {
+            ptModel = new MLP_SND_RTTModel();
+            pt_input_output_configurator = new MLP_SND_RTTModel_input_output_configurator();
+        }
+
+        else if(model_architeture == LSTM_MODEL)
+        {
+            ptModel =  new LSTMModel();
+            pt_input_output_configurator = new LSTM_Model_input_output_configurator();
+        }
+
+        else if(model_architeture == LSTM_ACK_RTT)
+        {
+            ptModel = new LSTM_ACK_RTTModel();
+            pt_input_output_configurator = new LSTM_ACK_RTTModel_input_output_configurator();
+        }
+
+        else if(model_architeture == LSTM_SND_RTT)
+        {
+            ptModel = new LSTM_SND_RTTModel();
+            pt_input_output_configurator = new LSTM_SND_RTTModel_input_output_configurator();
+        }
+
+        else if(model_architeture == CNN_MODEL)
+        {
+            ptModel = new CNNModel();
+            pt_input_output_configurator = new CNN_Model_input_output_configurator();
+        }
+
+        else if(model_architeture == CNN_ACK_RTT)
+        {
+            ptModel = new CNN_ACK_RTTModel();
+            pt_input_output_configurator = new CNN_ACK_RTTModel_input_output_configurator();
+        }
+
+        else if(model_architeture == CNN_SND_RTT)
+        {
+            ptModel = new CNN_SND_RTTModel();
+            pt_input_output_configurator = new CNN_SND_RTTModel_input_output_configurator();
+        }
+
+        else
+        {
+            cout << "Invalid model architecture" << endl;
+            exit(0);
+        }
+
+        pt_input_output_configurator->configure_input_output(input, keras_output);
+        std::ofstream file;
+        file.open("./models_response_time.csv", std::ios::out | std::ios::app);
+        if(file.fail())
+        {
+            cout << "Can not open file to save model response time" << endl;
+            exit(0);
+        }
+
+        if(model_architeture == MLP_MODEL)
+            file << "Model,"<<"Response Time" << endl;
+
+        //auto start_time = high_resolution_clock::now();
+        for(int i = 0; i < NUMTEST + 2; i++)
+        {
+            //Modelos com vetores de 3 dimensoes (ACK,SND,RTT)
+            if(model_architeture == MLP_MODEL || model_architeture == CNN_MODEL || model_architeture == LSTM_MODEL)
+                tensor_fill->update_features(0,0,input[i][0],input[i][1],input[i][2]);
+            
+            //Modelos com vetores de duas dimensoes (ACK, RTT)
+            else if (model_architeture == MLP_ACK_RTT || model_architeture == CNN_ACK_RTT || model_architeture == LSTM_ACK_RTT)
+            {  //Nesse caso, so preenche a primeira  e a terceira e ultima posições  do vetor de feature (ACK,SND,RTT)
+                tensor_fill->update_features(0,0,input[i][0],0,input[i][2]);
+            }
+            //Modelos com vetores de duas dimensoes (SND, RTT)
+            else if (model_architeture ==  MLP_SND_RTT || model_architeture == CNN_SND_RTT || model_architeture == LSTM_SND_RTT)
+            { ///Nesse caso, so preenche a segunda e a terceira e ultima posicoes do vetor de features (ACK,SND, RTT)
+                tensor_fill->update_features(0,0,0,input[i][1],input[i][2]);
+            }
+            else
+            {
+                cout << "Invalid model architecture" << endl;
+                exit(0);
+            }
+
+            //Veja que aqui, no cados dos modelos bidiemensionais 
+            //os dois primeiros vetores de input sao desprezados.
+            if(i >= (FEATURES_DIMENSION -1))
+            {
+                tensor_fill->show_flattened_features(0,0);
+                tensor_fill->fill_tensor(0,0);
+                if (i == FEATURES_DIMENSION -1)
+                    dt = get_model_time_response(ROUND_COMPLXETY_TIME);
+                int class_prevision = make_prevision(ROUND_COMPLXETY_TIME);
+                check_big_error(keras_output[i-2], myOutput.array[0],i);
+                //if(class_prevision > 1)
+                    //cin.ignore();
+            }
+
+
+        }
+
+        
+
+        file << get_model_name_str(model_architeture)<<","<< fixed << setprecision(3) << dt << endl;
+
+        file.close();
+
+
+        delete ptModel;
+        delete tensor_fill;
+        delete pt_input_output_configurator;
+    }
+
+
+
+
+
+
+
+
 }

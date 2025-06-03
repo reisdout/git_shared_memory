@@ -1,0 +1,10 @@
+Model,Response Time
+MLP₁₂₃,53
+MLP₁₃,40
+MLP₂₃,33
+LSTM₁₂₃,30
+LSTM₁₃,54
+LSTM₂₃,46
+CNN₁₂₃,27
+CNN₁₃,47
+CNN₂₃,54

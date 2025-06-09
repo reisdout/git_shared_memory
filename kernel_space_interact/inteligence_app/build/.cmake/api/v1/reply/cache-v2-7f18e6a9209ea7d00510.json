@@ -1227,7 +1227,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Debug/static libs/libpoc_keras2c.a"
+			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/static libs/libpoc_keras2c.a"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

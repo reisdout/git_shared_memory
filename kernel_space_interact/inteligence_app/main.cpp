@@ -357,7 +357,7 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
     packetptr += 4*iphdr->ip_hl;
 
 
-    //nao se pode inicializar cariaveis dentro dos cases do switch
+    //nao se pode inicializar variaveis dentro dos cases do switch
     // ver https://stackoverflow.com/questions/11578936/getting-a-bunch-of-crosses-initialization-error
 
     uint8_t *p;
@@ -457,7 +457,7 @@ void stop_capture(int signo)
 int main(int argc, char *argv[])
 {
     
-    /*char device[256];
+    char device[256];
     char filter[256]; 
     int count = 0;
     int opt;
@@ -511,8 +511,9 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    stop_capture(0);*/
+    stop_capture(0);
 
+    /*
 
     class_tensor_fill *tensor_fill;
 
@@ -678,7 +679,7 @@ int main(int argc, char *argv[])
     }
 
 
-
+*/
 
 
 

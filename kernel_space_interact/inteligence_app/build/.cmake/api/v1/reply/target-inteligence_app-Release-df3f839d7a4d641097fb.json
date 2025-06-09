@@ -161,7 +161,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "\"/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Debug/static libs/libpoc_keras2c.a\"",
+				"fragment" : "\"/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/static libs/libpoc_keras2c.a\"",
 				"role" : "libraries"
 			}
 		],

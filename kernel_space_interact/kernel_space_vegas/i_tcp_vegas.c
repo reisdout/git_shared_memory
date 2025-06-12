@@ -427,7 +427,7 @@
      *offset += len;
      
  
-     return len; // deve-se retornar o numero de bytes que se pasa para
+     return len; // deve-se retornar o numero de bytes que se passa para
                  // o user space.    
  
  }

@@ -1,0 +1,10 @@
+Model,dt_med
+MLP₁₂₃,4.8
+MLP₁₃,2.6
+MLP₂₃,2.8
+LSTM₁₂₃,3
+LSTM₁₃,3
+LSTM₂₃,2.8
+CNN₁₂₃,9.8
+CNN₁₃,9.2
+CNN₂₃,9.2

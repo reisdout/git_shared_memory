@@ -46,7 +46,110 @@
  static int beta  = 4;
  static int gamma = 1;
 
+ /***********************MRS******************************/
  static bool intelligent = false;
+ static int mrs_network_state = 1;
+ static u32  new_SegCwnd = 1.0;
+ //static u32 fake_cwnd = 1;
+ /*
+ Esta funcao aproxima a sqrt
+ */
+ static int sqrt_aprox( int x)
+ {
+    int lower_limit = 1;
+    int upper_limit = 1;
+    //bool upper_limit_done = false;
+
+    for(int i=1; i < x; i++)
+    {
+        if(i*i >= x)
+        {
+            upper_limit = i;
+            break;
+        }
+        lower_limit = i;
+    }
+
+    if((x-lower_limit*lower_limit) < (upper_limit*upper_limit-x))
+        return lower_limit;
+    
+    return upper_limit;
+
+ 
+}
+/*
+static void i_cong_avoid(int cwnd)
+{
+    if(intelligent)
+    {
+        printk("Working with cwnd = %d\n", cwnd);
+        u32 segCwnd = cwnd;
+
+        if (mrs_network_state == 2 || segCwnd == 1)// fsegCwnd == 1 indica redução por timeout
+        {
+            printk("Seting cwnd with network stare equal to 2? %d\n", mrs_network_state);
+            //Este calculo utiliza a ideia de que a raiz quarta do cubo
+            //e igual a raiz(x)*raiz(raiz(x)), fazendo aproximacoes por
+            //inteiros da raiz
+            int cwnd_sqrt = sqrt_aprox(segCwnd);
+            new_SegCwnd = cwnd_sqrt*sqrt_aprox(cwnd_sqrt); //float_SegCwnd*(1.0/std::pow(segCwnd,0.25));
+
+            u32 segCwndAnt = segCwnd;        
+
+            if(new_SegCwnd > 10) //a ideia é sempre ter 9 para preencher a matriz 3X3
+            {
+                u32 oldSegCwnd = segCwnd;//Não pode usar segCwndAnt, pois essa é a nossa janela anterior. A segCwnd é do vegas e foi mudada por timeout, sendo dessincronizada da segCwndAnt
+                segCwnd = new_SegCwnd;
+                if(oldSegCwnd  > 1) //É um decremento efetivo, pois se foi por time_out (segCwnd == 1) a coisa acaba incrementando.
+                printk("--DECREMENTOU de %d para %d\n", segCwndAnt, segCwnd);
+                else
+                printk("--INCREMENTOU de %d para %d\n",oldSegCwnd, segCwnd);
+
+            
+            }
+            else
+            {
+                segCwnd = 10;
+                printk("==JANELA MINIMA foi de %d para %d\n", segCwndAnt, segCwnd);
+            }  
+            //printf("--DECREMENTOU Fluxo %d, foi de %d para %d\n",flow_id, segCwndAnt, segCwnd);
+            //getchar();
+            //tcp_snd_cwnd_set(tp, segCwnd + 1);//tcb->m_cWnd = segCwnd * tcb->m_segmentSize;
+            //tcb->m_ssThresh = GetSsThresh (tcb, 0);
+            printk("Updated cwnd = %d \n", segCwnd+1);
+      }
+      else if (mrs_network_state == 1)
+      {
+        printk("Seting cwnd with network stare equal to 1? %d\n", mrs_network_state);
+      
+        if(segCwnd >= 10 || segCwnd <= 2)
+          new_SegCwnd = (segCwnd + 4);
+        
+        else
+          new_SegCwnd = segCwnd*segCwnd;//(float)std::pow(float_SegCwnd,2.0);
+        
+        printk("new_SegCwnd: %d\n",new_SegCwnd);
+        u32 segCwndAnt = segCwnd;
+        if(new_SegCwnd > 10)
+          segCwnd = new_SegCwnd +1; //(uint32_t)(float_SegCwnd) +1;
+        else
+          segCwnd = 10;
+        printk("++INCREMENTOU, foi de %d para %d\n",segCwndAnt,segCwnd);
+        //getchar();
+        //tcp_snd_cwnd_set(tp, segCwnd);//tcb->m_cWnd = segCwnd * tcb->m_segmentSize;
+      }
+      //tcb->m_ssThresh = std::max (tcb->m_ssThresh, 3 * tcb->m_cWnd / 4);
+      return;
+    }
+
+    printk("Not intelligent CC\n");
+
+    
+
+}
+
+*/
+
  
  module_param(alpha, int, 0644);
  MODULE_PARM_DESC(alpha, "lower bound of packets in network");
@@ -164,6 +267,9 @@
  {
      return  min(tp->snd_ssthresh, tcp_snd_cwnd(tp));
  }
+
+
+
  
  static void tcp_vegas_cong_avoid(struct sock *sk, u32 ack, u32 acked)
  {
@@ -297,7 +403,69 @@
 	 }
 	else
 	{
-		printk("Operating in inteligent mode");
+	    printk("Operating in inteligent mode\n");
+
+        printk("Vega++ with ntworkstate: %d\n", mrs_network_state);
+        //printk("tcb->m_segmentSize: %d\n", tcb->m_segmentSize);
+
+        u32 segCwnd = tcp_snd_cwnd(tp);
+
+        if (mrs_network_state == 2 || segCwnd == 1)// fsegCwnd == 1 indica redução por timeout
+        {
+            printk("Seting cwnd with network stare equal to 2? %d\n", mrs_network_state);
+            //Este calculo utiliza a ideia de que a raiz quarta do cubo
+            //e igual a raiz(x)*raiz(raiz(x)), fazendo aproximacoes por
+            //inteiros da raiz
+            int cwnd_sqrt = sqrt_aprox(segCwnd);
+            new_SegCwnd = cwnd_sqrt*sqrt_aprox(cwnd_sqrt); //float_SegCwnd*(1.0/std::pow(segCwnd,0.25));
+
+            u32 segCwndAnt = segCwnd;        
+
+            if(new_SegCwnd > 10) //a ideia é sempre ter 9 para preencher a matriz 3X3
+            {
+                u32 oldSegCwnd = segCwnd;//Não pode usar segCwndAnt, pois essa é a nossa janela anterior. A segCwnd é do vegas e foi mudada por timeout, sendo dessincronizada da segCwndAnt
+                segCwnd = new_SegCwnd;
+                if(oldSegCwnd  > 1) //É um decremento efetivo, pois se foi por time_out (segCwnd == 1) a coisa acaba incrementando.
+                printk("--DECREMENTOU de %d para %d\n", segCwndAnt, segCwnd);
+                else
+                printk("--INCREMENTOU de %d para %d\n",oldSegCwnd, segCwnd);
+
+            
+            }
+            else
+            {
+                segCwnd = 10;
+                printk("==JANELA MINIMA foi de %d para %d\n", segCwndAnt, segCwnd);
+            }  
+            //printf("--DECREMENTOU Fluxo %d, foi de %d para %d\n",flow_id, segCwndAnt, segCwnd);
+            //getchar();
+            tcp_snd_cwnd_set(tp, segCwnd + 1);//tcb->m_cWnd = segCwnd * tcb->m_segmentSize;
+            //tcb->m_ssThresh = GetSsThresh (tcb, 0);
+            printk("Updated cwnd = %d \n", segCwnd+1);
+      }
+      else if (mrs_network_state == 1)
+      {
+        printk("Seting cwnd with network stare equal to 1? %d\n", mrs_network_state);
+      
+        if(segCwnd >= 10 || segCwnd <= 2)
+          new_SegCwnd = (segCwnd + 4);
+        
+        else
+          new_SegCwnd = segCwnd*segCwnd;//(float)std::pow(float_SegCwnd,2.0);
+        
+        printk("new_SegCwnd: %d\n",new_SegCwnd);
+        u32 segCwndAnt = segCwnd;
+        if(new_SegCwnd > 10)
+          segCwnd = new_SegCwnd +1; //(uint32_t)(float_SegCwnd) +1;
+        else
+          segCwnd = 10;
+        printk("++INCREMENTOU, foi de %d para %d\n",segCwndAnt,segCwnd);
+        //getchar();
+        tcp_snd_cwnd_set(tp, segCwnd);//tcb->m_cWnd = segCwnd * tcb->m_segmentSize;
+      }
+      //tcb->m_ssThresh = std::max (tcb->m_ssThresh, 3 * tcb->m_cWnd / 4);
+
+
 	}
  }
  
@@ -379,10 +547,16 @@
          return 0;
      }
  
-     printk("cc_level: %s", cc_level);
+     printk("cc_level: %s\n", cc_level);
  
      int value = cc_level[0]  - 'A' + 1;
      printk("cc_level: %d\n", value);
+
+     mrs_network_state = value;
+
+     //fake_cwnd++;
+
+     //i_cong_avoid(fake_cwnd);
  
  
      return len;
@@ -497,4 +671,4 @@
  
  MODULE_AUTHOR("Stephen Hemminger");
  MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("TCP Vegas");
+ MODULE_DESCRIPTION("INTELIGENT TCP Vegas");

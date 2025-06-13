@@ -1,7 +1,20 @@
 #include <linux/module.h>
+#define INCLUDE_VERMAGIC
+#include <linux/build-salt.h>
+#include <linux/elfnote-lto.h>
 #include <linux/export-internal.h>
+#include <linux/vermagic.h>
 #include <linux/compiler.h>
 
+#ifdef CONFIG_UNWINDER_ORC
+#include <asm/orc_header.h>
+ORC_HEADER;
+#endif
+
+BUILD_SALT;
+BUILD_LTO_INFO;
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
 MODULE_INFO(name, KBUILD_MODNAME);
 
 __visible struct module __this_module
@@ -14,43 +27,67 @@ __section(".gnu.linkonce.this_module") = {
 	.arch = MODULE_ARCH_INIT,
 };
 
+#ifdef CONFIG_RETPOLINE
+MODULE_INFO(retpoline, "Y");
+#endif
+
 KSYMTAB_FUNC(tcp_vegas_init, "_gpl", "");
 KSYMTAB_FUNC(tcp_vegas_pkts_acked, "_gpl", "");
 KSYMTAB_FUNC(tcp_vegas_state, "_gpl", "");
 KSYMTAB_FUNC(tcp_vegas_cwnd_event, "_gpl", "");
 KSYMTAB_FUNC(tcp_vegas_get_info, "_gpl", "");
 
-SYMBOL_CRC(tcp_vegas_init, 0x5a31fa1d, "_gpl");
-SYMBOL_CRC(tcp_vegas_pkts_acked, 0x25a19275, "_gpl");
-SYMBOL_CRC(tcp_vegas_state, 0x887608b4, "_gpl");
-SYMBOL_CRC(tcp_vegas_cwnd_event, 0xb1e8090a, "_gpl");
-SYMBOL_CRC(tcp_vegas_get_info, 0xdfbecf3e, "_gpl");
+SYMBOL_CRC(tcp_vegas_init, 0xd53349ce, "_gpl");
+SYMBOL_CRC(tcp_vegas_pkts_acked, 0xa54d294b, "_gpl");
+SYMBOL_CRC(tcp_vegas_state, 0x5c8282cd, "_gpl");
+SYMBOL_CRC(tcp_vegas_cwnd_event, 0xf0175680, "_gpl");
+SYMBOL_CRC(tcp_vegas_get_info, 0x0d3973db, "_gpl");
 
-static const struct modversion_info ____versions[]
-__used __section("__versions") = {
-	{ 0xbdfb6dbb, "__fentry__" },
-	{ 0x5b8239ca, "__x86_return_thunk" },
-	{ 0x122c3a7e, "_printk" },
-	{ 0x13c49cc2, "_copy_from_user" },
-	{ 0xa916b694, "strnlen" },
-	{ 0x19dee613, "__fortify_panic" },
-	{ 0xf0fdf6cb, "__stack_chk_fail" },
-	{ 0x88db9f48, "__check_object_size" },
-	{ 0x6b10bee1, "_copy_to_user" },
-	{ 0x3da2baab, "tcp_register_congestion_control" },
-	{ 0x20610fd0, "proc_create" },
-	{ 0x84e1c19e, "tcp_unregister_congestion_control" },
-	{ 0x57d21f86, "proc_remove" },
-	{ 0xed2bd8aa, "tcp_reno_cong_avoid" },
-	{ 0x59bfe352, "tcp_slow_start" },
-	{ 0x54b1fac6, "__ubsan_handle_load_invalid_value" },
-	{ 0x039c8096, "tcp_reno_ssthresh" },
-	{ 0x11c7642d, "tcp_reno_undo_cwnd" },
-	{ 0xc1f869a6, "param_ops_int" },
-	{ 0xef7c4e47, "module_layout" },
-};
+static const char ____versions[]
+__used __section("__versions") =
+	"\x14\x00\x00\x00\xbb\x6d\xfb\xbd"
+	"__fentry__\0\0"
+	"\x1c\x00\x00\x00\xca\x39\x82\x5b"
+	"__x86_return_thunk\0\0"
+	"\x10\x00\x00\x00\x7e\x3a\x2c\x12"
+	"_printk\0"
+	"\x18\x00\x00\x00\xc2\x9c\xc4\x13"
+	"_copy_from_user\0"
+	"\x10\x00\x00\x00\x94\xb6\x16\xa9"
+	"strnlen\0"
+	"\x18\x00\x00\x00\x8c\x89\xd4\xcb"
+	"fortify_panic\0\0\0"
+	"\x1c\x00\x00\x00\xcb\xf6\xfd\xf0"
+	"__stack_chk_fail\0\0\0\0"
+	"\x1c\x00\x00\x00\x48\x9f\xdb\x88"
+	"__check_object_size\0"
+	"\x18\x00\x00\x00\xe1\xbe\x10\x6b"
+	"_copy_to_user\0\0\0"
+	"\x28\x00\x00\x00\x25\x12\x74\x9f"
+	"tcp_register_congestion_control\0"
+	"\x14\x00\x00\x00\xc2\xde\x7b\x8e"
+	"proc_create\0"
+	"\x2c\x00\x00\x00\xe6\xc2\x70\x76"
+	"tcp_unregister_congestion_control\0\0\0"
+	"\x14\x00\x00\x00\xbb\x98\x3b\x46"
+	"proc_remove\0"
+	"\x1c\x00\x00\x00\x2d\xba\x59\x84"
+	"tcp_reno_cong_avoid\0"
+	"\x18\x00\x00\x00\x86\xc7\x75\xfa"
+	"tcp_slow_start\0\0"
+	"\x2c\x00\x00\x00\xc6\xfa\xb1\x54"
+	"__ubsan_handle_load_invalid_value\0\0\0"
+	"\x1c\x00\x00\x00\x6a\x60\x6b\x9f"
+	"tcp_reno_ssthresh\0\0\0"
+	"\x1c\x00\x00\x00\x6e\x10\x7b\xd5"
+	"tcp_reno_undo_cwnd\0\0"
+	"\x18\x00\x00\x00\x4e\xc6\x24\xd8"
+	"param_ops_int\0\0\0"
+	"\x18\x00\x00\x00\x76\xf2\x0f\x5e"
+	"module_layout\0\0\0"
+	"\x00\x00\x00\x00\x00\x00\x00\x00";
 
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "74B981538BD76453ABC79FD");
+MODULE_INFO(srcversion, "41F92D6DAA7616F4031383F");

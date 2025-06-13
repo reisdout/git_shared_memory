@@ -1,1 +1,1 @@
-savedcmd_i_tcp_vegas.mod := printf '%s\n'   i_tcp_vegas.o | awk '!x[$$0]++ { print("./"$$0) }' > i_tcp_vegas.mod
+savedcmd_/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/i_tcp_vegas.mod := printf '%s\n'   i_tcp_vegas.o | awk '!x[$$0]++ { print("/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/"$$0) }' > /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/i_tcp_vegas.mod

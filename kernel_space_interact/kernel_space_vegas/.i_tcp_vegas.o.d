@@ -1,856 +1,407 @@
-i_tcp_vegas.o: i_tcp_vegas.c \
- /home/ns/linux-6.14.4/include/linux/compiler-version.h \
- /home/ns/linux-6.14.4/include/linux/kconfig.h \
- /home/ns/linux-6.14.4/include/generated/autoconf.h \
- /home/ns/linux-6.14.4/include/linux/compiler_types.h \
- /home/ns/linux-6.14.4/include/linux/compiler_attributes.h \
- /home/ns/linux-6.14.4/include/linux/compiler-gcc.h \
- /home/ns/linux-6.14.4/include/linux/mm.h \
- /home/ns/linux-6.14.4/include/linux/errno.h \
- /home/ns/linux-6.14.4/include/uapi/linux/errno.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/errno.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/errno.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/errno-base.h \
- /home/ns/linux-6.14.4/include/linux/mmdebug.h \
- /home/ns/linux-6.14.4/include/linux/bug.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/bug.h \
- /home/ns/linux-6.14.4/include/linux/stringify.h \
- /home/ns/linux-6.14.4/include/linux/instrumentation.h \
- /home/ns/linux-6.14.4/include/linux/objtool.h \
- /home/ns/linux-6.14.4/include/linux/objtool_types.h \
- /home/ns/linux-6.14.4/include/linux/types.h \
- /home/ns/linux-6.14.4/include/uapi/linux/types.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/types.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/types.h \
- /home/ns/linux-6.14.4/include/asm-generic/int-ll64.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/int-ll64.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/bitsperlong.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitsperlong.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/bitsperlong.h \
- /home/ns/linux-6.14.4/include/uapi/linux/posix_types.h \
- /home/ns/linux-6.14.4/include/linux/stddef.h \
- /home/ns/linux-6.14.4/include/uapi/linux/stddef.h \
- /home/ns/linux-6.14.4/include/linux/compiler_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/posix_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/posix_types_64.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/posix_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/asm.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/extable_fixup_types.h \
- /home/ns/linux-6.14.4/include/asm-generic/bug.h \
- /home/ns/linux-6.14.4/include/linux/compiler.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/rwonce.h \
- /home/ns/linux-6.14.4/include/asm-generic/rwonce.h \
- /home/ns/linux-6.14.4/include/linux/kasan-checks.h \
- /home/ns/linux-6.14.4/include/linux/kcsan-checks.h \
- /home/ns/linux-6.14.4/include/linux/once_lite.h \
- /home/ns/linux-6.14.4/include/linux/panic.h \
- /home/ns/linux-6.14.4/include/linux/printk.h \
- /home/ns/linux-6.14.4/include/linux/stdarg.h \
- /home/ns/linux-6.14.4/include/linux/init.h \
- /home/ns/linux-6.14.4/include/linux/build_bug.h \
- /home/ns/linux-6.14.4/include/linux/kern_levels.h \
- /home/ns/linux-6.14.4/include/linux/linkage.h \
- /home/ns/linux-6.14.4/include/linux/export.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/linkage.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/ibt.h \
- /home/ns/linux-6.14.4/include/linux/ratelimit_types.h \
- /home/ns/linux-6.14.4/include/linux/bits.h \
- /home/ns/linux-6.14.4/include/linux/const.h \
- /home/ns/linux-6.14.4/include/vdso/const.h \
- /home/ns/linux-6.14.4/include/uapi/linux/const.h \
- /home/ns/linux-6.14.4/include/vdso/bits.h \
- /home/ns/linux-6.14.4/include/uapi/linux/bits.h \
- /home/ns/linux-6.14.4/include/uapi/linux/param.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/param.h \
- /home/ns/linux-6.14.4/include/asm-generic/param.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/param.h \
- /home/ns/linux-6.14.4/include/linux/spinlock_types_raw.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/spinlock_types.h \
- /home/ns/linux-6.14.4/include/asm-generic/qspinlock_types.h \
- /home/ns/linux-6.14.4/include/asm-generic/qrwlock_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/byteorder.h \
- /home/ns/linux-6.14.4/include/linux/byteorder/little_endian.h \
- /home/ns/linux-6.14.4/include/uapi/linux/byteorder/little_endian.h \
- /home/ns/linux-6.14.4/include/linux/swab.h \
- /home/ns/linux-6.14.4/include/uapi/linux/swab.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/swab.h \
- /home/ns/linux-6.14.4/include/linux/byteorder/generic.h \
- /home/ns/linux-6.14.4/include/linux/lockdep_types.h \
- /home/ns/linux-6.14.4/include/linux/dynamic_debug.h \
- /home/ns/linux-6.14.4/include/linux/jump_label.h \
- /home/ns/linux-6.14.4/include/linux/cleanup.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/jump_label.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/nops.h \
- /home/ns/linux-6.14.4/include/linux/gfp.h \
- /home/ns/linux-6.14.4/include/linux/gfp_types.h \
- /home/ns/linux-6.14.4/include/linux/mmzone.h \
- /home/ns/linux-6.14.4/include/linux/spinlock.h \
- /home/ns/linux-6.14.4/include/linux/typecheck.h \
- /home/ns/linux-6.14.4/include/linux/preempt.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/preempt.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/rmwcc.h \
- /home/ns/linux-6.14.4/include/linux/args.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/percpu.h \
- /home/ns/linux-6.14.4/include/asm-generic/percpu.h \
- /home/ns/linux-6.14.4/include/linux/threads.h \
- /home/ns/linux-6.14.4/include/linux/percpu-defs.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/current.h \
- /home/ns/linux-6.14.4/include/linux/cache.h \
- /home/ns/linux-6.14.4/include/uapi/linux/kernel.h \
- /home/ns/linux-6.14.4/include/uapi/linux/sysinfo.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cache.h \
- /home/ns/linux-6.14.4/include/linux/static_call_types.h \
- /home/ns/linux-6.14.4/include/linux/irqflags.h \
- /home/ns/linux-6.14.4/include/linux/irqflags_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/irqflags.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/processor-flags.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/processor-flags.h \
- /home/ns/linux-6.14.4/include/linux/mem_encrypt.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/mem_encrypt.h \
- /home/ns/linux-6.14.4/include/linux/cc_platform.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/nospec-branch.h \
- /home/ns/linux-6.14.4/include/linux/static_key.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/alternative.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cpufeatures.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/required-features.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/disabled-features.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/msr-index.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/unwind_hints.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/orc_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/asm-offsets.h \
- /home/ns/linux-6.14.4/include/generated/asm-offsets.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/GEN-for-each-reg.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/segment.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/paravirt.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/paravirt_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/desc_defs.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pgtable_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/page_types.h \
- /home/ns/linux-6.14.4/include/vdso/page.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/page_64_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/kaslr.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pgtable_64_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/sparsemem.h \
- /home/ns/linux-6.14.4/include/linux/cpumask.h \
- /home/ns/linux-6.14.4/include/linux/kernel.h \
- /home/ns/linux-6.14.4/include/linux/align.h \
- /home/ns/linux-6.14.4/include/linux/array_size.h \
- /home/ns/linux-6.14.4/include/linux/limits.h \
- /home/ns/linux-6.14.4/include/uapi/linux/limits.h \
- /home/ns/linux-6.14.4/include/vdso/limits.h \
- /home/ns/linux-6.14.4/include/linux/container_of.h \
- /home/ns/linux-6.14.4/include/linux/bitops.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/generic-non-atomic.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/barrier.h \
- /home/ns/linux-6.14.4/include/asm-generic/barrier.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/bitops.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/sched.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/arch_hweight.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/const_hweight.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/instrumented-atomic.h \
- /home/ns/linux-6.14.4/include/linux/instrumented.h \
- /home/ns/linux-6.14.4/include/linux/kmsan-checks.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/instrumented-non-atomic.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/instrumented-lock.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/le.h \
- /home/ns/linux-6.14.4/include/asm-generic/bitops/ext2-atomic-setbit.h \
- /home/ns/linux-6.14.4/include/linux/hex.h \
- /home/ns/linux-6.14.4/include/linux/kstrtox.h \
- /home/ns/linux-6.14.4/include/linux/log2.h \
- /home/ns/linux-6.14.4/include/linux/math.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/div64.h \
- /home/ns/linux-6.14.4/include/asm-generic/div64.h \
- /home/ns/linux-6.14.4/include/linux/minmax.h \
- /home/ns/linux-6.14.4/include/linux/sprintf.h \
- /home/ns/linux-6.14.4/include/linux/instruction_pointer.h \
- /home/ns/linux-6.14.4/include/linux/wordpart.h \
- /home/ns/linux-6.14.4/include/linux/bitmap.h \
- /home/ns/linux-6.14.4/include/linux/find.h \
- /home/ns/linux-6.14.4/include/linux/string.h \
- /home/ns/linux-6.14.4/include/linux/err.h \
- /home/ns/linux-6.14.4/include/linux/overflow.h \
- /home/ns/linux-6.14.4/include/uapi/linux/string.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/string.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/string_64.h \
- /home/ns/linux-6.14.4/include/linux/fortify-string.h \
- /home/ns/linux-6.14.4/include/linux/bitfield.h \
- /home/ns/linux-6.14.4/include/linux/bitmap-str.h \
- /home/ns/linux-6.14.4/include/linux/cpumask_types.h \
- /home/ns/linux-6.14.4/include/linux/atomic.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/atomic.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cmpxchg.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cmpxchg_64.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/atomic64_64.h \
- /home/ns/linux-6.14.4/include/linux/atomic/atomic-arch-fallback.h \
- /home/ns/linux-6.14.4/include/linux/atomic/atomic-long.h \
- /home/ns/linux-6.14.4/include/linux/atomic/atomic-instrumented.h \
- /home/ns/linux-6.14.4/include/linux/numa.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/frame.h \
- /home/ns/linux-6.14.4/include/linux/thread_info.h \
- /home/ns/linux-6.14.4/include/linux/restart_block.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/thread_info.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/page.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/page_64.h \
- /home/ns/linux-6.14.4/include/linux/range.h \
- /home/ns/linux-6.14.4/include/asm-generic/memory_model.h \
- /home/ns/linux-6.14.4/include/linux/pfn.h \
- /home/ns/linux-6.14.4/include/asm-generic/getorder.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cpufeature.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/processor.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/math_emu.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/ptrace.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/ptrace.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/ptrace-abi.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/proto.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/ldt.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/sigcontext.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cpuid.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/special_insns.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/fpu/types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/vmxfeatures.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/vdso/processor.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/shstk.h \
- /home/ns/linux-6.14.4/include/linux/personality.h \
- /home/ns/linux-6.14.4/include/uapi/linux/personality.h \
- /home/ns/linux-6.14.4/include/linux/math64.h \
- /home/ns/linux-6.14.4/include/vdso/math64.h \
- /home/ns/linux-6.14.4/include/linux/bottom_half.h \
- /home/ns/linux-6.14.4/include/linux/lockdep.h \
- /home/ns/linux-6.14.4/include/linux/smp.h \
- /home/ns/linux-6.14.4/include/linux/list.h \
- /home/ns/linux-6.14.4/include/linux/poison.h \
- /home/ns/linux-6.14.4/include/linux/smp_types.h \
- /home/ns/linux-6.14.4/include/linux/llist.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/smp.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cpumask.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/mmiowb.h \
- /home/ns/linux-6.14.4/include/asm-generic/mmiowb.h \
- /home/ns/linux-6.14.4/include/linux/spinlock_types.h \
- /home/ns/linux-6.14.4/include/linux/rwlock_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/spinlock.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/qspinlock.h \
- /home/ns/linux-6.14.4/include/asm-generic/qspinlock.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/qrwlock.h \
- /home/ns/linux-6.14.4/include/asm-generic/qrwlock.h \
- /home/ns/linux-6.14.4/include/linux/rwlock.h \
- /home/ns/linux-6.14.4/include/linux/spinlock_api_smp.h \
- /home/ns/linux-6.14.4/include/linux/rwlock_api_smp.h \
- /home/ns/linux-6.14.4/include/linux/list_nulls.h \
- /home/ns/linux-6.14.4/include/linux/wait.h \
- /home/ns/linux-6.14.4/include/linux/seqlock.h \
- /home/ns/linux-6.14.4/include/linux/mutex.h \
- /home/ns/linux-6.14.4/include/linux/osq_lock.h \
- /home/ns/linux-6.14.4/include/linux/debug_locks.h \
- /home/ns/linux-6.14.4/include/linux/mutex_types.h \
- /home/ns/linux-6.14.4/include/linux/seqlock_types.h \
- /home/ns/linux-6.14.4/include/linux/nodemask.h \
- /home/ns/linux-6.14.4/include/linux/nodemask_types.h \
- /home/ns/linux-6.14.4/include/linux/random.h \
- /home/ns/linux-6.14.4/include/uapi/linux/random.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ioctl.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/ioctl.h \
- /home/ns/linux-6.14.4/include/asm-generic/ioctl.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/ioctl.h \
- /home/ns/linux-6.14.4/include/linux/irqnr.h \
- /home/ns/linux-6.14.4/include/uapi/linux/irqnr.h \
- /home/ns/linux-6.14.4/include/linux/pageblock-flags.h \
- /home/ns/linux-6.14.4/include/linux/page-flags-layout.h \
- /home/ns/linux-6.14.4/include/generated/bounds.h \
- /home/ns/linux-6.14.4/include/linux/mm_types.h \
- /home/ns/linux-6.14.4/include/linux/mm_types_task.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/tlbbatch.h \
- /home/ns/linux-6.14.4/include/linux/auxvec.h \
- /home/ns/linux-6.14.4/include/uapi/linux/auxvec.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/auxvec.h \
- /home/ns/linux-6.14.4/include/linux/kref.h \
- /home/ns/linux-6.14.4/include/linux/refcount.h \
- /home/ns/linux-6.14.4/include/linux/refcount_types.h \
- /home/ns/linux-6.14.4/include/linux/rbtree.h \
- /home/ns/linux-6.14.4/include/linux/rbtree_types.h \
- /home/ns/linux-6.14.4/include/linux/rcupdate.h \
- /home/ns/linux-6.14.4/include/linux/context_tracking_irq.h \
- /home/ns/linux-6.14.4/include/linux/rcutree.h \
- /home/ns/linux-6.14.4/include/linux/maple_tree.h \
- /home/ns/linux-6.14.4/include/linux/rwsem.h \
- /home/ns/linux-6.14.4/include/linux/completion.h \
- /home/ns/linux-6.14.4/include/linux/swait.h \
- /home/ns/linux-6.14.4/include/linux/uprobes.h \
- /home/ns/linux-6.14.4/include/linux/timer.h \
- /home/ns/linux-6.14.4/include/linux/ktime.h \
- /home/ns/linux-6.14.4/include/linux/jiffies.h \
- /home/ns/linux-6.14.4/include/linux/time.h \
- /home/ns/linux-6.14.4/include/linux/time64.h \
- /home/ns/linux-6.14.4/include/vdso/time64.h \
- /home/ns/linux-6.14.4/include/uapi/linux/time.h \
- /home/ns/linux-6.14.4/include/uapi/linux/time_types.h \
- /home/ns/linux-6.14.4/include/linux/time32.h \
- /home/ns/linux-6.14.4/include/linux/timex.h \
- /home/ns/linux-6.14.4/include/uapi/linux/timex.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/timex.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/tsc.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/msr.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/msr-index.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/msr.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/shared/msr.h \
- /home/ns/linux-6.14.4/include/linux/percpu.h \
- /home/ns/linux-6.14.4/include/linux/alloc_tag.h \
- /home/ns/linux-6.14.4/include/linux/codetag.h \
- /home/ns/linux-6.14.4/include/linux/sched.h \
- /home/ns/linux-6.14.4/include/uapi/linux/sched.h \
- /home/ns/linux-6.14.4/include/linux/pid_types.h \
- /home/ns/linux-6.14.4/include/linux/sem_types.h \
- /home/ns/linux-6.14.4/include/linux/shm.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/shmparam.h \
- /home/ns/linux-6.14.4/include/linux/kmsan_types.h \
- /home/ns/linux-6.14.4/include/linux/plist_types.h \
- /home/ns/linux-6.14.4/include/linux/hrtimer_types.h \
- /home/ns/linux-6.14.4/include/linux/timerqueue_types.h \
- /home/ns/linux-6.14.4/include/linux/timer_types.h \
- /home/ns/linux-6.14.4/include/linux/seccomp_types.h \
- /home/ns/linux-6.14.4/include/linux/resource.h \
- /home/ns/linux-6.14.4/include/uapi/linux/resource.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/resource.h \
- /home/ns/linux-6.14.4/include/asm-generic/resource.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/resource.h \
- /home/ns/linux-6.14.4/include/linux/latencytop.h \
- /home/ns/linux-6.14.4/include/linux/sched/prio.h \
- /home/ns/linux-6.14.4/include/linux/sched/types.h \
- /home/ns/linux-6.14.4/include/linux/signal_types.h \
- /home/ns/linux-6.14.4/include/uapi/linux/signal.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/signal.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/signal.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/signal-defs.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/siginfo.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/siginfo.h \
- /home/ns/linux-6.14.4/include/linux/syscall_user_dispatch_types.h \
- /home/ns/linux-6.14.4/include/linux/netdevice_xmit.h \
- /home/ns/linux-6.14.4/include/linux/task_io_accounting.h \
- /home/ns/linux-6.14.4/include/linux/posix-timers_types.h \
- /home/ns/linux-6.14.4/include/uapi/linux/rseq.h \
- /home/ns/linux-6.14.4/include/linux/kcsan.h \
- /home/ns/linux-6.14.4/include/linux/rv.h \
- /home/ns/linux-6.14.4/include/linux/livepatch_sched.h \
- /home/ns/linux-6.14.4/include/linux/uidgid_types.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/kmap_size.h \
- /home/ns/linux-6.14.4/include/asm-generic/kmap_size.h \
- /home/ns/linux-6.14.4/include/linux/sched/ext.h \
- /home/ns/linux-6.14.4/include/linux/tracepoint-defs.h \
- /home/ns/linux-6.14.4/include/vdso/time32.h \
- /home/ns/linux-6.14.4/include/vdso/time.h \
- /home/ns/linux-6.14.4/include/vdso/jiffies.h \
- /home/ns/linux-6.14.4/include/generated/timeconst.h \
- /home/ns/linux-6.14.4/include/vdso/ktime.h \
- /home/ns/linux-6.14.4/include/linux/timekeeping.h \
- /home/ns/linux-6.14.4/include/linux/clocksource_ids.h \
- /home/ns/linux-6.14.4/include/linux/debugobjects.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/uprobes.h \
- /home/ns/linux-6.14.4/include/linux/notifier.h \
- /home/ns/linux-6.14.4/include/linux/srcu.h \
- /home/ns/linux-6.14.4/include/linux/workqueue.h \
- /home/ns/linux-6.14.4/include/linux/workqueue_types.h \
- /home/ns/linux-6.14.4/include/linux/rcu_segcblist.h \
- /home/ns/linux-6.14.4/include/linux/srcutree.h \
- /home/ns/linux-6.14.4/include/linux/rcu_node_tree.h \
- /home/ns/linux-6.14.4/include/linux/percpu_counter.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/mmu.h \
- /home/ns/linux-6.14.4/include/linux/page-flags.h \
- /home/ns/linux-6.14.4/include/linux/local_lock.h \
- /home/ns/linux-6.14.4/include/linux/local_lock_internal.h \
- /home/ns/linux-6.14.4/include/linux/zswap.h \
- /home/ns/linux-6.14.4/include/linux/memory_hotplug.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/mmzone.h \
- /home/ns/linux-6.14.4/include/asm-generic/mmzone.h \
- /home/ns/linux-6.14.4/include/linux/topology.h \
- /home/ns/linux-6.14.4/include/linux/arch_topology.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/topology.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/mpspec.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/mpspec_def.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/x86_init.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/apicdef.h \
- /home/ns/linux-6.14.4/include/asm-generic/topology.h \
- /home/ns/linux-6.14.4/include/linux/cpu_smt.h \
- /home/ns/linux-6.14.4/include/linux/pgalloc_tag.h \
- /home/ns/linux-6.14.4/include/linux/mmap_lock.h \
- /home/ns/linux-6.14.4/include/linux/percpu-refcount.h \
- /home/ns/linux-6.14.4/include/linux/bit_spinlock.h \
- /home/ns/linux-6.14.4/include/linux/shrinker.h \
- /home/ns/linux-6.14.4/include/linux/page_ext.h \
- /home/ns/linux-6.14.4/include/linux/stacktrace.h \
- /home/ns/linux-6.14.4/include/linux/page_ref.h \
- /home/ns/linux-6.14.4/include/linux/sizes.h \
- /home/ns/linux-6.14.4/include/linux/pgtable.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pgtable.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pkru.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/fpu/api.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/coco.h \
- /home/ns/linux-6.14.4/include/asm-generic/pgtable_uffd.h \
- /home/ns/linux-6.14.4/include/linux/page_table_check.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pgtable_64.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/fixmap.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/vsyscall.h \
- /home/ns/linux-6.14.4/include/asm-generic/fixmap.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pgtable-invert.h \
- /home/ns/linux-6.14.4/include/linux/kasan.h \
- /home/ns/linux-6.14.4/include/linux/kasan-enabled.h \
- /home/ns/linux-6.14.4/include/linux/kasan-tags.h \
- /home/ns/linux-6.14.4/include/linux/memremap.h \
- /home/ns/linux-6.14.4/include/linux/ioport.h \
- /home/ns/linux-6.14.4/include/linux/slab.h \
- /home/ns/linux-6.14.4/include/linux/hash.h \
- /home/ns/linux-6.14.4/include/linux/cacheinfo.h \
- /home/ns/linux-6.14.4/include/linux/cpuhplock.h \
- /home/ns/linux-6.14.4/include/linux/huge_mm.h \
- /home/ns/linux-6.14.4/include/linux/fs.h \
- /home/ns/linux-6.14.4/include/linux/wait_bit.h \
- /home/ns/linux-6.14.4/include/linux/kdev_t.h \
- /home/ns/linux-6.14.4/include/uapi/linux/kdev_t.h \
- /home/ns/linux-6.14.4/include/linux/dcache.h \
- /home/ns/linux-6.14.4/include/linux/rculist.h \
- /home/ns/linux-6.14.4/include/linux/rculist_bl.h \
- /home/ns/linux-6.14.4/include/linux/list_bl.h \
- /home/ns/linux-6.14.4/include/linux/lockref.h \
- /home/ns/linux-6.14.4/include/linux/stringhash.h \
- /home/ns/linux-6.14.4/include/linux/path.h \
- /home/ns/linux-6.14.4/include/linux/stat.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/stat.h \
- /home/ns/linux-6.14.4/include/uapi/linux/stat.h \
- /home/ns/linux-6.14.4/include/linux/uidgid.h \
- /home/ns/linux-6.14.4/include/linux/highuid.h \
- /home/ns/linux-6.14.4/include/linux/list_lru.h \
- /home/ns/linux-6.14.4/include/linux/xarray.h \
- /home/ns/linux-6.14.4/include/linux/kconfig.h \
- /home/ns/linux-6.14.4/include/linux/sched/mm.h \
- /home/ns/linux-6.14.4/include/linux/sync_core.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/sync_core.h \
- /home/ns/linux-6.14.4/include/linux/sched/coredump.h \
- /home/ns/linux-6.14.4/include/linux/radix-tree.h \
- /home/ns/linux-6.14.4/include/linux/pid.h \
- /home/ns/linux-6.14.4/include/linux/capability.h \
- /home/ns/linux-6.14.4/include/uapi/linux/capability.h \
- /home/ns/linux-6.14.4/include/linux/semaphore.h \
- /home/ns/linux-6.14.4/include/linux/fcntl.h \
- /home/ns/linux-6.14.4/include/uapi/linux/fcntl.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/fcntl.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/fcntl.h \
- /home/ns/linux-6.14.4/include/uapi/linux/openat2.h \
- /home/ns/linux-6.14.4/include/linux/migrate_mode.h \
- /home/ns/linux-6.14.4/include/linux/percpu-rwsem.h \
- /home/ns/linux-6.14.4/include/linux/rcuwait.h \
- /home/ns/linux-6.14.4/include/linux/sched/signal.h \
- /home/ns/linux-6.14.4/include/linux/signal.h \
- /home/ns/linux-6.14.4/include/linux/sched/jobctl.h \
- /home/ns/linux-6.14.4/include/linux/sched/task.h \
- /home/ns/linux-6.14.4/include/linux/uaccess.h \
- /home/ns/linux-6.14.4/include/linux/fault-inject-usercopy.h \
- /home/ns/linux-6.14.4/include/linux/nospec.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/uaccess.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/smap.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/extable.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/tlbflush.h \
- /home/ns/linux-6.14.4/include/linux/mmu_notifier.h \
- /home/ns/linux-6.14.4/include/linux/interval_tree.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/invpcid.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pti.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/uaccess_64.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/runtime-const.h \
- /home/ns/linux-6.14.4/include/asm-generic/access_ok.h \
- /home/ns/linux-6.14.4/include/linux/cred.h \
- /home/ns/linux-6.14.4/include/linux/key.h \
- /home/ns/linux-6.14.4/include/linux/sysctl.h \
- /home/ns/linux-6.14.4/include/uapi/linux/sysctl.h \
- /home/ns/linux-6.14.4/include/linux/assoc_array.h \
- /home/ns/linux-6.14.4/include/linux/sched/user.h \
- /home/ns/linux-6.14.4/include/linux/ratelimit.h \
- /home/ns/linux-6.14.4/include/linux/posix-timers.h \
- /home/ns/linux-6.14.4/include/linux/alarmtimer.h \
- /home/ns/linux-6.14.4/include/linux/hrtimer.h \
- /home/ns/linux-6.14.4/include/linux/hrtimer_defs.h \
- /home/ns/linux-6.14.4/include/linux/timerqueue.h \
- /home/ns/linux-6.14.4/include/linux/rcuref.h \
- /home/ns/linux-6.14.4/include/linux/rcu_sync.h \
- /home/ns/linux-6.14.4/include/linux/delayed_call.h \
- /home/ns/linux-6.14.4/include/linux/uuid.h \
- /home/ns/linux-6.14.4/include/linux/errseq.h \
- /home/ns/linux-6.14.4/include/linux/ioprio.h \
- /home/ns/linux-6.14.4/include/linux/sched/rt.h \
- /home/ns/linux-6.14.4/include/linux/iocontext.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ioprio.h \
- /home/ns/linux-6.14.4/include/linux/fs_types.h \
- /home/ns/linux-6.14.4/include/linux/mount.h \
- /home/ns/linux-6.14.4/include/linux/mnt_idmapping.h \
- /home/ns/linux-6.14.4/include/linux/rw_hint.h \
- /home/ns/linux-6.14.4/include/linux/file_ref.h \
- /home/ns/linux-6.14.4/include/linux/unicode.h \
- /home/ns/linux-6.14.4/include/uapi/linux/fs.h \
- /home/ns/linux-6.14.4/include/linux/quota.h \
- /home/ns/linux-6.14.4/include/uapi/linux/dqblk_xfs.h \
- /home/ns/linux-6.14.4/include/linux/dqblk_v1.h \
- /home/ns/linux-6.14.4/include/linux/dqblk_v2.h \
- /home/ns/linux-6.14.4/include/linux/dqblk_qtree.h \
- /home/ns/linux-6.14.4/include/linux/projid.h \
- /home/ns/linux-6.14.4/include/uapi/linux/quota.h \
- /home/ns/linux-6.14.4/include/linux/kobject.h \
- /home/ns/linux-6.14.4/include/linux/sysfs.h \
- /home/ns/linux-6.14.4/include/linux/kernfs.h \
- /home/ns/linux-6.14.4/include/linux/idr.h \
- /home/ns/linux-6.14.4/include/linux/kobject_ns.h \
- /home/ns/linux-6.14.4/include/linux/vmstat.h \
- /home/ns/linux-6.14.4/include/linux/vm_event_item.h \
- /home/ns/linux-6.14.4/include/linux/module.h \
- /home/ns/linux-6.14.4/include/linux/buildid.h \
- /home/ns/linux-6.14.4/include/linux/kmod.h \
- /home/ns/linux-6.14.4/include/linux/umh.h \
- /home/ns/linux-6.14.4/include/linux/elf.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/elf.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/ia32.h \
- /home/ns/linux-6.14.4/include/linux/compat.h \
- /home/ns/linux-6.14.4/include/linux/sem.h \
- /home/ns/linux-6.14.4/include/uapi/linux/sem.h \
- /home/ns/linux-6.14.4/include/linux/ipc.h \
- /home/ns/linux-6.14.4/include/linux/rhashtable-types.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ipc.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/ipcbuf.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/ipcbuf.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/sembuf.h \
- /home/ns/linux-6.14.4/include/linux/socket.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/socket.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/socket.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/sockios.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/sockios.h \
- /home/ns/linux-6.14.4/include/uapi/linux/sockios.h \
- /home/ns/linux-6.14.4/include/linux/uio.h \
- /home/ns/linux-6.14.4/include/uapi/linux/uio.h \
- /home/ns/linux-6.14.4/include/uapi/linux/socket.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if.h \
- /home/ns/linux-6.14.4/include/uapi/linux/libc-compat.h \
- /home/ns/linux-6.14.4/include/uapi/linux/hdlc/ioctl.h \
- /home/ns/linux-6.14.4/include/uapi/linux/aio_abi.h \
- /home/ns/linux-6.14.4/include/uapi/linux/unistd.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/unistd.h \
- /home/ns/linux-6.14.4/arch/x86/include/uapi/asm/unistd.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/unistd_64.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/unistd_64_x32.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/unistd_32_ia32.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/compat.h \
- /home/ns/linux-6.14.4/include/linux/sched/task_stack.h \
- /home/ns/linux-6.14.4/include/uapi/linux/magic.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/user32.h \
- /home/ns/linux-6.14.4/include/asm-generic/compat.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/syscall_wrapper.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/user.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/user_64.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/fsgsbase.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/vdso.h \
- /home/ns/linux-6.14.4/include/uapi/linux/elf.h \
- /home/ns/linux-6.14.4/include/uapi/linux/elf-em.h \
- /home/ns/linux-6.14.4/include/linux/moduleparam.h \
- /home/ns/linux-6.14.4/include/linux/rbtree_latch.h \
- /home/ns/linux-6.14.4/include/linux/error-injection.h \
- /home/ns/linux-6.14.4/include/asm-generic/error-injection.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/module.h \
- /home/ns/linux-6.14.4/include/asm-generic/module.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/orc_types.h \
- /home/ns/linux-6.14.4/include/linux/skbuff.h \
- /home/ns/linux-6.14.4/include/linux/bvec.h \
- /home/ns/linux-6.14.4/include/linux/highmem.h \
- /home/ns/linux-6.14.4/include/linux/cacheflush.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cacheflush.h \
- /home/ns/linux-6.14.4/include/asm-generic/cacheflush.h \
- /home/ns/linux-6.14.4/include/linux/kmsan.h \
- /home/ns/linux-6.14.4/include/linux/dma-direction.h \
- /home/ns/linux-6.14.4/include/linux/hardirq.h \
- /home/ns/linux-6.14.4/include/linux/context_tracking_state.h \
- /home/ns/linux-6.14.4/include/linux/ftrace_irq.h \
- /home/ns/linux-6.14.4/include/linux/vtime.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/hardirq.h \
- /home/ns/linux-6.14.4/include/linux/highmem-internal.h \
- /home/ns/linux-6.14.4/include/net/checksum.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/checksum.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/checksum_64.h \
- /home/ns/linux-6.14.4/include/linux/dma-mapping.h \
- /home/ns/linux-6.14.4/include/linux/device.h \
- /home/ns/linux-6.14.4/include/linux/dev_printk.h \
- /home/ns/linux-6.14.4/include/linux/energy_model.h \
- /home/ns/linux-6.14.4/include/linux/sched/cpufreq.h \
- /home/ns/linux-6.14.4/include/linux/sched/topology.h \
- /home/ns/linux-6.14.4/include/linux/sched/idle.h \
- /home/ns/linux-6.14.4/include/linux/sched/sd_flags.h \
- /home/ns/linux-6.14.4/include/linux/klist.h \
- /home/ns/linux-6.14.4/include/linux/pm.h \
- /home/ns/linux-6.14.4/include/linux/device/bus.h \
- /home/ns/linux-6.14.4/include/linux/device/class.h \
- /home/ns/linux-6.14.4/include/linux/device/driver.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/device.h \
- /home/ns/linux-6.14.4/include/linux/pm_wakeup.h \
- /home/ns/linux-6.14.4/include/linux/scatterlist.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/io.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/early_ioremap.h \
- /home/ns/linux-6.14.4/include/asm-generic/early_ioremap.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/shared/io.h \
- /home/ns/linux-6.14.4/include/asm-generic/io.h \
- /home/ns/linux-6.14.4/include/asm-generic/iomap.h \
- /home/ns/linux-6.14.4/include/asm-generic/pci_iomap.h \
- /home/ns/linux-6.14.4/include/linux/logic_pio.h \
- /home/ns/linux-6.14.4/include/linux/fwnode.h \
- /home/ns/linux-6.14.4/include/linux/netdev_features.h \
- /home/ns/linux-6.14.4/include/net/flow_dissector.h \
- /home/ns/linux-6.14.4/include/linux/in6.h \
- /home/ns/linux-6.14.4/include/uapi/linux/in6.h \
- /home/ns/linux-6.14.4/include/linux/siphash.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_ether.h \
- /home/ns/linux-6.14.4/include/uapi/linux/pkt_cls.h \
- /home/ns/linux-6.14.4/include/uapi/linux/pkt_sched.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_packet.h \
- /home/ns/linux-6.14.4/include/linux/page_frag_cache.h \
- /home/ns/linux-6.14.4/include/net/flow.h \
- /home/ns/linux-6.14.4/include/linux/netfilter/nf_conntrack_common.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netfilter/nf_conntrack_common.h \
- /home/ns/linux-6.14.4/include/net/net_debug.h \
- /home/ns/linux-6.14.4/include/net/dropreason-core.h \
- /home/ns/linux-6.14.4/include/net/netmem.h \
- /home/ns/linux-6.14.4/include/linux/inet_diag.h \
- /home/ns/linux-6.14.4/include/net/netlink.h \
- /home/ns/linux-6.14.4/include/linux/netlink.h \
- /home/ns/linux-6.14.4/include/net/scm.h \
- /home/ns/linux-6.14.4/include/linux/net.h \
- /home/ns/linux-6.14.4/include/linux/once.h \
- /home/ns/linux-6.14.4/include/linux/sockptr.h \
- /home/ns/linux-6.14.4/include/uapi/linux/net.h \
- /home/ns/linux-6.14.4/include/linux/file.h \
- /home/ns/linux-6.14.4/include/linux/security.h \
- /home/ns/linux-6.14.4/include/linux/kernel_read_file.h \
- /home/ns/linux-6.14.4/include/linux/bpf.h \
- /home/ns/linux-6.14.4/include/uapi/linux/bpf.h \
- /home/ns/linux-6.14.4/include/uapi/linux/bpf_common.h \
- /home/ns/linux-6.14.4/include/uapi/linux/filter.h \
- /home/ns/linux-6.14.4/include/linux/kallsyms.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/sections.h \
- /home/ns/linux-6.14.4/include/asm-generic/sections.h \
- /home/ns/linux-6.14.4/include/linux/bpfptr.h \
- /home/ns/linux-6.14.4/include/linux/btf.h \
- /home/ns/linux-6.14.4/include/linux/bsearch.h \
- /home/ns/linux-6.14.4/include/linux/btf_ids.h \
- /home/ns/linux-6.14.4/include/uapi/linux/btf.h \
- /home/ns/linux-6.14.4/include/linux/rcupdate_trace.h \
- /home/ns/linux-6.14.4/include/linux/static_call.h \
- /home/ns/linux-6.14.4/include/linux/cpu.h \
- /home/ns/linux-6.14.4/include/linux/node.h \
- /home/ns/linux-6.14.4/include/linux/cpuhotplug.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/static_call.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/text-patching.h \
- /home/ns/linux-6.14.4/include/linux/memcontrol.h \
- /home/ns/linux-6.14.4/include/linux/cgroup.h \
- /home/ns/linux-6.14.4/include/uapi/linux/cgroupstats.h \
- /home/ns/linux-6.14.4/include/uapi/linux/taskstats.h \
- /home/ns/linux-6.14.4/include/linux/seq_file.h \
- /home/ns/linux-6.14.4/include/linux/string_helpers.h \
- /home/ns/linux-6.14.4/include/linux/ctype.h \
- /home/ns/linux-6.14.4/include/linux/string_choices.h \
- /home/ns/linux-6.14.4/include/linux/ns_common.h \
- /home/ns/linux-6.14.4/include/linux/nsproxy.h \
- /home/ns/linux-6.14.4/include/linux/user_namespace.h \
- /home/ns/linux-6.14.4/include/linux/kernel_stat.h \
- /home/ns/linux-6.14.4/include/linux/interrupt.h \
- /home/ns/linux-6.14.4/include/linux/irqreturn.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/irq.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/irq_vectors.h \
- /home/ns/linux-6.14.4/include/linux/cgroup-defs.h \
- /home/ns/linux-6.14.4/include/linux/u64_stats_sync.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/asm/local64.h \
- /home/ns/linux-6.14.4/include/asm-generic/local64.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/local.h \
- /home/ns/linux-6.14.4/include/linux/bpf-cgroup-defs.h \
- /home/ns/linux-6.14.4/include/linux/psi_types.h \
- /home/ns/linux-6.14.4/include/linux/kthread.h \
- /home/ns/linux-6.14.4/include/linux/cgroup_subsys.h \
- /home/ns/linux-6.14.4/include/linux/cgroup_refcnt.h \
- /home/ns/linux-6.14.4/include/linux/page_counter.h \
- /home/ns/linux-6.14.4/include/linux/vmpressure.h \
- /home/ns/linux-6.14.4/include/linux/eventfd.h \
- /home/ns/linux-6.14.4/include/uapi/linux/eventfd.h \
- /home/ns/linux-6.14.4/include/linux/writeback.h \
- /home/ns/linux-6.14.4/include/linux/flex_proportions.h \
- /home/ns/linux-6.14.4/include/linux/backing-dev-defs.h \
- /home/ns/linux-6.14.4/include/linux/blk_types.h \
- /home/ns/linux-6.14.4/include/linux/pagevec.h \
- /home/ns/linux-6.14.4/include/linux/bio.h \
- /home/ns/linux-6.14.4/include/linux/mempool.h \
- /home/ns/linux-6.14.4/include/linux/cfi.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/cfi.h \
- /home/ns/linux-6.14.4/include/linux/bpf_types.h \
- /home/ns/linux-6.14.4/include/uapi/linux/lsm.h \
- /home/ns/linux-6.14.4/include/linux/lsm/selinux.h \
- /home/ns/linux-6.14.4/include/linux/lsm/smack.h \
- /home/ns/linux-6.14.4/include/linux/lsm/apparmor.h \
- /home/ns/linux-6.14.4/include/linux/lsm/bpf.h \
- /home/ns/linux-6.14.4/include/net/compat.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netlink.h \
- /home/ns/linux-6.14.4/include/uapi/linux/inet_diag.h \
- /home/ns/linux-6.14.4/include/linux/proc_fs.h \
- /home/ns/linux-6.14.4/include/net/tcp.h \
- /home/ns/linux-6.14.4/include/linux/tcp.h \
- /home/ns/linux-6.14.4/include/linux/win_minmax.h \
- /home/ns/linux-6.14.4/include/net/sock.h \
- /home/ns/linux-6.14.4/include/linux/netdevice.h \
- /home/ns/linux-6.14.4/include/linux/delay.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/delay.h \
- /home/ns/linux-6.14.4/include/asm-generic/delay.h \
- /home/ns/linux-6.14.4/include/linux/prefetch.h \
- /home/ns/linux-6.14.4/include/linux/dynamic_queue_limits.h \
- /home/ns/linux-6.14.4/include/net/net_namespace.h \
- /home/ns/linux-6.14.4/include/net/netns/core.h \
- /home/ns/linux-6.14.4/include/net/netns/mib.h \
- /home/ns/linux-6.14.4/include/net/snmp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/snmp.h \
- /home/ns/linux-6.14.4/include/net/netns/unix.h \
- /home/ns/linux-6.14.4/include/net/netns/packet.h \
- /home/ns/linux-6.14.4/include/net/netns/ipv4.h \
- /home/ns/linux-6.14.4/include/net/inet_frag.h \
- /home/ns/linux-6.14.4/include/net/netns/ipv6.h \
- /home/ns/linux-6.14.4/include/net/dst_ops.h \
- /home/ns/linux-6.14.4/include/uapi/linux/icmpv6.h \
- /home/ns/linux-6.14.4/include/net/netns/nexthop.h \
- /home/ns/linux-6.14.4/include/net/netns/ieee802154_6lowpan.h \
- /home/ns/linux-6.14.4/include/net/netns/sctp.h \
- /home/ns/linux-6.14.4/include/net/netns/netfilter.h \
- /home/ns/linux-6.14.4/include/linux/netfilter_defs.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netfilter.h \
- /home/ns/linux-6.14.4/include/linux/in.h \
- /home/ns/linux-6.14.4/include/uapi/linux/in.h \
- /home/ns/linux-6.14.4/include/net/netns/conntrack.h \
- /home/ns/linux-6.14.4/include/linux/netfilter/nf_conntrack_tcp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netfilter/nf_conntrack_tcp.h \
- /home/ns/linux-6.14.4/include/linux/netfilter/nf_conntrack_dccp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netfilter/nf_conntrack_tuple_common.h \
- /home/ns/linux-6.14.4/include/linux/netfilter/nf_conntrack_sctp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netfilter/nf_conntrack_sctp.h \
- /home/ns/linux-6.14.4/include/net/netns/flow_table.h \
- /home/ns/linux-6.14.4/include/net/netns/nftables.h \
- /home/ns/linux-6.14.4/include/net/netns/xfrm.h \
- /home/ns/linux-6.14.4/include/uapi/linux/xfrm.h \
- /home/ns/linux-6.14.4/include/net/netns/mpls.h \
- /home/ns/linux-6.14.4/include/net/netns/can.h \
- /home/ns/linux-6.14.4/include/net/netns/xdp.h \
- /home/ns/linux-6.14.4/include/net/netns/smc.h \
- /home/ns/linux-6.14.4/include/net/netns/bpf.h \
- /home/ns/linux-6.14.4/include/net/netns/mctp.h \
- /home/ns/linux-6.14.4/include/net/net_trackers.h \
- /home/ns/linux-6.14.4/include/linux/ref_tracker.h \
- /home/ns/linux-6.14.4/include/linux/stackdepot.h \
- /home/ns/linux-6.14.4/include/linux/seq_file_net.h \
- /home/ns/linux-6.14.4/include/net/dcbnl.h \
- /home/ns/linux-6.14.4/include/uapi/linux/dcbnl.h \
- /home/ns/linux-6.14.4/include/net/netprio_cgroup.h \
- /home/ns/linux-6.14.4/include/uapi/linux/neighbour.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netdevice.h \
- /home/ns/linux-6.14.4/include/linux/if_ether.h \
- /home/ns/linux-6.14.4/include/linux/if_link.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_link.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_bonding.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netdev.h \
- /home/ns/linux-6.14.4/include/linux/hashtable.h \
- /home/ns/linux-6.14.4/include/net/neighbour_tables.h \
- /home/ns/linux-6.14.4/include/linux/rculist_nulls.h \
- /home/ns/linux-6.14.4/include/linux/poll.h \
- /home/ns/linux-6.14.4/include/uapi/linux/poll.h \
- /home/ns/linux-6.14.4/arch/x86/include/generated/uapi/asm/poll.h \
- /home/ns/linux-6.14.4/include/uapi/asm-generic/poll.h \
- /home/ns/linux-6.14.4/include/uapi/linux/eventpoll.h \
- /home/ns/linux-6.14.4/include/linux/indirect_call_wrapper.h \
- /home/ns/linux-6.14.4/include/net/dst.h \
- /home/ns/linux-6.14.4/include/linux/rtnetlink.h \
- /home/ns/linux-6.14.4/include/uapi/linux/rtnetlink.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_addr.h \
- /home/ns/linux-6.14.4/include/net/neighbour.h \
- /home/ns/linux-6.14.4/include/net/rtnetlink.h \
- /home/ns/linux-6.14.4/include/net/tcp_states.h \
- /home/ns/linux-6.14.4/include/linux/net_tstamp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/net_tstamp.h \
- /home/ns/linux-6.14.4/include/net/l3mdev.h \
- /home/ns/linux-6.14.4/include/net/fib_rules.h \
- /home/ns/linux-6.14.4/include/uapi/linux/fib_rules.h \
- /home/ns/linux-6.14.4/include/net/fib_notifier.h \
- /home/ns/linux-6.14.4/include/net/inet_connection_sock.h \
- /home/ns/linux-6.14.4/include/net/inet_sock.h \
- /home/ns/linux-6.14.4/include/linux/jhash.h \
- /home/ns/linux-6.14.4/include/linux/unaligned/packed_struct.h \
- /home/ns/linux-6.14.4/include/net/inet_dscp.h \
- /home/ns/linux-6.14.4/include/net/request_sock.h \
- /home/ns/linux-6.14.4/include/net/rstreason.h \
- /home/ns/linux-6.14.4/include/uapi/linux/mptcp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/mptcp_pm.h \
- /home/ns/linux-6.14.4/include/net/netns/hash.h \
- /home/ns/linux-6.14.4/include/net/inet_timewait_sock.h \
- /home/ns/linux-6.14.4/include/net/timewait_sock.h \
- /home/ns/linux-6.14.4/include/uapi/linux/tcp.h \
- /home/ns/linux-6.14.4/include/net/inet_hashtables.h \
- /home/ns/linux-6.14.4/include/linux/ip.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ip.h \
- /home/ns/linux-6.14.4/include/linux/ipv6.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ipv6.h \
- /home/ns/linux-6.14.4/include/linux/udp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/udp.h \
- /home/ns/linux-6.14.4/include/net/ip.h \
- /home/ns/linux-6.14.4/include/net/route.h \
- /home/ns/linux-6.14.4/include/net/inetpeer.h \
- /home/ns/linux-6.14.4/include/net/ipv6.h \
- /home/ns/linux-6.14.4/include/linux/jump_label_ratelimit.h \
- /home/ns/linux-6.14.4/include/net/if_inet6.h \
- /home/ns/linux-6.14.4/include/net/ip_fib.h \
- /home/ns/linux-6.14.4/include/uapi/linux/in_route.h \
- /home/ns/linux-6.14.4/include/net/arp.h \
- /home/ns/linux-6.14.4/include/linux/if_arp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_arp.h \
- /home/ns/linux-6.14.4/include/net/ndisc.h \
- /home/ns/linux-6.14.4/include/net/ipv6_stubs.h \
- /home/ns/linux-6.14.4/include/linux/icmpv6.h \
- /home/ns/linux-6.14.4/include/uapi/linux/route.h \
- /home/ns/linux-6.14.4/include/net/lwtunnel.h \
- /home/ns/linux-6.14.4/include/uapi/linux/lwtunnel.h \
- /home/ns/linux-6.14.4/include/net/sock_reuseport.h \
- /home/ns/linux-6.14.4/include/linux/filter.h \
- /home/ns/linux-6.14.4/include/linux/sched/clock.h \
- /home/ns/linux-6.14.4/include/linux/set_memory.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/set_memory.h \
- /home/ns/linux-6.14.4/include/asm-generic/set_memory.h \
- /home/ns/linux-6.14.4/include/linux/if_vlan.h \
- /home/ns/linux-6.14.4/include/linux/etherdevice.h \
- /home/ns/linux-6.14.4/include/linux/crc32.h \
- /home/ns/linux-6.14.4/include/linux/bitrev.h \
- /home/ns/linux-6.14.4/include/linux/unaligned.h \
- /home/ns/linux-6.14.4/include/vdso/unaligned.h \
- /home/ns/linux-6.14.4/include/uapi/linux/if_vlan.h \
- /home/ns/linux-6.14.4/include/linux/vmalloc.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/vmalloc.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/pgtable_areas.h \
- /home/ns/linux-6.14.4/include/crypto/sha1.h \
- /home/ns/linux-6.14.4/include/net/sch_generic.h \
- /home/ns/linux-6.14.4/include/uapi/linux/pkt_cls.h \
- /home/ns/linux-6.14.4/include/net/gen_stats.h \
- /home/ns/linux-6.14.4/include/uapi/linux/gen_stats.h \
- /home/ns/linux-6.14.4/include/net/flow_offload.h \
- /home/ns/linux-6.14.4/include/net/tcp_ao.h \
- /home/ns/linux-6.14.4/include/net/inet_ecn.h \
- /home/ns/linux-6.14.4/include/net/dsfield.h \
- /home/ns/linux-6.14.4/include/net/mptcp.h \
- /home/ns/linux-6.14.4/include/net/xfrm.h \
- /home/ns/linux-6.14.4/include/uapi/linux/pfkeyv2.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ipsec.h \
- /home/ns/linux-6.14.4/include/linux/audit.h \
- /home/ns/linux-6.14.4/include/linux/ptrace.h \
- /home/ns/linux-6.14.4/include/linux/pid_namespace.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ptrace.h \
- /home/ns/linux-6.14.4/include/linux/seccomp.h \
- /home/ns/linux-6.14.4/include/uapi/linux/seccomp.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/seccomp.h \
- /home/ns/linux-6.14.4/include/asm-generic/seccomp.h \
- /home/ns/linux-6.14.4/include/linux/audit_arch.h \
- /home/ns/linux-6.14.4/include/uapi/linux/audit.h \
- /home/ns/linux-6.14.4/include/uapi/linux/netfilter/nf_tables.h \
- /home/ns/linux-6.14.4/include/uapi/linux/fanotify.h \
- /home/ns/linux-6.14.4/arch/x86/include/asm/syscall.h \
- /home/ns/linux-6.14.4/include/net/ip6_fib.h \
- /home/ns/linux-6.14.4/include/linux/ipv6_route.h \
- /home/ns/linux-6.14.4/include/uapi/linux/ipv6_route.h \
- /home/ns/linux-6.14.4/include/net/gro_cells.h \
- /home/ns/linux-6.14.4/include/linux/bpf-cgroup.h tcp_vegas.h
+i_tcp_vegas.o: \
+ /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/i_tcp_vegas.c \
+ include/linux/compiler-version.h include/linux/kconfig.h \
+ include/generated/autoconf.h include/linux/compiler_types.h \
+ include/linux/compiler_attributes.h include/linux/compiler-gcc.h \
+ include/linux/mm.h include/linux/errno.h include/uapi/linux/errno.h \
+ arch/x86/include/generated/uapi/asm/errno.h \
+ include/uapi/asm-generic/errno.h include/uapi/asm-generic/errno-base.h \
+ include/linux/mmdebug.h include/linux/bug.h arch/x86/include/asm/bug.h \
+ include/linux/stringify.h include/linux/instrumentation.h \
+ include/linux/objtool.h include/linux/objtool_types.h \
+ include/linux/types.h include/uapi/linux/types.h \
+ arch/x86/include/generated/uapi/asm/types.h \
+ include/uapi/asm-generic/types.h include/asm-generic/int-ll64.h \
+ include/uapi/asm-generic/int-ll64.h \
+ arch/x86/include/uapi/asm/bitsperlong.h \
+ include/asm-generic/bitsperlong.h include/uapi/asm-generic/bitsperlong.h \
+ include/uapi/linux/posix_types.h include/linux/stddef.h \
+ include/uapi/linux/stddef.h include/linux/compiler_types.h \
+ arch/x86/include/asm/posix_types.h \
+ arch/x86/include/uapi/asm/posix_types_64.h \
+ include/uapi/asm-generic/posix_types.h arch/x86/include/asm/asm.h \
+ arch/x86/include/asm/extable_fixup_types.h include/asm-generic/bug.h \
+ include/linux/compiler.h arch/x86/include/generated/asm/rwonce.h \
+ include/asm-generic/rwonce.h include/linux/kasan-checks.h \
+ include/linux/kcsan-checks.h include/linux/once_lite.h \
+ include/linux/panic.h include/linux/printk.h include/linux/stdarg.h \
+ include/linux/init.h include/linux/build_bug.h \
+ include/linux/kern_levels.h include/linux/linkage.h \
+ include/linux/export.h arch/x86/include/asm/linkage.h \
+ arch/x86/include/asm/ibt.h include/linux/ratelimit_types.h \
+ include/linux/bits.h include/linux/const.h include/vdso/const.h \
+ include/uapi/linux/const.h include/vdso/bits.h \
+ include/uapi/linux/param.h arch/x86/include/generated/uapi/asm/param.h \
+ include/asm-generic/param.h include/uapi/asm-generic/param.h \
+ include/linux/spinlock_types_raw.h arch/x86/include/asm/spinlock_types.h \
+ include/asm-generic/qspinlock_types.h \
+ include/asm-generic/qrwlock_types.h \
+ arch/x86/include/uapi/asm/byteorder.h \
+ include/linux/byteorder/little_endian.h \
+ include/uapi/linux/byteorder/little_endian.h include/linux/swab.h \
+ include/uapi/linux/swab.h arch/x86/include/uapi/asm/swab.h \
+ include/linux/byteorder/generic.h include/linux/lockdep_types.h \
+ include/linux/dynamic_debug.h include/linux/jump_label.h \
+ arch/x86/include/asm/jump_label.h arch/x86/include/asm/nops.h \
+ include/linux/gfp.h include/linux/gfp_types.h include/linux/mmzone.h \
+ include/linux/spinlock.h include/linux/typecheck.h \
+ include/linux/preempt.h include/linux/cleanup.h \
+ arch/x86/include/asm/preempt.h arch/x86/include/asm/rmwcc.h \
+ include/linux/args.h arch/x86/include/asm/percpu.h \
+ include/asm-generic/percpu.h include/linux/threads.h \
+ include/linux/percpu-defs.h arch/x86/include/asm/current.h \
+ include/linux/cache.h include/uapi/linux/kernel.h \
+ include/uapi/linux/sysinfo.h arch/x86/include/asm/cache.h \
+ include/linux/static_call_types.h include/linux/irqflags.h \
+ include/linux/irqflags_types.h arch/x86/include/asm/irqflags.h \
+ arch/x86/include/asm/processor-flags.h \
+ arch/x86/include/uapi/asm/processor-flags.h include/linux/mem_encrypt.h \
+ arch/x86/include/asm/mem_encrypt.h include/linux/cc_platform.h \
+ arch/x86/include/asm/nospec-branch.h include/linux/static_key.h \
+ arch/x86/include/asm/alternative.h arch/x86/include/asm/cpufeatures.h \
+ arch/x86/include/asm/required-features.h \
+ arch/x86/include/asm/disabled-features.h \
+ arch/x86/include/asm/msr-index.h arch/x86/include/asm/unwind_hints.h \
+ arch/x86/include/asm/orc_types.h arch/x86/include/asm/asm-offsets.h \
+ include/generated/asm-offsets.h arch/x86/include/asm/GEN-for-each-reg.h \
+ arch/x86/include/asm/segment.h arch/x86/include/asm/paravirt.h \
+ arch/x86/include/asm/paravirt_types.h arch/x86/include/asm/desc_defs.h \
+ arch/x86/include/asm/pgtable_types.h arch/x86/include/asm/page_types.h \
+ arch/x86/include/asm/page_64_types.h arch/x86/include/asm/kaslr.h \
+ arch/x86/include/asm/pgtable_64_types.h arch/x86/include/asm/sparsemem.h \
+ include/linux/cpumask.h include/linux/kernel.h include/linux/align.h \
+ include/linux/array_size.h include/linux/limits.h \
+ include/uapi/linux/limits.h include/vdso/limits.h \
+ include/linux/container_of.h include/linux/bitops.h \
+ include/asm-generic/bitops/generic-non-atomic.h \
+ arch/x86/include/asm/barrier.h include/asm-generic/barrier.h \
+ arch/x86/include/asm/bitops.h include/asm-generic/bitops/sched.h \
+ arch/x86/include/asm/arch_hweight.h \
+ include/asm-generic/bitops/const_hweight.h \
+ include/asm-generic/bitops/instrumented-atomic.h \
+ include/linux/instrumented.h include/linux/kmsan-checks.h \
+ include/asm-generic/bitops/instrumented-non-atomic.h \
+ include/asm-generic/bitops/instrumented-lock.h \
+ include/asm-generic/bitops/le.h \
+ include/asm-generic/bitops/ext2-atomic-setbit.h include/linux/hex.h \
+ include/linux/kstrtox.h include/linux/log2.h include/linux/math.h \
+ arch/x86/include/asm/div64.h include/asm-generic/div64.h \
+ include/linux/minmax.h include/linux/sprintf.h \
+ include/linux/instruction_pointer.h include/linux/bitmap.h \
+ include/linux/find.h include/linux/string.h include/linux/err.h \
+ include/linux/overflow.h include/uapi/linux/string.h \
+ arch/x86/include/asm/string.h arch/x86/include/asm/string_64.h \
+ include/linux/fortify-string.h include/linux/bitmap-str.h \
+ include/linux/atomic.h arch/x86/include/asm/atomic.h \
+ arch/x86/include/asm/cmpxchg.h arch/x86/include/asm/cmpxchg_64.h \
+ arch/x86/include/asm/atomic64_64.h \
+ include/linux/atomic/atomic-arch-fallback.h \
+ include/linux/atomic/atomic-long.h \
+ include/linux/atomic/atomic-instrumented.h include/linux/numa.h \
+ arch/x86/include/asm/frame.h include/linux/thread_info.h \
+ include/linux/restart_block.h arch/x86/include/asm/thread_info.h \
+ arch/x86/include/asm/page.h arch/x86/include/asm/page_64.h \
+ include/linux/range.h include/asm-generic/memory_model.h \
+ include/linux/pfn.h include/asm-generic/getorder.h \
+ arch/x86/include/asm/cpufeature.h arch/x86/include/asm/processor.h \
+ arch/x86/include/asm/math_emu.h arch/x86/include/asm/ptrace.h \
+ arch/x86/include/uapi/asm/ptrace.h \
+ arch/x86/include/uapi/asm/ptrace-abi.h arch/x86/include/asm/proto.h \
+ arch/x86/include/uapi/asm/ldt.h arch/x86/include/uapi/asm/sigcontext.h \
+ arch/x86/include/asm/cpuid.h arch/x86/include/asm/msr.h \
+ arch/x86/include/asm/msr-index.h arch/x86/include/asm/cpumask.h \
+ arch/x86/include/uapi/asm/msr.h include/uapi/linux/ioctl.h \
+ arch/x86/include/generated/uapi/asm/ioctl.h include/asm-generic/ioctl.h \
+ include/uapi/asm-generic/ioctl.h arch/x86/include/asm/shared/msr.h \
+ include/linux/tracepoint-defs.h arch/x86/include/asm/special_insns.h \
+ arch/x86/include/asm/fpu/types.h arch/x86/include/asm/vmxfeatures.h \
+ arch/x86/include/asm/vdso/processor.h arch/x86/include/asm/shstk.h \
+ include/linux/personality.h include/uapi/linux/personality.h \
+ include/linux/math64.h include/vdso/math64.h include/linux/bottom_half.h \
+ include/linux/lockdep.h include/linux/smp.h include/linux/list.h \
+ include/linux/poison.h include/linux/smp_types.h include/linux/llist.h \
+ arch/x86/include/asm/smp.h arch/x86/include/generated/asm/mmiowb.h \
+ include/asm-generic/mmiowb.h include/linux/spinlock_types.h \
+ include/linux/rwlock_types.h arch/x86/include/asm/spinlock.h \
+ arch/x86/include/asm/qspinlock.h include/asm-generic/qspinlock.h \
+ arch/x86/include/asm/qrwlock.h include/asm-generic/qrwlock.h \
+ include/linux/rwlock.h include/linux/spinlock_api_smp.h \
+ include/linux/rwlock_api_smp.h include/linux/list_nulls.h \
+ include/linux/wait.h include/linux/seqlock.h include/linux/mutex.h \
+ include/linux/osq_lock.h include/linux/debug_locks.h \
+ include/linux/mutex_types.h include/linux/seqlock_types.h \
+ include/linux/nodemask.h include/linux/nodemask_types.h \
+ include/linux/random.h include/uapi/linux/random.h include/linux/irqnr.h \
+ include/uapi/linux/irqnr.h include/linux/prandom.h include/linux/once.h \
+ include/linux/pageblock-flags.h include/linux/page-flags-layout.h \
+ include/generated/bounds.h include/linux/mm_types.h \
+ include/linux/mm_types_task.h arch/x86/include/asm/tlbbatch.h \
+ include/linux/auxvec.h include/uapi/linux/auxvec.h \
+ arch/x86/include/uapi/asm/auxvec.h include/linux/kref.h \
+ include/linux/refcount.h include/linux/refcount_types.h \
+ include/linux/rbtree.h include/linux/rbtree_types.h \
+ include/linux/rcupdate.h include/linux/context_tracking_irq.h \
+ include/linux/rcutree.h include/linux/maple_tree.h include/linux/rwsem.h \
+ include/linux/completion.h include/linux/swait.h include/linux/uprobes.h \
+ arch/x86/include/asm/uprobes.h include/linux/notifier.h \
+ include/linux/srcu.h include/linux/workqueue.h include/linux/timer.h \
+ include/linux/ktime.h include/linux/jiffies.h include/linux/time.h \
+ include/linux/time64.h include/vdso/time64.h include/uapi/linux/time.h \
+ include/uapi/linux/time_types.h include/linux/time32.h \
+ include/linux/timex.h include/uapi/linux/timex.h \
+ arch/x86/include/asm/timex.h arch/x86/include/asm/tsc.h \
+ include/vdso/time32.h include/vdso/time.h include/vdso/jiffies.h \
+ include/generated/timeconst.h include/vdso/ktime.h \
+ include/linux/timekeeping.h include/linux/clocksource_ids.h \
+ include/linux/debugobjects.h include/linux/timer_types.h \
+ include/linux/workqueue_types.h include/linux/rcu_segcblist.h \
+ include/linux/srcutree.h include/linux/rcu_node_tree.h \
+ include/linux/percpu_counter.h include/linux/percpu.h \
+ arch/x86/include/asm/mmu.h include/linux/page-flags.h \
+ include/linux/local_lock.h include/linux/local_lock_internal.h \
+ include/linux/zswap.h include/linux/memory_hotplug.h \
+ arch/x86/include/asm/mmzone.h arch/x86/include/asm/mmzone_64.h \
+ include/linux/topology.h include/linux/arch_topology.h \
+ arch/x86/include/asm/topology.h arch/x86/include/asm/mpspec.h \
+ arch/x86/include/asm/mpspec_def.h arch/x86/include/asm/x86_init.h \
+ arch/x86/include/uapi/asm/bootparam.h include/linux/screen_info.h \
+ include/uapi/linux/screen_info.h include/linux/apm_bios.h \
+ include/uapi/linux/apm_bios.h include/linux/edd.h \
+ include/uapi/linux/edd.h arch/x86/include/asm/ist.h \
+ arch/x86/include/uapi/asm/ist.h include/video/edid.h \
+ include/uapi/video/edid.h arch/x86/include/asm/apicdef.h \
+ include/asm-generic/topology.h include/linux/cpu_smt.h \
+ include/linux/mmap_lock.h include/linux/percpu-refcount.h \
+ include/linux/bit_spinlock.h include/linux/shrinker.h \
+ include/linux/resource.h include/uapi/linux/resource.h \
+ arch/x86/include/generated/uapi/asm/resource.h \
+ include/asm-generic/resource.h include/uapi/asm-generic/resource.h \
+ include/linux/page_ext.h include/linux/stacktrace.h \
+ include/linux/stackdepot.h include/linux/page_ref.h \
+ include/linux/sizes.h include/linux/sched.h include/uapi/linux/sched.h \
+ include/linux/pid_types.h include/linux/sem_types.h include/linux/shm.h \
+ arch/x86/include/asm/shmparam.h include/linux/kmsan_types.h \
+ include/linux/plist_types.h include/linux/hrtimer_types.h \
+ include/linux/timerqueue_types.h include/linux/seccomp_types.h \
+ include/linux/latencytop.h include/linux/sched/prio.h \
+ include/linux/sched/types.h include/linux/signal_types.h \
+ include/uapi/linux/signal.h arch/x86/include/asm/signal.h \
+ arch/x86/include/uapi/asm/signal.h \
+ include/uapi/asm-generic/signal-defs.h \
+ arch/x86/include/uapi/asm/siginfo.h include/uapi/asm-generic/siginfo.h \
+ include/linux/syscall_user_dispatch_types.h \
+ include/linux/task_io_accounting.h include/linux/posix-timers_types.h \
+ include/uapi/linux/rseq.h include/linux/kcsan.h include/linux/rv.h \
+ include/linux/livepatch_sched.h include/linux/uidgid_types.h \
+ arch/x86/include/generated/asm/kmap_size.h \
+ include/asm-generic/kmap_size.h include/linux/pgtable.h \
+ arch/x86/include/asm/pgtable.h arch/x86/include/asm/pkru.h \
+ arch/x86/include/asm/fpu/api.h arch/x86/include/asm/coco.h \
+ include/asm-generic/pgtable_uffd.h include/linux/page_table_check.h \
+ arch/x86/include/asm/pgtable_64.h arch/x86/include/asm/fixmap.h \
+ arch/x86/include/uapi/asm/vsyscall.h include/asm-generic/fixmap.h \
+ arch/x86/include/asm/pgtable-invert.h include/linux/kasan.h \
+ include/linux/kasan-enabled.h include/linux/kasan-tags.h \
+ include/linux/memremap.h include/linux/ioport.h include/linux/slab.h \
+ include/linux/hash.h include/linux/huge_mm.h \
+ include/linux/sched/coredump.h include/linux/fs.h \
+ include/linux/wait_bit.h include/linux/kdev_t.h \
+ include/uapi/linux/kdev_t.h include/linux/dcache.h \
+ include/linux/rculist.h include/linux/rculist_bl.h \
+ include/linux/list_bl.h include/linux/lockref.h \
+ include/linux/stringhash.h include/linux/path.h include/linux/stat.h \
+ arch/x86/include/uapi/asm/stat.h include/uapi/linux/stat.h \
+ include/linux/uidgid.h include/linux/highuid.h include/linux/list_lru.h \
+ include/linux/xarray.h include/linux/kconfig.h include/linux/sched/mm.h \
+ include/linux/sync_core.h arch/x86/include/asm/sync_core.h \
+ include/linux/radix-tree.h include/linux/pid.h \
+ include/linux/capability.h include/uapi/linux/capability.h \
+ include/linux/semaphore.h include/linux/fcntl.h \
+ include/uapi/linux/fcntl.h arch/x86/include/generated/uapi/asm/fcntl.h \
+ include/uapi/asm-generic/fcntl.h include/uapi/linux/openat2.h \
+ include/linux/migrate_mode.h include/linux/percpu-rwsem.h \
+ include/linux/rcuwait.h include/linux/sched/signal.h \
+ include/linux/signal.h include/linux/sched/jobctl.h \
+ include/linux/sched/task.h include/linux/uaccess.h \
+ include/linux/fault-inject-usercopy.h arch/x86/include/asm/uaccess.h \
+ arch/x86/include/asm/smap.h arch/x86/include/asm/extable.h \
+ arch/x86/include/asm/tlbflush.h include/linux/mmu_notifier.h \
+ include/linux/interval_tree.h arch/x86/include/asm/invpcid.h \
+ arch/x86/include/asm/pti.h arch/x86/include/asm/uaccess_64.h \
+ include/asm-generic/access_ok.h include/linux/cred.h include/linux/key.h \
+ include/linux/sysctl.h include/uapi/linux/sysctl.h \
+ include/linux/assoc_array.h include/linux/sched/user.h \
+ include/linux/ratelimit.h include/linux/posix-timers.h \
+ include/linux/alarmtimer.h include/linux/hrtimer.h \
+ include/linux/hrtimer_defs.h include/linux/timerqueue.h \
+ include/linux/rcu_sync.h include/linux/delayed_call.h \
+ include/linux/uuid.h include/linux/errseq.h include/linux/ioprio.h \
+ include/linux/sched/rt.h include/linux/iocontext.h \
+ include/uapi/linux/ioprio.h include/linux/fs_types.h \
+ include/linux/mount.h include/linux/mnt_idmapping.h \
+ include/uapi/linux/fs.h include/linux/quota.h \
+ include/uapi/linux/dqblk_xfs.h include/linux/dqblk_v1.h \
+ include/linux/dqblk_v2.h include/linux/dqblk_qtree.h \
+ include/linux/projid.h include/uapi/linux/quota.h include/linux/vmstat.h \
+ include/linux/vm_event_item.h include/linux/module.h \
+ include/linux/buildid.h include/linux/kmod.h include/linux/umh.h \
+ include/linux/elf.h arch/x86/include/asm/elf.h \
+ arch/x86/include/asm/ia32.h include/linux/compat.h include/linux/sem.h \
+ include/uapi/linux/sem.h include/linux/ipc.h \
+ include/linux/rhashtable-types.h include/uapi/linux/ipc.h \
+ arch/x86/include/generated/uapi/asm/ipcbuf.h \
+ include/uapi/asm-generic/ipcbuf.h arch/x86/include/uapi/asm/sembuf.h \
+ include/linux/socket.h arch/x86/include/generated/uapi/asm/socket.h \
+ include/uapi/asm-generic/socket.h \
+ arch/x86/include/generated/uapi/asm/sockios.h \
+ include/uapi/asm-generic/sockios.h include/uapi/linux/sockios.h \
+ include/linux/uio.h include/uapi/linux/uio.h include/uapi/linux/socket.h \
+ include/uapi/linux/if.h include/uapi/linux/libc-compat.h \
+ include/uapi/linux/hdlc/ioctl.h include/uapi/linux/aio_abi.h \
+ include/uapi/linux/unistd.h arch/x86/include/asm/unistd.h \
+ arch/x86/include/uapi/asm/unistd.h \
+ arch/x86/include/generated/uapi/asm/unistd_64.h \
+ arch/x86/include/generated/asm/unistd_64_x32.h \
+ arch/x86/include/generated/asm/unistd_32_ia32.h \
+ arch/x86/include/asm/compat.h include/linux/sched/task_stack.h \
+ include/uapi/linux/magic.h arch/x86/include/asm/user32.h \
+ include/asm-generic/compat.h arch/x86/include/asm/syscall_wrapper.h \
+ arch/x86/include/asm/user.h arch/x86/include/asm/user_64.h \
+ arch/x86/include/asm/fsgsbase.h arch/x86/include/asm/vdso.h \
+ include/uapi/linux/elf.h include/uapi/linux/elf-em.h \
+ include/linux/kobject.h include/linux/sysfs.h include/linux/kernfs.h \
+ include/linux/idr.h include/linux/kobject_ns.h \
+ include/linux/moduleparam.h include/linux/rbtree_latch.h \
+ include/linux/error-injection.h include/asm-generic/error-injection.h \
+ arch/x86/include/asm/module.h include/asm-generic/module.h \
+ arch/x86/include/asm/orc_types.h include/linux/skbuff.h \
+ include/linux/bvec.h include/linux/highmem.h include/linux/cacheflush.h \
+ arch/x86/include/asm/cacheflush.h include/asm-generic/cacheflush.h \
+ include/linux/kmsan.h include/linux/dma-direction.h \
+ include/linux/hardirq.h include/linux/context_tracking_state.h \
+ include/linux/ftrace_irq.h include/linux/vtime.h \
+ arch/x86/include/asm/hardirq.h include/linux/highmem-internal.h \
+ include/net/checksum.h arch/x86/include/asm/checksum.h \
+ arch/x86/include/asm/checksum_64.h include/linux/dma-mapping.h \
+ include/linux/device.h include/linux/dev_printk.h \
+ include/linux/energy_model.h include/linux/sched/cpufreq.h \
+ include/linux/sched/topology.h include/linux/sched/idle.h \
+ include/linux/sched/sd_flags.h include/linux/klist.h include/linux/pm.h \
+ include/linux/device/bus.h include/linux/device/class.h \
+ include/linux/device/driver.h arch/x86/include/asm/device.h \
+ include/linux/pm_wakeup.h include/linux/scatterlist.h \
+ arch/x86/include/asm/io.h arch/x86/include/generated/asm/early_ioremap.h \
+ include/asm-generic/early_ioremap.h arch/x86/include/asm/shared/io.h \
+ include/asm-generic/io.h include/asm-generic/iomap.h \
+ include/asm-generic/pci_iomap.h include/linux/logic_pio.h \
+ include/linux/fwnode.h include/linux/vmalloc.h \
+ arch/x86/include/asm/vmalloc.h arch/x86/include/asm/pgtable_areas.h \
+ include/linux/netdev_features.h include/net/flow_dissector.h \
+ include/linux/in6.h include/uapi/linux/in6.h include/linux/siphash.h \
+ include/uapi/linux/if_ether.h include/uapi/linux/if_packet.h \
+ include/net/flow.h include/linux/netfilter/nf_conntrack_common.h \
+ include/uapi/linux/netfilter/nf_conntrack_common.h \
+ include/net/net_debug.h include/net/dropreason-core.h \
+ include/linux/inet_diag.h include/net/netlink.h include/linux/netlink.h \
+ include/net/scm.h include/linux/net.h include/linux/sockptr.h \
+ include/uapi/linux/net.h include/linux/file.h include/linux/security.h \
+ include/linux/kernel_read_file.h include/uapi/linux/lsm.h \
+ include/linux/lsm/selinux.h include/linux/lsm/smack.h \
+ include/linux/lsm/apparmor.h include/linux/lsm/bpf.h \
+ include/linux/nsproxy.h include/net/compat.h \
+ include/uapi/linux/netlink.h include/uapi/linux/inet_diag.h \
+ include/linux/proc_fs.h include/net/tcp.h include/linux/tcp.h \
+ include/linux/win_minmax.h include/net/sock.h include/linux/netdevice.h \
+ include/linux/delay.h arch/x86/include/asm/delay.h \
+ include/asm-generic/delay.h include/linux/prefetch.h \
+ arch/x86/include/asm/local.h include/linux/dynamic_queue_limits.h \
+ include/net/net_namespace.h include/net/netns/core.h \
+ include/net/netns/mib.h include/net/snmp.h include/uapi/linux/snmp.h \
+ include/linux/u64_stats_sync.h arch/x86/include/generated/asm/local64.h \
+ include/asm-generic/local64.h include/net/netns/unix.h \
+ include/net/netns/packet.h include/net/netns/ipv4.h \
+ include/net/inet_frag.h include/net/netns/ipv6.h include/net/dst_ops.h \
+ include/uapi/linux/icmpv6.h include/net/netns/nexthop.h \
+ include/net/netns/ieee802154_6lowpan.h include/net/netns/sctp.h \
+ include/net/netns/netfilter.h include/linux/netfilter_defs.h \
+ include/uapi/linux/netfilter.h include/linux/in.h \
+ include/uapi/linux/in.h include/net/netns/conntrack.h \
+ include/linux/netfilter/nf_conntrack_tcp.h \
+ include/uapi/linux/netfilter/nf_conntrack_tcp.h \
+ include/linux/netfilter/nf_conntrack_dccp.h \
+ include/uapi/linux/netfilter/nf_conntrack_tuple_common.h \
+ include/linux/netfilter/nf_conntrack_sctp.h \
+ include/uapi/linux/netfilter/nf_conntrack_sctp.h \
+ include/net/netns/flow_table.h include/net/netns/nftables.h \
+ include/net/netns/xfrm.h include/uapi/linux/xfrm.h \
+ include/net/netns/mpls.h include/net/netns/can.h include/net/netns/xdp.h \
+ include/net/netns/smc.h include/net/netns/bpf.h include/net/netns/mctp.h \
+ include/net/net_trackers.h include/linux/ref_tracker.h \
+ include/linux/ns_common.h include/linux/seq_file_net.h \
+ include/linux/seq_file.h include/linux/string_helpers.h \
+ include/linux/ctype.h include/linux/string_choices.h include/net/dcbnl.h \
+ include/uapi/linux/dcbnl.h include/net/netprio_cgroup.h \
+ include/linux/cgroup.h include/uapi/linux/cgroupstats.h \
+ include/uapi/linux/taskstats.h include/linux/user_namespace.h \
+ include/linux/kernel_stat.h include/linux/interrupt.h \
+ include/linux/irqreturn.h arch/x86/include/asm/irq.h \
+ arch/x86/include/asm/irq_vectors.h arch/x86/include/asm/sections.h \
+ include/asm-generic/sections.h include/linux/cgroup-defs.h \
+ include/linux/bpf-cgroup-defs.h include/linux/psi_types.h \
+ include/linux/kthread.h include/linux/cgroup_subsys.h \
+ include/linux/cgroup_refcnt.h include/uapi/linux/neighbour.h \
+ include/uapi/linux/netdevice.h include/linux/if_ether.h \
+ include/linux/if_link.h include/uapi/linux/if_link.h \
+ include/uapi/linux/if_bonding.h include/uapi/linux/pkt_cls.h \
+ include/uapi/linux/pkt_sched.h include/uapi/linux/netdev.h \
+ include/linux/hashtable.h include/linux/page_counter.h \
+ include/linux/memcontrol.h include/linux/vmpressure.h \
+ include/linux/eventfd.h include/uapi/linux/eventfd.h \
+ include/linux/writeback.h include/linux/flex_proportions.h \
+ include/linux/backing-dev-defs.h include/linux/blk_types.h \
+ include/linux/bio.h include/linux/mempool.h \
+ include/linux/rculist_nulls.h include/linux/poll.h \
+ include/uapi/linux/poll.h arch/x86/include/generated/uapi/asm/poll.h \
+ include/uapi/asm-generic/poll.h include/uapi/linux/eventpoll.h \
+ include/linux/indirect_call_wrapper.h include/net/dst.h \
+ include/linux/rtnetlink.h include/uapi/linux/rtnetlink.h \
+ include/uapi/linux/if_addr.h include/linux/rcuref.h \
+ include/net/neighbour.h include/net/rtnetlink.h include/net/tcp_states.h \
+ include/linux/net_tstamp.h include/uapi/linux/net_tstamp.h \
+ include/net/l3mdev.h include/net/fib_rules.h \
+ include/uapi/linux/fib_rules.h include/net/fib_notifier.h \
+ include/net/inet_connection_sock.h include/net/inet_sock.h \
+ include/linux/jhash.h include/linux/unaligned/packed_struct.h \
+ include/net/request_sock.h include/net/netns/hash.h \
+ include/net/inet_timewait_sock.h include/net/timewait_sock.h \
+ include/uapi/linux/tcp.h include/net/inet_hashtables.h \
+ include/linux/ip.h include/uapi/linux/ip.h include/linux/ipv6.h \
+ include/uapi/linux/ipv6.h include/linux/udp.h include/uapi/linux/udp.h \
+ include/net/ip.h include/net/route.h include/net/inetpeer.h \
+ include/net/ipv6.h include/linux/jump_label_ratelimit.h \
+ include/net/if_inet6.h include/net/inet_dscp.h include/net/ip_fib.h \
+ include/net/arp.h include/linux/if_arp.h include/uapi/linux/if_arp.h \
+ include/net/ndisc.h include/net/ipv6_stubs.h include/linux/icmpv6.h \
+ include/uapi/linux/in_route.h include/uapi/linux/route.h \
+ include/net/lwtunnel.h include/uapi/linux/lwtunnel.h \
+ include/net/sock_reuseport.h include/linux/filter.h include/linux/bpf.h \
+ include/uapi/linux/bpf.h include/uapi/linux/bpf_common.h \
+ include/uapi/linux/filter.h include/linux/kallsyms.h \
+ include/linux/bpfptr.h include/linux/btf.h include/linux/bsearch.h \
+ include/linux/btf_ids.h include/uapi/linux/btf.h \
+ include/linux/rcupdate_trace.h include/linux/static_call.h \
+ include/linux/cpu.h include/linux/node.h include/linux/cpuhotplug.h \
+ arch/x86/include/asm/static_call.h arch/x86/include/asm/text-patching.h \
+ include/linux/cfi.h arch/x86/include/asm/cfi.h include/linux/bpf_types.h \
+ include/linux/sched/clock.h include/linux/set_memory.h \
+ arch/x86/include/asm/set_memory.h include/asm-generic/set_memory.h \
+ include/linux/if_vlan.h include/linux/etherdevice.h \
+ include/linux/crc32.h include/linux/bitrev.h \
+ arch/x86/include/generated/asm/unaligned.h \
+ include/asm-generic/unaligned.h include/uapi/linux/if_vlan.h \
+ include/crypto/sha1.h include/net/sch_generic.h \
+ include/uapi/linux/pkt_cls.h include/net/gen_stats.h \
+ include/uapi/linux/gen_stats.h include/net/flow_offload.h \
+ include/net/tcp_ao.h include/net/inet_ecn.h include/net/dsfield.h \
+ include/net/mptcp.h include/linux/bpf-cgroup.h \
+ /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/tcp_vegas.h

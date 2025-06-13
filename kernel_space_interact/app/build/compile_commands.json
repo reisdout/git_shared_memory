@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp",
   "file": "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp",
   "output": "CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o"
 }

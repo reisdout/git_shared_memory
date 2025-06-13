@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -o kernel_ineteraction 
+/usr/bin/g++ -g CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -o kernel_ineteraction 

@@ -73,15 +73,15 @@ CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o: CMakeFiles/kernel_
 CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp
 CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o: CMakeFiles/kernel_ineteraction.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -MF CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o.d -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -MF CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o.d -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp
 
 CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp > CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp > CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i
 
 CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s
 
 # Object files for target kernel_ineteraction
 kernel_ineteraction_OBJECTS = \

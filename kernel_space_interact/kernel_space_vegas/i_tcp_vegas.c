@@ -49,7 +49,7 @@
  /***********************MRS******************************/
  static bool intelligent = false;
  static int mrs_network_state = 1;
- static u32  new_SegCwnd = 1.0;
+ static u64  new_SegCwnd = 1.0;
  //static u32 fake_cwnd = 1;
  /*
  Esta funcao aproxima a sqrt
@@ -403,12 +403,12 @@ static void i_cong_avoid(int cwnd)
 	 }
 	else
 	{
-	    printk("Operating in inteligent mode\n");
+	    printk("Operating in inteligent mode (ver 2.0) \n");
 
         printk("Vega++ with ntworkstate: %d\n", mrs_network_state);
         //printk("tcb->m_segmentSize: %d\n", tcb->m_segmentSize);
 
-        u32 segCwnd = tcp_snd_cwnd(tp);
+        u64 segCwnd = tcp_snd_cwnd(tp);
 
         if (mrs_network_state == 2 || segCwnd == 1)// fsegCwnd == 1 indica redução por timeout
         {
@@ -417,49 +417,49 @@ static void i_cong_avoid(int cwnd)
             //e igual a raiz(x)*raiz(raiz(x)), fazendo aproximacoes por
             //inteiros da raiz
             int cwnd_sqrt = sqrt_aprox(segCwnd);
-            new_SegCwnd = cwnd_sqrt*sqrt_aprox(cwnd_sqrt); //float_SegCwnd*(1.0/std::pow(segCwnd,0.25));
+            new_SegCwnd = (u64)cwnd_sqrt*sqrt_aprox(cwnd_sqrt); //float_SegCwnd*(1.0/std::pow(segCwnd,0.25));
 
-            u32 segCwndAnt = segCwnd;        
+            u64 segCwndAnt = segCwnd;        
 
             if(new_SegCwnd > 10) //a ideia é sempre ter 9 para preencher a matriz 3X3
             {
-                u32 oldSegCwnd = segCwnd;//Não pode usar segCwndAnt, pois essa é a nossa janela anterior. A segCwnd é do vegas e foi mudada por timeout, sendo dessincronizada da segCwndAnt
+                u64 oldSegCwnd = segCwnd;//Não pode usar segCwndAnt, pois essa é a nossa janela anterior. A segCwnd é do vegas e foi mudada por timeout, sendo dessincronizada da segCwndAnt
                 segCwnd = new_SegCwnd;
                 if(oldSegCwnd  > 1) //É um decremento efetivo, pois se foi por time_out (segCwnd == 1) a coisa acaba incrementando.
-                printk("--DECREMENTOU de %d para %d\n", segCwndAnt, segCwnd);
+                printk("--DECREMENTOU de %llu para %llu\n", segCwndAnt, segCwnd);
                 else
-                printk("--INCREMENTOU de %d para %d\n",oldSegCwnd, segCwnd);
+                printk("--INCREMENTOU de %llu para %llu\n",oldSegCwnd, segCwnd);
 
             
             }
             else
             {
                 segCwnd = 10;
-                printk("==JANELA MINIMA foi de %d para %d\n", segCwndAnt, segCwnd);
+                printk("==JANELA MINIMA foi de %llu para %llu\n", segCwndAnt, segCwnd);
             }  
             //printf("--DECREMENTOU Fluxo %d, foi de %d para %d\n",flow_id, segCwndAnt, segCwnd);
             //getchar();
             tcp_snd_cwnd_set(tp, segCwnd + 1);//tcb->m_cWnd = segCwnd * tcb->m_segmentSize;
             //tcb->m_ssThresh = GetSsThresh (tcb, 0);
-            printk("Updated cwnd = %d \n", segCwnd+1);
+            printk("Updated cwnd = %llu \n", segCwnd+1);
       }
       else if (mrs_network_state == 1)
       {
         printk("Seting cwnd with network stare equal to 1? %d\n", mrs_network_state);
       
         if(segCwnd >= 10 || segCwnd <= 2)
-          new_SegCwnd = (segCwnd + 4);
+          new_SegCwnd = (segCwnd + 4*acked); //4*acked, pois aumenta 4 para cada ack
         
         else
           new_SegCwnd = segCwnd*segCwnd;//(float)std::pow(float_SegCwnd,2.0);
         
-        printk("new_SegCwnd: %d\n",new_SegCwnd);
-        u32 segCwndAnt = segCwnd;
+        printk("new_SegCwnd: %llu\n",new_SegCwnd);
+        u64 segCwndAnt = segCwnd;
         if(new_SegCwnd > 10)
           segCwnd = new_SegCwnd +1; //(uint32_t)(float_SegCwnd) +1;
         else
           segCwnd = 10;
-        printk("++INCREMENTOU, foi de %d para %d\n",segCwndAnt,segCwnd);
+        printk("++INCREMENTOU, foi de %llu para %llu\n",segCwndAnt,segCwnd);
         //getchar();
         tcp_snd_cwnd_set(tp, segCwnd);//tcb->m_cWnd = segCwnd * tcb->m_segmentSize;
       }

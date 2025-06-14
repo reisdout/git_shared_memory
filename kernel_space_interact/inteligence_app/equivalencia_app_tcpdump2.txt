@@ -1,0 +1,379 @@
+tcp dump
+
+1749916485.382496 IP 10.0.1.3.6061 > 10.0.0.3.40678: Flags [.], ack 3573011094, win 509, options [nop,nop,TS val 1797914843 ecr 435302327], length 0
+1749916485.424432 IP 10.0.1.3.6061 > 10.0.0.3.40678: Flags [.], ack 3573011222, win 508, options [nop,nop,TS val 1797914886 ecr 435302370], length 0
+1749916485.510045 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050295549, win 509, options [nop,nop,TS val 1797914971 ecr 435302454], length 0
+1749916485.552937 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050298445, win 546, options [nop,nop,TS val 1797915014 ecr 435302498], length 0
+1749916485.552938 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050301341, win 592, options [nop,nop,TS val 1797915014 ecr 435302498], length 0
+1749916485.554094 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050304237, win 637, options [nop,nop,TS val 1797915015 ecr 435302498], length 0
+1749916485.554094 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050307133, win 681, options [nop,nop,TS val 1797915015 ecr 435302498], length 0
+1749916485.554094 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050310029, win 659, options [nop,nop,TS val 1797915015 ecr 435302498], length 0
+1749916485.554095 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050312925, win 681, options [nop,nop,TS val 1797915015 ecr 435302498], length 0
+1749916485.554095 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 681, options [nop,nop,TS val 1797915015 ecr 435302498], length 0
+1749916485.594960 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 1 {4050317269:4050320165}], length 0
+1749916485.594962 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 1 {4050317269:4050323061}], length 0
+1749916485.594962 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 1 {4050317269:4050325957}], length 0
+1749916485.594962 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 1 {4050317269:4050328853}], length 0
+1749916485.594962 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 1 {4050317269:4050331749}], length 0
+1749916485.595212 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 2 {4050336093:4050337541}{4050317269:4050331749}], length 0
+1749916485.595212 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 2 {4050336093:4050340437}{4050317269:4050331749}], length 0
+1749916485.595212 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 2 {4050336093:4050343333}{4050317269:4050331749}], length 0
+1749916485.595213 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 2 {4050336093:4050346229}{4050317269:4050331749}], length 0
+1749916485.595213 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915056 ecr 435302498,nop,nop,sack 2 {4050336093:4050349125}{4050317269:4050331749}], length 0
+1749916485.596537 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915057 ecr 435302498,nop,nop,sack 2 {4050336093:4050352021}{4050317269:4050331749}], length 0
+1749916485.596538 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915057 ecr 435302498,nop,nop,sack 2 {4050336093:4050354917}{4050317269:4050331749}], length 0
+1749916485.596538 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915057 ecr 435302498,nop,nop,sack 2 {4050336093:4050359261}{4050317269:4050331749}], length 0
+1749916485.596538 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915057 ecr 435302498,nop,nop,sack 2 {4050336093:4050363605}{4050317269:4050331749}], length 0
+1749916485.596538 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915057 ecr 435302498,nop,nop,sack 2 {4050336093:4050373741}{4050317269:4050331749}], length 0
+1749916485.598529 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050315821, win 702, options [nop,nop,TS val 1797915057 ecr 435302498,nop,nop,sack 3 {4050380981:4050402701}{4050336093:4050373741}{4050317269:4050331749}], length 0
+1749916485.637990 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050331749, win 578, options [nop,nop,TS val 1797915098 ecr 435302582,nop,nop,sack 2 {4050380981:4050402701}{4050336093:4050373741}], length 0
+1749916485.637991 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050331749, win 578, options [nop,nop,TS val 1797915098 ecr 435302582,nop,nop,sack 2 {4050380981:4050405677}{4050336093:4050373741}], length 0
+1749916485.637991 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050334645, win 556, options [nop,nop,TS val 1797915098 ecr 435302582,nop,nop,sack 2 {4050380981:4050405677}{4050336093:4050373741}], length 0
+1749916485.637991 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050373741, win 251, options [nop,nop,TS val 1797915098 ecr 435302582,nop,nop,sack 1 {4050380981:4050405677}], length 0
+1749916485.637992 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050373741, win 724, options [nop,nop,TS val 1797915098 ecr 435302582,nop,nop,sack 1 {4050380981:4050405677}], length 0
+1749916485.640400 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050376637, win 770, options [nop,nop,TS val 1797915101 ecr 435302585,nop,nop,sack 1 {4050380981:4050405677}], length 0
+1749916485.640401 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050379533, win 815, options [nop,nop,TS val 1797915101 ecr 435302585,nop,nop,sack 1 {4050380981:4050405677}], length 0
+1749916485.640401 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050405677, win 838, options [nop,nop,TS val 1797915101 ecr 435302585], length 0
+1749916485.680419 IP 10.0.1.3.6061 > 10.0.0.3.40694: Flags [.], ack 4050408573, win 883, options [nop,nop,TS val 1797915141 ecr 435302625], length 0
+
+
+arrival (sec): 1749916485
+arrival (usec): 382496
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485382496  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302327
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 424432
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485424432  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302370
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 510045
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485510045  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302454
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 552937
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485552937  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 552938
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485552938  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 554094
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485554094  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 554094
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485554094  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 554094
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485554094  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 554095
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485554095  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 554095
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485554095  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 594960
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485594960  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 594962
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485594962  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 594962
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485594962  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 594962
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485594962  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 594962
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485594962  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 595212
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485595212  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 595212
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485595212  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 595212
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485595212  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 595213
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485595213  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 595213
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485595213  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 596537
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485596537  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 596538
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485596538  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 596538
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485596538  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 596538
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485596538  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 596538
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485596538  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 598529
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485598529  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302498
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 637990
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485637990  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302582
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 637991
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485637991  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302582
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 637991
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485637991  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302582
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 637991
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485637991  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302582
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 637992
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485637992  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302582
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 640400
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485640400  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302585
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 640401
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485640401  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302585
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 640401
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485640401  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302585
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680419
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680419  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680420
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680420  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680420
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680420  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680420
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680420  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680420
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680420  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680420
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680420  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+arrival (sec): 1749916485
+arrival (usec): 680420
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+No-op option with no length. Going ahead.
+1749916485680420  10.0.1.3-> 10.0.0.3 *A****, ecr: 435302625
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+

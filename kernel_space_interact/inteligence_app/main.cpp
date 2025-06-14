@@ -363,25 +363,33 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
     uint8_t *p;
     uint8_t *end;
     uint32_t ecr;
+    uint32_t my_time_stamp;
+    uint64_t time_arrival;
 
     switch (iphdr->ip_p)
     {
     case IPPROTO_TCP:
         printf("arrival (sec): %ld\n", packethdr->ts.tv_sec); //aqui um e o complemento do outro. sec e a parte inteira e
         printf("arrival (usec): %ld\n", packethdr->ts.tv_usec);//usec e a parte fracionaria em micro-segundos(usec)
+        time_arrival = uint64_t(packethdr->ts.tv_sec*1000000 + packethdr->ts.tv_usec);
         tcphdr = (struct tcphdr*)packetptr;
-        printf("TCP  %s:%d -> %s:%d\n", srcip, ntohs(tcphdr->th_sport),
-               dstip, ntohs(tcphdr->th_dport));
-        printf("%s\n", iphdrInfo);
-        printf("%c%c%c%c%c%c Seq: 0x%x Ack: 0x%x Win: 0x%x TcpLen: %d\n",
-               (tcphdr->th_flags & TH_URG ? 'U' : '*'),
-               (tcphdr->th_flags & TH_ACK ? 'A' : '*'),
-               (tcphdr->th_flags & TH_PUSH ? 'P' : '*'),
-               (tcphdr->th_flags & TH_RST ? 'R' : '*'),
-               (tcphdr->th_flags & TH_SYN ? 'S' : '*'),
-               (tcphdr->th_flags & TH_SYN ? 'F' : '*'),
-               ntohl(tcphdr->th_seq), ntohl(tcphdr->th_ack),
-               ntohs(tcphdr->th_win), 4*tcphdr->th_off);
+        if(string(srcip) != "10.0.1.3" && tcphdr->th_flags & TH_ACK) //so aceita ack de 10.0.1.3
+        {
+            cout << "ACK came from another source different of 10.0.1.3" << endl;
+            break;
+        }
+        //printf("TCP  %s:%d -> %s:%d\n", srcip, ntohs(tcphdr->th_sport),
+               //dstip, ntohs(tcphdr->th_dport));
+        //printf("%s\n", iphdrInfo);
+        //printf("%c%c%c%c%c%c Seq: 0x%x Ack: 0x%x Win: 0x%x TcpLen: %d\n",
+               //(tcphdr->th_flags & TH_URG ? 'U' : '*'),
+               //(tcphdr->th_flags & TH_ACK ? 'A' : '*'),
+               //(tcphdr->th_flags & TH_PUSH ? 'P' : '*'),
+               //(tcphdr->th_flags & TH_RST ? 'R' : '*'),
+               //(tcphdr->th_flags & TH_SYN ? 'S' : '*'),
+               //(tcphdr->th_flags & TH_SYN ? 'F' : '*'),
+               //ntohl(tcphdr->th_seq), ntohl(tcphdr->th_ack),
+               //ntohs(tcphdr->th_win), 4*tcphdr->th_off);
 
         packets += 1;
         //Buscando as opcoes ver:
@@ -401,19 +409,33 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
                 break;
             }
             if (kind == 1) {
-                printf("No-op option with no length. Going ahead\n.");
+                printf("No-op option with no length. Going ahead.\n");
                 continue;
             }
             uint8_t size = *p++; //passa o tamanho
             if (kind == 8) {
+                my_time_stamp = ntohl(*(uint32_t *)(p));
                 ecr = ntohl(*(uint32_t *)(p+4)); //p+4 pois e o segundo grupo de 4 bytes
             }
             p += (size - 2);
         }
         
-        printf("ecr: %u\n", ecr);
+        //printf("ecr: %u\n", ecr);
         //Ja estamos pegando a chegada do pacote e a ecr
         //falta so capturar o pacote SYN para sincronizar o relogio e, com isso, calcular o RTT
+
+        printf("%lu  %s-> %s %c%c%c%c%c%c, TSval:%u ecr: %u\n",             
+        time_arrival, 
+        srcip,
+        dstip,
+        (tcphdr->th_flags & TH_URG ? 'U' : '*'),
+        (tcphdr->th_flags & TH_ACK ? 'A' : '*'),
+        (tcphdr->th_flags & TH_PUSH ? 'P' : '*'),
+        (tcphdr->th_flags & TH_RST ? 'R' : '*'),
+        (tcphdr->th_flags & TH_SYN ? 'S' : '*'),
+        (tcphdr->th_flags & TH_SYN ? 'F' : '*'),
+        my_time_stamp,
+        ecr);
 
         printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n");
 
@@ -456,7 +478,7 @@ void stop_capture(int signo)
 
 int main(int argc, char *argv[])
 {
-    
+    //codigos pcap baseados em https://vichargrave.github.io/programming/develop-a-packet-sniffer-with-libpcap/
     char device[256];
     char filter[256]; 
     int count = 0;
@@ -464,7 +486,7 @@ int main(int argc, char *argv[])
 
     *device = 0;
     *filter = 0;
-
+    //comando a ser dados sudo ./inteligence_app -i enp4s0 tcp[tcpflags] == tcp-ack or tcp[tcpflags] == tcp-syn
     // Get the command line options, if any
     while ((opt = getopt(argc, argv, "hi:n:")) != -1)
     {

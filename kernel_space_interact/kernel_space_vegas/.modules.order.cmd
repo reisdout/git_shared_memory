@@ -1,1 +1,1 @@
-savedcmd_/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/modules.order := {   echo /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/i_tcp_vegas.o; :; } > /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/kernel_space_vegas/modules.order
+savedcmd_modules.order := {   echo i_tcp_vegas.o; :; } > modules.order

@@ -15,16 +15,18 @@ cliesnts_host_eth_interface="enp4s0"
 start_date_tshark=$(date +'%a_%b_%d_%H_%M_%S')
 
 
+# usar data type chalenge
+
 if [ "$1" == "-h" ]; then
 
-    echo "Usage: $0 [-c|--cong_cont 'congestion control'] [-d|--data_type 'type of data'] [-r|--rate 'bottleneck rate'] [-f|--flows 'number of flows'] [-s|--saturation 'number of flows to sature band']"
+    echo "Usage: $0 [-c|--cong_cont 'congestion control'] [-m|--model 'model to assist congestion control'] [-d|--data_type 'type of data'] [-r|--rate 'bottleneck rate'] [-f|--flows 'number of flows'] [-s|--saturation 'number of flows to sature band']"
     exit 0
 fi
 
 
 if [ "$1" == "--help" ]; then
 
-    echo "Usage: $0 [-c|--cong_cont 'congestion control'] [-d|--data_type 'type of data'] [-r|--rate 'bottleneck rate'] [-f|--flows 'number of flows'] [-s|--saturation 'number of flows to sature band']"
+    echo "Usage: $0 [-c|--cong_cont 'congestion control'] [-m|--model 'model to assist congestion control'] [-d|--data_type 'type of data'] [-r|--rate 'bottleneck rate'] [-f|--flows 'number of flows'] [-s|--saturation 'number of flows to sature band']"
     exit 0
 fi
 
@@ -32,14 +34,14 @@ fi
 
 
 
-VALID_ARGS=$(getopt -o c:d:r:f:s: --long cong_cont:,data_type:,rate:,flows:,saturation: -- "$@")
+VALID_ARGS=$(getopt -o c:m:d:r:f:s: --long cong_cont:,model:,data_type:,rate:,flows:,saturation: -- "$@")
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
 
 
-if [[ $# -ne 10 ]]; then
-   echo "You provided $# arguments, but we need 10. See -h option."    
+if [[ $# -ne 12 ]]; then
+   echo "You provided $# arguments, but we need 12. See -h option."    
     exit 0;
 fi
 
@@ -52,6 +54,12 @@ while [ : ]; do
         cong_cont_var=$2
         shift 2
         ;;
+    -m | --model)
+        #echo "Processing 'cong_cont' option. Input argument is '$2'"
+        model_var=$2
+        shift 2
+        ;;
+
     -d | --data_type) 
         #echo "Processing 'data_type' option. Input argument is '$2'"
         data_type_var=$2
@@ -210,34 +218,26 @@ sleep 20
 
 pkill -f iperf3
 
+str_no_model="none"
 
 
-echo "Starting Tshark ACK capture in client host:"
+if [ "$model_var" != "$str_no_model" ]; then
 
-sleep 2
+    if [ "$cong_cont_var" != "$str_tcp_vegas" ]; then
+    echo "Model only with Vegas!"
+    exit(0)
+    fi
+    
+    echo "You choose vegas++${model_var}!"    
+    $(echo "You choose vegas++${model_var}!" >> "${experiment_path}/client_side_challenge_report_${start_date_tshark}.txt")
+    echo "Starting CC intelligence"
+    cd /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release
+    ./inteligence_app ${model_var}
 
-#tshark -i ens33 -B 300 -f "tcp[tcpflags] == tcp-ack and src 10.0.1.3"  -w ./tcp_ACK_pcap_09_52.pcapng
-
-
-xterm $hold_param -e  "cd /tmp/ramdisk/tshark; tshark -i ${cliesnts_host_eth_interface} -a duration:750 -B 300 -f \"tcp[tcpflags] == tcp-ack and src 10.0.1.3\"  -w ./tcp_ACK_pcap_${start_date_tshark}.pcapng" && /bin/bash &
-
-echo "Starting Tshark SYN capture in host:"
-
-#tshark -i ens33 -a packets:30 -f "(tcp[tcpflags] == tcp-syn or tcp[tcpflags]== tcp-syn|tcp-ack) and (src 10.0.0.3 or  src 10.0.1.3)"  -w ./tcp_SYN_pcap_09_52.pcapng
-
-
-xterm $hold_param -e  "cd /tmp/ramdisk/tshark; tshark -i ${cliesnts_host_eth_interface} -a packets:30 -f \"(tcp[tcpflags] == tcp-syn or tcp[tcpflags]== tcp-syn|tcp-ack) and (src 10.0.0.3 or  src 10.0.1.3)\"  -w ./tcp_SYN_pcap_${start_date_tshark}.pcapng" && /bin/bash &
+fi
 
 
 sleep 30
-
-echo "Starting Tshark packet capture in router:"
-
-xterm $hold_param -e ssh ns@10.0.0.1  "cd /tmp/ramdisk/tshark;  tshark -i enp0s20f3 -a duration:750 -f \"(tcp[13] & 8 !=0) and src 10.0.0.3\" -s 100 -w ./tcp_pcap_${start_date_tshark}.pcapng" && /bin/bash &
-
-
-sleep 10
-
 
 echo "Starting iperf3 servers in servers host: "
 

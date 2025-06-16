@@ -176,7 +176,14 @@ CMakeFiles/inteligence_app.dir/main.cpp.o: \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/fstream \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc /usr/include/unistd.h \
+ /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
@@ -287,4 +294,6 @@ CMakeFiles/inteligence_app.dir/main.cpp.o: \
  /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/./keras2c/keras2c/CNN_3000_epocas_ACK_RTT/keras2c_model_CNN_ACK_RTT.h \
  /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/./keras2c/keras2c/MLP_3000_epocas_SND_RTT/keras2c_model_MLP_SND_RTT.h \
  /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/./keras2c/keras2c/LSTM_3000_epocas_SND_RTT/keras2c_model_LSTM_SND_RTT.h \
- /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/./keras2c/keras2c/CNN_3000_epocas_SND_RTT/keras2c_model_CNN_SND_RTT.h
+ /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/./keras2c/keras2c/CNN_3000_epocas_SND_RTT/keras2c_model_CNN_SND_RTT.h \
+ /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/./project_mrs_utils/include/mrs_utils.h \
+ /usr/include/c++/13/cstring

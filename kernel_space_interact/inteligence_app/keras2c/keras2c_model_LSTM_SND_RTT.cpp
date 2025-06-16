@@ -112,6 +112,12 @@ void LSTM_SND_RTTModel::keras2c_model_Round_COMPLEXITY(const k2c_tensor* input_l
 
  } 
 
+void LSTM_SND_RTTModel::keras2c_model_Round_POC_500Mbps(const k2c_tensor* , k2c_tensor*)
+{
+    cout << "LSTM_SND_RTT_model_Round_POC_500Mbps" <<  endl;
+    
+}
+
 
 
 void LSTM_SND_RTTModel::keras2c_model_initialize() { 

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <algorithm>
 
 //pcap
 
@@ -49,6 +50,7 @@
 #include "./keras2c/keras2c/CNN_3000_epocas_SND_RTT/keras2c_model_CNN_SND_RTT.h"
 
 #include "./keras2c/keras2c/Model/Model.h"
+#include "mrs_utils.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -58,6 +60,33 @@ int linkhdrlen;
 int packets;
 
 k2c_tensor myInput,myOutput;
+
+bool first_ack_process = false;
+
+uint64_t marcaTempoChegadaAckAnterior = 0;
+long double intervalFromPreviousAck = 0.0;
+
+uint64_t marcaTempoAnterior = 0;
+
+long double intervalbetweenTS = 0.0;
+
+
+uint64_t virtual_clock_origin = 0;
+
+
+
+bool virtual_clock_origin_set = false;
+int num_ack_received = 0;
+long double ack_ewma = 0.0;
+long double ack_normalize = 0.0;
+long double send_ewma = 0.0;
+long double send_normalize = 0.0;
+long double rtt = 0.0;
+long double rtt_normalize=0.0;
+long double expWeightExpon = 0.8;
+long double cut_feature = 1.1;
+
+int experiment_round = 8;
 
 float flattenedFeatures[MAX_TERMINALS][MAX_TERMINALS][NUM_FLATTENED_FEATURES];
 
@@ -70,8 +99,24 @@ float kerasarray_2D_ACK_RTT[6];
 float kerasarray_2D_SND_RTT[6];
 
 
+string str_model_file = "/proc/icc_vegas_driver";
 
-Model *ptModel;
+ofstream myfile;
+
+
+/*
+Algumas vezes o compilador se perde no
+polimorfismo. Por isso fique de olho nas
+assinaturas(cout na primeira linha) dos 
+metodos concredos. Se isso acontecer,
+apagre a pasta build e de um novo build.
+
+*/
+
+
+Model *ptModel=0;
+
+class_tensor_fill *pt_tensor_fill = new class_tensor_fill();
 
 
 bool check_bidimensional_model(int par_model_architecture)
@@ -120,11 +165,21 @@ bool check_big_error(float par_keras_prevision, float par_keras2c_prevision, int
 int make_prevision(int par_experiment_round)
 {
 
+
+ if(!ptModel)
+ {
+    cout << "Abstract Model" << endl;
+    exit(0);
+ }
+
+ pt_tensor_fill->fill_tensor(0,0); //preenche os tensors do keras
+
+
  if(par_experiment_round == ROUND_0000001)
-  {
+ {
     std::cout << "Round0000001\n";
     ptModel->keras2c_model_Round0000001(&myInput,&myOutput);
-  }
+ }
 
   else if(par_experiment_round == ROUND_0000002)
   {
@@ -157,6 +212,12 @@ int make_prevision(int par_experiment_round)
   {
     ptModel->keras2c_model_Round_REC_100Mbps(&myInput,&myOutput);
   }
+
+  else if(par_experiment_round == ROUND_POC_000004_500MBPS)
+  {
+    ptModel->keras2c_model_Round_POC_500Mbps(&myInput,&myOutput);
+  }
+
 
   else if(par_experiment_round == ROUND_COMPLXETY_TIME)
     ptModel->keras2c_model_Round_COMPLEXITY(&myInput,&myOutput);
@@ -331,9 +392,255 @@ void get_link_header_len(pcap_t* handle)
     }
 }
 
+
+void set_pt_model(int par_model_architecture)
+{
+
+    if(par_model_architecture == MLP_MODEL)
+    {
+
+        ptModel =  new MLPModel();
+    }
+
+    else if(par_model_architecture == MLP_ACK_RTT)
+    {
+        ptModel = new MLP_ACK_RTTModel();
+    }
+
+    else if(par_model_architecture == MLP_SND_RTT)
+    {
+        ptModel = new MLP_SND_RTTModel();
+    }
+
+    else if(par_model_architecture == LSTM_MODEL)
+    {
+        ptModel =  new LSTMModel();
+
+    }
+
+    else if(par_model_architecture == LSTM_ACK_RTT)
+    {
+        ptModel = new LSTM_ACK_RTTModel();
+    }
+
+    else if(par_model_architecture == LSTM_SND_RTT)
+    {
+        ptModel = new LSTM_SND_RTTModel();
+    }
+
+    else if(par_model_architecture == CNN_MODEL)
+    {
+        ptModel = new CNNModel();
+
+    }
+
+    else if(par_model_architecture == CNN_ACK_RTT)
+    {
+        ptModel = new CNN_ACK_RTTModel();
+    }
+
+    else if(par_model_architecture == CNN_SND_RTT)
+    {
+        ptModel = new CNN_SND_RTTModel();
+
+    }
+
+    else
+    {
+        cout << "Invalid model architecture" << endl;
+        exit(0);
+    }
+
+
+}
+
+
+void set_virtual_clock_origin(uint64_t par_1970_ts, uint64_t par_virtual_clock_ts)
+{
+
+    bool force_print_set_virtual_clock_origin = false;
+/*
+
+Observe a tabela abaixo. O cálculo do RTT é feito considerando o primeiro pacote
+SYN. No caso considerado, a primeira coluna traz a marca de tempo desde 01/01/1970
+(1741093101433) e a marca de temp TS (1773487458), que é a obtida no relógio virtual.
+Podemos considerar que essas marcas de tempo caem em pontos iguais no eixo do tempo, mas 
+têm valor distintos por estarem sendo contadas de origens diferentes. Ou seja, o 
+"eixo dos tempos virtuais" foi transladado. Daí para se obter a origem do tempo virtual
+em relação à 01/01/70, basta subtrair  1741093101433 de 1773487458 e encontraremos
+o ponto Ov(Origem virtual), a partir do qual 1741093101433 tem valor 1773487458. Depois
+sempre que quisermos achar o valor do virtual em relação a 01/01/1970, basta somarmos
+Ov. 
+Esse processo foi feito com os acks de um experimento, cujos valores estão
+tabulados abaixo. Veja que o valor do RTT é exatamente o esperado para um
+delay de 40s, adotado no enlace do experimento.
+
+
+
+TS SYN 1       Origem Virtual Clock(Ov)	    ack_arr	   ecr	       RTT
+1741093101433	   1739319613975	1741093101534	1773487517	42
+1773487458	   1739319613975	1741093101534	1773487517	42
+	           1739319613975	1741093101534	1773487517	42
+	           1739319613975	1741093101534	1773487517	42
+	           1739319613975	1741093103472	1773489451	46
+
+
+*/
+
+    cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+    cout << "Seting Virtual colck origin" << endl;
+    cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+
+    //bool force_print_set_virtual_clock_origin=false;
+
+    class_mrs_debug::print<uint64_t>("par_1970_ts: ", par_1970_ts, force_print_set_virtual_clock_origin); 
+    class_mrs_debug::print<uint64_t>("par_virtual_clock_ts: ", par_virtual_clock_ts, force_print_set_virtual_clock_origin); 
+
+
+    //tem que dividir por 1000 o desde de 1970, pois o dump traz em microssegundos e o virtual
+    //é milissegundos.
+    
+    virtual_clock_origin = (par_1970_ts/1000) - par_virtual_clock_ts;
+    virtual_clock_origin_set = true;
+
+    //class_mrs_debug::print<uint64_t>("virtual_clock_origin: ", virtual_clock_origin, feature_saver_tcp_force_print||force_print_set_virtual_clock_origin); 
+
+}
+
+
+
+
+void calculate_ack_ewma(uint64_t par_ack_arrival_time)
+{
+
+    bool force_print_calculate_ack_ewma = true;
+   
+    if(first_ack_process)    
+    {
+
+        long double ack_arrival_micro = par_ack_arrival_time/1000;
+        long double marcaTempoChegadaAckAnterior_micro = marcaTempoChegadaAckAnterior/1000;
+        long double delta_t = ack_arrival_micro - marcaTempoChegadaAckAnterior_micro;
+        intervalFromPreviousAck = delta_t;
+        ack_ewma = ((1.0-expWeightExpon )*ack_ewma) + (expWeightExpon *intervalFromPreviousAck);
+        //cout << "ack_ewma: " << ack_ewma<< "; "<<"Dt: " <<intervalFromPreviousAck <<  endl;
+        class_mrs_debug::print<long double>("ack_ewma: ", ack_ewma,force_print_calculate_ack_ewma);
+    }
+    
+    
+    marcaTempoChegadaAckAnterior = par_ack_arrival_time;
+}
+
+
+void calculate_send_ewma(uint64_t  par_eco_reply)
+{
+    bool  force_print_calculate_send_ewma = true;
+
+    class_mrs_debug::print<uint64_t>("par_eco_reply: ", par_eco_reply,force_print_calculate_send_ewma);
+    
+    if(first_ack_process)
+    {
+        uint64_t delta_t = par_eco_reply - marcaTempoAnterior; //duration_cast<microseconds>(marcaTempoAtual - marcaTempoAnterior);
+        intervalbetweenTS = (long double) delta_t; //(float) delta_t.count();
+        send_ewma = ((1.0-expWeightExpon )*send_ewma + (expWeightExpon*intervalbetweenTS));
+        cout << "send_ewma: " << send_ewma<< "; "<<"Dt: " << intervalbetweenTS <<  endl;
+        class_mrs_debug::print<long double>("send_ewma: ", send_ewma,force_print_calculate_send_ewma);
+
+    }
+
+ 
+    marcaTempoAnterior = par_eco_reply;
+
+}
+
+void calculate_rtt(uint64_t  par_ack_arrival_time, uint64_t par_packet_eco_reply)
+{
+    
+    bool force_prinnt_calculate_rtt = true;
+    
+    long double ack_arrival_mili_sec = static_cast<long double>(par_ack_arrival_time/1000.0);
+
+    
+    class_mrs_debug::print<long double>("ack_arrival_mili_sec: ", ack_arrival_mili_sec,force_prinnt_calculate_rtt);
+
+    class_mrs_debug::print<long double>("virtual_clock_origin: ", virtual_clock_origin ,force_prinnt_calculate_rtt );
+
+    class_mrs_debug::print<long double>("par_packet_eco_reply: ", par_packet_eco_reply ,force_prinnt_calculate_rtt );
+    
+    long double ecr_from_1970 =  static_cast<long double>(virtual_clock_origin + par_packet_eco_reply);
+
+    class_mrs_debug::print<long double>("ecr_from_1970: ", ecr_from_1970, force_prinnt_calculate_rtt);
+    
+    rtt = (ack_arrival_mili_sec - ecr_from_1970);  //(double)pre_rtt.count();
+    rtt = rtt*1000; // microsseconds
+    
+    class_mrs_debug::print<float>("rtt in calculate_rtt: ", rtt,force_prinnt_calculate_rtt);
+}
+
+
+
+
+void feature_handler(uint64_t par_ack_arrival_time, uint64_t par_packet_eco_reply)
+{
+
+       
+        if(!virtual_clock_origin_set)
+        {
+            cout << "No Virtual clock origin" << endl;
+            return;
+        }
+
+        if(num_ack_received < NUM_FLATTENED_FEATURES+3)
+            num_ack_received++;
+
+        calculate_ack_ewma(par_ack_arrival_time);
+        calculate_send_ewma(par_packet_eco_reply);
+        calculate_rtt(par_ack_arrival_time,par_packet_eco_reply);
+
+        if(first_ack_process)
+        {
+            
+            //if(intervalFromPreviousAck < cut_feature*ack_normalize && intervalbetweenTS < cut_feature*send_normalize)
+            //{
+                              
+                cout << "updating features with (" << ack_ewma << ", "<< send_ewma <<", "<< rtt << ")" << endl;
+                cout << "normalized (" << (float)(ack_ewma/ack_normalize) << ", "
+                << (float)(send_ewma/send_normalize) <<", "
+                << (float)(rtt/rtt_normalize) << ")" << endl;
+                pt_tensor_fill->update_features(0,0,(float)(ack_ewma/ack_normalize),(float)(send_ewma/send_normalize),(float)(rtt/rtt_normalize));
+                //cin.ignore();
+                if(num_ack_received >= NUM_FLATTENED_FEATURES)
+                {
+                    cout << "Predicting...." << endl;
+                    if(make_prevision(experiment_round) == 1) 
+                    {      
+                        myfile << "A";
+                        cout << "Predict " << "1" << endl;
+                    }
+                    else
+                    {
+                        myfile << "B";
+                        cout << "Predict " << "2" << endl;
+                    }
+                    //cin.ignore();
+                }
+
+            //}    
+ 
+ 
+
+        }
+
+        first_ack_process = true;
+
+
+}
+
+
 void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_char *packetptr)
 {
     //k2c_tensor myInput,myOutput;
+    float force_print_packet_handler = true;
     struct ip* iphdr;
     struct icmp* icmphdr;
     struct tcphdr* tcphdr;
@@ -373,11 +680,6 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
         printf("arrival (usec): %ld\n", packethdr->ts.tv_usec);//usec e a parte fracionaria em micro-segundos(usec)
         time_arrival = uint64_t(packethdr->ts.tv_sec*1000000 + packethdr->ts.tv_usec);
         tcphdr = (struct tcphdr*)packetptr;
-        if(string(srcip) != "10.0.1.3" && tcphdr->th_flags & TH_ACK) //so aceita ack de 10.0.1.3
-        {
-            cout << "ACK came from another source different of 10.0.1.3" << endl;
-            break;
-        }
         //printf("TCP  %s:%d -> %s:%d\n", srcip, ntohs(tcphdr->th_sport),
                //dstip, ntohs(tcphdr->th_dport));
         //printf("%s\n", iphdrInfo);
@@ -424,6 +726,35 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
         //Ja estamos pegando a chegada do pacote e a ecr
         //falta so capturar o pacote SYN para sincronizar o relogio e, com isso, calcular o RTT
 
+        if(tcphdr->th_flags & TH_SYN && string(srcip) == "10.0.0.3")//acertar a origem do relogio virtual so no primeiro SYN
+        {
+            if (!virtual_clock_origin_set)
+            {
+                class_mrs_debug::print<char>("calling set_virtual_clock_origin", '\n',force_print_packet_handler);
+                set_virtual_clock_origin(time_arrival, my_time_stamp);                              
+            }
+            else
+                cout << "SYN afther virtual clock origin set" << endl;
+            printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n"); 
+            break;
+
+        }
+
+        if(string(srcip) != "10.0.1.3") //so aceita de 10.0.1.3
+        {
+            cout << "Ignored source" << endl;
+            printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n");
+            break;
+        }
+
+        if(string(srcip) == "10.0.1.3" && !tcphdr->th_flags & TH_ACK)
+        {
+            cout << "No ACK packet came from 10.0.1.3" << endl;
+            printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n");
+            break;
+        }
+
+
         printf("%lu  %s-> %s %c%c%c%c%c%c, TSval:%u ecr: %u\n",             
         time_arrival, 
         srcip,
@@ -436,6 +767,8 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
         (tcphdr->th_flags & TH_SYN ? 'F' : '*'),
         my_time_stamp,
         ecr);
+
+        feature_handler(time_arrival,ecr);
 
         printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n");
 
@@ -479,21 +812,26 @@ void stop_capture(int signo)
 int main(int argc, char *argv[])
 {
     //codigos pcap baseados em https://vichargrave.github.io/programming/develop-a-packet-sniffer-with-libpcap/
+    int model_architeture = -1;
     char device[256];
     char filter[256]; 
     int count = 0;
     int opt;
-
+    int rate;
+ 
     *device = 0;
     *filter = 0;
     //comando a ser dados sudo ./inteligence_app -i enp4s0 tcp[tcpflags] == tcp-ack or tcp[tcpflags] == tcp-syn
     // Get the command line options, if any
-    while ((opt = getopt(argc, argv, "hi:n:")) != -1)
+
+    
+
+    while ((opt = getopt(argc, argv, "hi:n:m:b:r:")) != -1)
     {
         switch (opt)
         {
         case 'h':
-            printf("usage: %s [-h] [-i interface] [-n count] [BPF expression]\n", argv[0]);
+            printf("usage: %s [-h] [-i interface] [-n count] [-m model] [-b bottleneck] [-r round] [BPF expression]\n", argv[0]);
             exit(0);
             break;
         case 'i':
@@ -501,9 +839,49 @@ int main(int argc, char *argv[])
             break;
         case 'n':
             count = atoi(optarg);
+            break;        
+
+        case 'm':
+            model_architeture = atoi(optarg);
+            pt_tensor_fill->set_model_architeture(model_architeture);
+            set_pt_model(model_architeture);
+            cout << "CC assisted by " << get_model_name_str(model_architeture) << endl; 
             break;
+        
+        case 'b':
+            rate = atoi(optarg);
+            cout << "rate: " << rate << endl;
+            if(rate == 500)
+            {
+                ack_normalize = 5.66;
+                send_normalize = 5.73;
+                rtt_normalize = 1.351*43000;
+            } 
+            break;
+
+        
+        case 'r':
+            experiment_round = atoi(optarg);
+            cout << "experiment_round: " << experiment_round << endl;
+            break;
+
+
         }
+
     }
+    myfile.open(str_model_file.c_str());
+    if (myfile.is_open())
+    {
+       cout << "CC drive found!" << endl;
+    }
+    else
+    { 
+        cout << "Unable to open driver file\n";
+        exit (0);
+    }
+
+
+
 
     // Get the packet capture filter expression, if any.
     for (int i = optind; i < argc; i++) {
@@ -533,7 +911,11 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    stop_capture(0);
+    stop_capture(0); 
+    myfile.close();
+    delete ptModel;
+    delete pt_tensor_fill;
+
 
     /*
 
@@ -560,7 +942,7 @@ int main(int argc, char *argv[])
 
     int model_list[] = {MLP_MODEL, MLP_ACK_RTT, MLP_SND_RTT, LSTM_MODEL, LSTM_ACK_RTT, LSTM_SND_RTT, CNN_MODEL, CNN_ACK_RTT, CNN_SND_RTT};
 
-    int model_architeture;
+    
 
     double dt; //guarda a media dos tempos de resposta. 
 
@@ -571,7 +953,6 @@ int main(int argc, char *argv[])
         tensor_fill = new class_tensor_fill();
 
         tensor_fill->set_model_architeture(model_architeture);
-
 
         if(model_architeture == MLP_MODEL)
         {
@@ -634,6 +1015,7 @@ int main(int argc, char *argv[])
             cout << "Invalid model architecture" << endl;
             exit(0);
         }
+
 
         pt_input_output_configurator->configure_input_output(input, keras_output);
         file.open("./models_response_time.csv", std::ios::out | std::ios::app);

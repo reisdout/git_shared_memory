@@ -36,6 +36,8 @@
 #define ROUND_POC_0000003_300MBPS 10
 #define ROUND_POC_000004_500MBPS 11
 #define ROUND_COMPLXETY_TIME 12
+
+
 #define NUMTEST 2000
 
 #define NUM_INPUT_TEST1D 2002 //Despreza-se os dois iniciai, por isso 2000+2

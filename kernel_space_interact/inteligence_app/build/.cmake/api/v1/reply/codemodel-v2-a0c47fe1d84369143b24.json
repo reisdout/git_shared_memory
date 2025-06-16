@@ -74,14 +74,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "inteligence_app::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-inteligence_app-Release-ef77b36ea30b8d077aa0.json",
+					"jsonFile" : "target-inteligence_app-Release-704873ca01832e04e9be.json",
 					"name" : "inteligence_app",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "poc_keras2c::@8e1cbadc209250e250fb",
-					"jsonFile" : "target-poc_keras2c-Release-65a83b756fd0aa388faa.json",
+					"jsonFile" : "target-poc_keras2c-Release-50f535ad55e8b2c4def9.json",
 					"name" : "poc_keras2c",
 					"projectIndex" : 1
 				}

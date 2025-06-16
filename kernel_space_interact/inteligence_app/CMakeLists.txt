@@ -29,6 +29,7 @@ include_directories(. ./libpcap/pcap
                     ./keras2c/keras2c/Model
                     ./keras2c/keras2c/Model/include
                     ./tensor_fill/include
+                    ./project_mrs_utils/include
                     ./input_output_configurator/include
                     ./defines)
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/inteligent_cc.c" "CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o" "gcc" "CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o.d"
+  "/home/ns/c++/shared_memory/git_shared_memory/user_space_memory_prod_cons/inteligent_cc.c" "CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o" "gcc" "CMakeFiles/inteligent_cc.dir/inteligent_cc.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -10,6 +10,10 @@ size_t      size                        = sizeof(shm_mem_t);
 uint64_t    prod_seq                    = 0;
 
 
+/*instalar libuv*/
+
+// sudo apt-get install libuv1-dev 
+
 
 /*
 Producer functions

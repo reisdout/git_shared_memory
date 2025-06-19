@@ -35,12 +35,21 @@ include_directories(. ./libpcap/pcap
 
 #link_directories(${CMAKE_SOURCE_DIR}/lib)
 
+find_path(LIBUV_INCLUDE_DIR NAMES uv.h)
+
+# Find libuv library
+#find_library(LIBUV uv)
+
+find_library(LIBUV_LIBRARIES NAMES uv libuv)
+
 
 find_library(PCAP_LIB NAMES pcap PATHS ${CMAKE_SOURCE_DIR}/libpcap)
 
 find_library(POC_KERASC NAMES poc_keras2c PATHS ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
 
 add_subdirectory(keras2c)
+
+find_package(Threads REQUIRED)
 
 add_executable(inteligence_app main.cpp 
                ./tensor_fill/src/class_tensor_fill.cpp 
@@ -55,7 +64,12 @@ add_executable(inteligence_app main.cpp
                ./input_output_configurator/src/CNN_ACK_RTT_input_output_configurator.cpp
                ./input_output_configurator/src/CNN_SND_RTT_input_output_configurator.cpp)
 
-target_link_libraries(${PROJECT_NAME} 
+target_include_directories(inteligence_app PRIVATE ${LIBUV_INCLUDE_DIR})
+#target_link_libraries(inteligence_app ${LIBUV_LIBRARIES})
+
+target_link_libraries(inteligence_app 
                       ${PCAP_LIB} 
-                      ${POC_KERASC})
+                      ${POC_KERASC}
+                      ${LIBUV_LIBRARIES}
+                      Threads::Threads)
 

@@ -26,13 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 45,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 58,
+				"line" : 70,
 				"parent" : 0
 			},
 			{
@@ -166,6 +166,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "\"/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/static libs/libpoc_keras2c.a\"",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libuv.so",
 				"role" : "libraries"
 			}
 		],

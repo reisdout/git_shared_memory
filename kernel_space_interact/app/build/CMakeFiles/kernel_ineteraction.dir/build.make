@@ -69,31 +69,32 @@ include CMakeFiles/kernel_ineteraction.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kernel_ineteraction.dir/flags.make
 
-CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o: CMakeFiles/kernel_ineteraction.dir/flags.make
-CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp
-CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o: CMakeFiles/kernel_ineteraction.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -MF CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o.d -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp
+CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o: CMakeFiles/kernel_ineteraction.dir/flags.make
+CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.c
+CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o: CMakeFiles/kernel_ineteraction.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o -MF CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o.d -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o -c /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.c
 
-CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp > CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i
+CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.c > CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.i
 
-CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s
+CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.c -o CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.s
 
 # Object files for target kernel_ineteraction
 kernel_ineteraction_OBJECTS = \
-"CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o"
+"CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o"
 
 # External object files for target kernel_ineteraction
 kernel_ineteraction_EXTERNAL_OBJECTS =
 
-kernel_ineteraction: CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o
+kernel_ineteraction: CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o
 kernel_ineteraction: CMakeFiles/kernel_ineteraction.dir/build.make
+kernel_ineteraction: /usr/lib/x86_64-linux-gnu/libuv.so
 kernel_ineteraction: CMakeFiles/kernel_ineteraction.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable kernel_ineteraction"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable kernel_ineteraction"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kernel_ineteraction.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/build",
-		"source" : "/home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons"
+		"build" : "/home/ns/c++/shared_memory/git_shared_memory/user_space_memory_prod_cons/build",
+		"source" : "/home/ns/c++/shared_memory/git_shared_memory/user_space_memory_prod_cons"
 	},
 	"version" : 
 	{

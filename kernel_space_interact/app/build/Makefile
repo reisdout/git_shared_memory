@@ -129,29 +129,29 @@ kernel_ineteraction/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/build
 .PHONY : kernel_ineteraction/fast
 
-kernel_interact_app.o: kernel_interact_app.cpp.o
+kernel_interact_app.o: kernel_interact_app.c.o
 .PHONY : kernel_interact_app.o
 
 # target to build an object file
-kernel_interact_app.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o
-.PHONY : kernel_interact_app.cpp.o
+kernel_interact_app.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o
+.PHONY : kernel_interact_app.c.o
 
-kernel_interact_app.i: kernel_interact_app.cpp.i
+kernel_interact_app.i: kernel_interact_app.c.i
 .PHONY : kernel_interact_app.i
 
 # target to preprocess a source file
-kernel_interact_app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.i
-.PHONY : kernel_interact_app.cpp.i
+kernel_interact_app.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.i
+.PHONY : kernel_interact_app.c.i
 
-kernel_interact_app.s: kernel_interact_app.cpp.s
+kernel_interact_app.s: kernel_interact_app.c.s
 .PHONY : kernel_interact_app.s
 
 # target to generate assembly for a file
-kernel_interact_app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.s
-.PHONY : kernel_interact_app.cpp.s
+kernel_interact_app.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_ineteraction.dir/build.make CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.s
+.PHONY : kernel_interact_app.c.s
 
 # Help Target
 help:

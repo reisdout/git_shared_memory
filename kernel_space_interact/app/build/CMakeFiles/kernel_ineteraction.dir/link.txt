@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o -o kernel_ineteraction 
+/usr/bin/gcc -O3 -DNDEBUG CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o -o kernel_ineteraction  /usr/lib/x86_64-linux-gnu/libuv.so 

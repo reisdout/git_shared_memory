@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.cpp" "CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o" "gcc" "CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.cpp.o.d"
+  "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/kernel_interact_app.c" "CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o" "gcc" "CMakeFiles/kernel_ineteraction.dir/kernel_interact_app.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

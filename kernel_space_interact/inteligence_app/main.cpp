@@ -4,6 +4,10 @@
 #include <iomanip>
 #include <fstream>
 #include <algorithm>
+#include <thread>
+#include <mutex>
+#include <atomic>
+
 
 //pcap
 
@@ -51,9 +55,11 @@
 
 #include "./keras2c/keras2c/Model/Model.h"
 #include "mrs_utils.h"
+#include "shm.h"
 
 using namespace std;
 using namespace std::chrono;
+std::mutex mtx;
 
 pcap_t* handle;
 int linkhdrlen;
@@ -71,12 +77,13 @@ uint64_t marcaTempoAnterior = 0;
 long double intervalbetweenTS = 0.0;
 
 
-uint64_t virtual_clock_origin = 0;
+uint64_t virtual_clock_origin = 1746891263947; //1746891186990;
 
 
 
 bool virtual_clock_origin_set = false;
-int num_ack_received = 0;
+uint64_t num_ack_received = 0;
+int64_t num_features_inserted = 0;
 long double ack_ewma = 0.0;
 long double ack_normalize = 0.0;
 long double send_ewma = 0.0;
@@ -84,7 +91,7 @@ long double send_normalize = 0.0;
 long double rtt = 0.0;
 long double rtt_normalize=0.0;
 long double expWeightExpon = 0.8;
-long double cut_feature = 1.1;
+long double cut_feature = 1.0;
 
 int experiment_round = 8;
 
@@ -101,7 +108,18 @@ float kerasarray_2D_SND_RTT[6];
 
 string str_model_file = "/proc/icc_vegas_driver";
 
+string tshark_memory = "/tmp/ramdisk/tshark/temp.txt";
+
 ofstream myfile;
+
+ofstream tshark_file;
+
+void write_to_drive(string par_string)
+{
+    cout << "Atualizando CC level para " << par_string <<  "em ack " << num_ack_received << endl;
+    myfile << par_string;
+    cout << "CC atualizado em ACK " << num_ack_received << endl;
+}
 
 
 /*
@@ -115,6 +133,122 @@ apagre a pasta build e de um novo build.
 
 
 Model *ptModel=0;
+
+int prevision = 0;
+int last_prevision = 0;
+
+uint64_t seq_prevision_high = 0;
+
+
+/////////////////////////Shared Memory///////////////////////////////////////////
+
+
+#define MAX_ARG_LEN 30
+
+
+char read_buf[UV_READ_BUF_SIZE]  = {0};
+shm_mem_t   *shm_base                   = NULL;
+int         shm_fd                      = -1;
+size_t      mem_size                    = sizeof(shm_mem_t);
+uint64_t    prod_seq                    = 0;
+
+
+
+/*
+Producer functions
+*/
+static void
+prod_cleanup()
+{
+    close(shm_base->event_fd);
+    /* remove the mapped memory segment from the address space of the process */
+    if (munmap(shm_base, mem_size) == -1) {
+        printf("prod: Unmap failed: %s\n", strerror(errno));
+        exit(1);
+    }
+
+    /* close the shared memory segment as if it was a file */
+    if (close(shm_fd) == -1) {
+        printf("prod: Close failed: %s\n", strerror(errno));
+        exit(1);
+    }
+
+}
+
+static void
+prod_write_header(shm_mem_t *buf)
+{
+    int     event_fd;
+    pid_t   pid;
+
+    pid = getpid();
+    event_fd = eventfd(0, EFD_CLOEXEC);
+    printf("Started eventfd for notification with fd %d\n", event_fd);
+    if (event_fd < 0 || pid < 0) {
+        exit(1);
+    }
+    buf->prod_pid = pid;
+    buf->event_fd = event_fd;
+    atomic_store(&buf->prod_seq, 0);
+    atomic_store(&buf->cons_seq, 0);
+    printf("Write SHM Header: PID: %d eventfd: %d\n", pid, event_fd);
+}
+
+static void
+prod_write_data(shm_mem_t *buf, uint64_t data)
+{
+    uint64_t    cons_seq;
+
+    cons_seq = atomic_load(&buf->cons_seq);
+    if (cons_seq > prod_seq) {
+        //error;
+    }
+    if((prod_seq - cons_seq)  >= BUF_COUNT) {
+        printf("Slow consumer, buffer full\n");
+        return;
+    }
+    buf->data[prod_seq%BUF_COUNT] = data;
+    prod_seq++;
+    atomic_store(&buf->prod_seq, prod_seq);
+    printf("Write Data: %lu\n", data);
+    eventfd_write(buf->event_fd, prod_seq);
+    
+}
+
+static void
+uv_buf_alloc(uv_handle_t *handle, size_t size, uv_buf_t *buf)
+{
+    buf->base = read_buf;
+    buf->len = UV_READ_BUF_SIZE;
+}
+
+void
+on_stdin_read(uv_stream_t *stream, ssize_t nread, const uv_buf_t *buf)
+{
+    if (nread >= 0) {
+        if (buf->base[0] == 'q') {
+            prod_cleanup();
+            exit(1);
+        }
+        int num = atoi(buf->base);
+        if (num != 0 || buf->base[0] == '0') {
+            prod_write_data(shm_base, num);
+            //printf("You entered: %d\n", num);
+        } else {
+            printf("Invalid input. Please enter an integer.\n");
+        }
+    } else {
+        printf("Exiting program.\n");
+        uv_stop(uv_default_loop());
+    }
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 class_tensor_fill *pt_tensor_fill = new class_tensor_fill();
 
@@ -458,7 +592,7 @@ void set_pt_model(int par_model_architecture)
 void set_virtual_clock_origin(uint64_t par_1970_ts, uint64_t par_virtual_clock_ts)
 {
 
-    bool force_print_set_virtual_clock_origin = false;
+    bool force_print_set_virtual_clock_origin = true;
 /*
 
 Observe a tabela abaixo. O cálculo do RTT é feito considerando o primeiro pacote
@@ -503,7 +637,7 @@ TS SYN 1       Origem Virtual Clock(Ov)	    ack_arr	   ecr	       RTT
     virtual_clock_origin = (par_1970_ts/1000) - par_virtual_clock_ts;
     virtual_clock_origin_set = true;
 
-    //class_mrs_debug::print<uint64_t>("virtual_clock_origin: ", virtual_clock_origin, feature_saver_tcp_force_print||force_print_set_virtual_clock_origin); 
+    class_mrs_debug::print<uint64_t>("virtual_clock_origin: ", virtual_clock_origin,force_print_set_virtual_clock_origin); 
 
 }
 
@@ -535,12 +669,14 @@ void calculate_ack_ewma(uint64_t par_ack_arrival_time)
 void calculate_send_ewma(uint64_t  par_eco_reply)
 {
     bool  force_print_calculate_send_ewma = true;
+    uint64_t delta_t = 0;
 
     class_mrs_debug::print<uint64_t>("par_eco_reply: ", par_eco_reply,force_print_calculate_send_ewma);
     
     if(first_ack_process)
     {
-        uint64_t delta_t = par_eco_reply - marcaTempoAnterior; //duration_cast<microseconds>(marcaTempoAtual - marcaTempoAnterior);
+        if(par_eco_reply > marcaTempoAnterior)//pior que acontece....
+            delta_t = par_eco_reply - marcaTempoAnterior; //duration_cast<microseconds>(marcaTempoAtual - marcaTempoAnterior);
         intervalbetweenTS = (long double) delta_t; //(float) delta_t.count();
         send_ewma = ((1.0-expWeightExpon )*send_ewma + (expWeightExpon*intervalbetweenTS));
         cout << "send_ewma: " << send_ewma<< "; "<<"Dt: " << intervalbetweenTS <<  endl;
@@ -590,8 +726,10 @@ void feature_handler(uint64_t par_ack_arrival_time, uint64_t par_packet_eco_repl
             return;
         }
 
-        if(num_ack_received < NUM_FLATTENED_FEATURES+3)
-            num_ack_received++;
+        uint64_t sh_mem_data;
+
+        //if(num_ack_received < NUM_FLATTENED_FEATURES+3)
+        num_ack_received++;
 
         calculate_ack_ewma(par_ack_arrival_time);
         calculate_send_ewma(par_packet_eco_reply);
@@ -600,32 +738,64 @@ void feature_handler(uint64_t par_ack_arrival_time, uint64_t par_packet_eco_repl
         if(first_ack_process)
         {
             
-            //if(intervalFromPreviousAck < cut_feature*ack_normalize && intervalbetweenTS < cut_feature*send_normalize)
-            //{
+            if(intervalFromPreviousAck < cut_feature*ack_normalize && intervalbetweenTS < cut_feature*send_normalize)
+            {
                               
                 cout << "updating features with (" << ack_ewma << ", "<< send_ewma <<", "<< rtt << ")" << endl;
                 cout << "normalized (" << (float)(ack_ewma/ack_normalize) << ", "
                 << (float)(send_ewma/send_normalize) <<", "
                 << (float)(rtt/rtt_normalize) << ")" << endl;
                 pt_tensor_fill->update_features(0,0,(float)(ack_ewma/ack_normalize),(float)(send_ewma/send_normalize),(float)(rtt/rtt_normalize));
+                num_features_inserted++;
                 //cin.ignore();
-                if(num_ack_received >= NUM_FLATTENED_FEATURES)
+                if(num_features_inserted >= NUM_FLATTENED_FEATURES)
                 {
-                    cout << "Predicting...." << endl;
-                    if(make_prevision(experiment_round) == 1) 
-                    {      
-                        myfile << "A";
-                        cout << "Predict " << "1" << endl;
-                    }
-                    else
+                    //mtx.lock();
+                    prevision = make_prevision(experiment_round);
+                    //mtx.unlock();
+
+                    if(prevision != last_prevision)
                     {
-                        myfile << "B";
-                        cout << "Predict " << "2" << endl;
+                    
+                        if(prevision == 1)
+                        {
+                            
+                            sh_mem_data = 1;
+                            prod_write_data(shm_base, sh_mem_data);
+                            //printf("You entered: %d\n", num);
+                            //tshark_file << "A";
+                            seq_prevision_high = 0;
+                            last_prevision = prevision;
+                        }
+                            
+                            
+                        
+                        else
+                        {
+                            seq_prevision_high++;
+                        
+                            if(seq_prevision_high >=10)
+                            {
+                                sh_mem_data = 2;
+                                prod_write_data(shm_base, sh_mem_data);
+                                last_prevision = prevision;
+                                //tshark_file << "B";
+                            }
+                            else
+                                last_prevision = 1; //se manteve em 1
+                            
+                        }
+                        
                     }
-                    //cin.ignore();
+                    
+                   
+                        
+                            
+                    cout << "@@@@@@@@@@@Model Prevision: " << prevision << endl;
+                    cout << "@@@@@@@@@@@seq_prevision_high: " << seq_prevision_high << endl;
                 }
 
-            //}    
+            }    
  
  
 
@@ -648,6 +818,7 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
     char iphdrInfo[256];
     char srcip[256];
     char dstip[256];
+   
  
 
     // Skip the datalink layer header and get the IP header fields.
@@ -672,14 +843,18 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
     uint32_t ecr;
     uint32_t my_time_stamp;
     uint64_t time_arrival;
+    std::thread mythread;
 
     switch (iphdr->ip_p)
     {
     case IPPROTO_TCP:
+
         printf("arrival (sec): %ld\n", packethdr->ts.tv_sec); //aqui um e o complemento do outro. sec e a parte inteira e
         printf("arrival (usec): %ld\n", packethdr->ts.tv_usec);//usec e a parte fracionaria em micro-segundos(usec)
         time_arrival = uint64_t(packethdr->ts.tv_sec*1000000 + packethdr->ts.tv_usec);
         tcphdr = (struct tcphdr*)packetptr;
+        
+
         //printf("TCP  %s:%d -> %s:%d\n", srcip, ntohs(tcphdr->th_sport),
                //dstip, ntohs(tcphdr->th_dport));
         //printf("%s\n", iphdrInfo);
@@ -739,10 +914,10 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
             break;
 
         }
-
-        if(string(srcip) != "10.0.1.3") //so aceita de 10.0.1.3
+        //Os dois if abaixo garantem  que e ACK do primeiro fluxo
+        if(string(srcip) != "10.0.1.3" ||  ntohs(tcphdr->th_sport) != 5002) //so aceita de 10.0.1.3
         {
-            cout << "Ignored source" << endl;
+            cout << "Ignored source " <<  string(srcip) <<":" << ntohs(tcphdr->th_sport) << endl;
             printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n");
             break;
         }
@@ -771,7 +946,6 @@ void packet_handler(u_char *user, const struct pcap_pkthdr *packethdr, const u_c
         feature_handler(time_arrival,ecr);
 
         printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n");
-
         break;
  
     case IPPROTO_UDP:
@@ -808,6 +982,19 @@ void stop_capture(int signo)
     exit(0);
 }
 
+/*
+int start_pcap_looping(int par_count=0)
+{
+    if (pcap_loop(handle, par_count, packet_handler, (u_char*)NULL) == PCAP_ERROR) {
+        fprintf(stderr, "pcap_loop failed: %s\n", pcap_geterr(handle));
+        return -1;
+    }
+
+    stop_capture(0);
+    return 0;
+
+}
+*/
 
 int main(int argc, char *argv[])
 {
@@ -818,6 +1005,9 @@ int main(int argc, char *argv[])
     int count = 0;
     int opt;
     int rate;
+    uint64_t congestion_level_change = 0;
+    uint64_t A_kernel_update = 0;
+    uint64_t B_kernel_update = 0;
  
     *device = 0;
     *filter = 0;
@@ -880,6 +1070,36 @@ int main(int argc, char *argv[])
         exit (0);
     }
 
+    tshark_file.open(tshark_memory.c_str());
+    if (tshark_file.is_open())
+    {
+       cout << "CC drive found!" << endl;
+    }
+    else
+    { 
+        cout << "Unable to open driver file\n";
+        exit (0);
+    }
+
+    shm_fd = shm_open(SHARED_MEM_PATH, O_RDWR | O_CREAT, 0644);
+    if (shm_fd == -1) {
+        printf("prod: Shared memory failed: %s\n", strerror(errno));
+        exit(1);
+    }
+    /* configure the size of the shared memory segment */
+    ftruncate(shm_fd, mem_size);
+
+    /* map the shared memory segment to the address space of the process */
+    shm_base = (shm_mem_*) mmap(0, mem_size, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    if (shm_base == MAP_FAILED) {
+        close(shm_fd);
+        printf("prod: Map failed: %s\n", strerror(errno));
+        // close and shm_unlink?
+        exit(1);
+    }
+    printf("Started SHM producer: %s\n", SHARED_MEM_PATH);
+    prod_write_header(shm_base);
+
 
 
 
@@ -910,6 +1130,50 @@ int main(int argc, char *argv[])
         fprintf(stderr, "pcap_loop failed: %s\n", pcap_geterr(handle));
         return -1;
     }
+    //std::thread t1 (start_pcap_looping,count);
+    //t1.detach();
+
+    /*
+    bool force_print_main_while = true;
+    
+    while(true)    
+    {
+        
+        if(last_prevision == prevision)
+        {
+            //cout << "@@@@@@@@@@@@No change in prevision" << endl;
+            continue;
+        }
+        congestion_level_change++;
+        
+        class_mrs_debug::print<int>("last_prevision: ", last_prevision,true);
+        class_mrs_debug::print<int>("prevision: ",prevision,true);
+
+        cout << "@@@@@@@@@@@Updating Network State...." << endl;
+        if(prevision == 1) 
+        {      
+           //rite_to_drive("A");
+           A_kernel_update++;
+           class_mrs_debug::print<uint64_t>("Updating kernel with A: ", A_kernel_update,force_print_main_while);
+        }
+        else
+        {
+            //write_to_drive("B");
+            B_kernel_update++;
+            class_mrs_debug::print<uint64_t>("Updating kernel with B: ",B_kernel_update,force_print_main_while);
+        }
+
+        //last_prevision = prevision;
+
+        class_mrs_debug::print<uint64_t>("congestion_level_changes", congestion_level_change,force_print_main_while);
+        class_mrs_debug::print<uint64_t>("congestion_level_changes A + B: ", B_kernel_update + A_kernel_update,force_print_main_while);
+     
+        //usleep(100000);
+        //cin.ignore();
+    }
+
+    t1.join();
+    */
 
     stop_capture(0); 
     myfile.close();

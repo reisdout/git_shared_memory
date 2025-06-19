@@ -270,6 +270,7 @@ inteligence_app_EXTERNAL_OBJECTS =
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/build.make
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/libpcap/libpcap.a
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/static\ libs/libpoc_keras2c.a
+/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: /usr/lib/x86_64-linux-gnu/libuv.so
 /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app: CMakeFiles/inteligence_app.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable /home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/inteligence_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inteligence_app.dir/link.txt --verbose=$(VERBOSE)

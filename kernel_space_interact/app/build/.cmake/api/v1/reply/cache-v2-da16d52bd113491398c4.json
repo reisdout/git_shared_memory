@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build"
+			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -543,7 +543,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -603,7 +603,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app"
+			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -767,7 +767,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "2"
+			"value" : "1"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "inteligence_app"
+			"value" : "kernel_ineteraction"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1206,19 +1206,19 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "PCAP_LIB",
+			"name" : "LIBUV_INCLUDE_DIR",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Path to a library."
+					"value" : "Path to a file."
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/libpcap/libpcap.a"
+			"type" : "PATH",
+			"value" : "/usr/include"
 		},
 		{
-			"name" : "POC_KERASC",
+			"name" : "LIBUV_LIBRARIES",
 			"properties" : 
 			[
 				{
@@ -1227,7 +1227,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release/static libs/libpoc_keras2c.a"
+			"value" : "/usr/lib/x86_64-linux-gnu/libuv.so"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -1242,7 +1242,7 @@
 			"value" : "TRUE"
 		},
 		{
-			"name" : "inteligence_app_BINARY_DIR",
+			"name" : "kernel_ineteraction_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1251,10 +1251,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build"
+			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build"
 		},
 		{
-			"name" : "inteligence_app_IS_TOP_LEVEL",
+			"name" : "kernel_ineteraction_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1266,7 +1266,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "inteligence_app_SOURCE_DIR",
+			"name" : "kernel_ineteraction_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1275,43 +1275,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app"
-		},
-		{
-			"name" : "poc_keras2c_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/build/keras2c"
-		},
-		{
-			"name" : "poc_keras2c_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "OFF"
-		},
-		{
-			"name" : "poc_keras2c_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/keras2c"
+			"value" : "/home/ns/c++/shared_memory/git_shared_memory/kernel_space_interact/app"
 		}
 	],
 	"kind" : "cache",

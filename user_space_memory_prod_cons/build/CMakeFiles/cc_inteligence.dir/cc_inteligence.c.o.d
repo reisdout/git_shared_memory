@@ -1,7 +1,7 @@
 CMakeFiles/cc_inteligence.dir/cc_inteligence.c.o: \
- /home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/cc_inteligence.c \
+ /home/ns/c++/shared_memory/git_shared_memory/user_space_memory_prod_cons/cc_inteligence.c \
  /usr/include/stdc-predef.h \
- /home/ns/c++/shared_memory/git_shared_memory/user_space_prod_cons/shm.h \
+ /home/ns/c++/shared_memory/git_shared_memory/user_space_memory_prod_cons/shm.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

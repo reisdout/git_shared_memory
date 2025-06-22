@@ -77,7 +77,7 @@ uint64_t marcaTempoAnterior = 0;
 long double intervalbetweenTS = 0.0;
 
 
-uint64_t virtual_clock_origin = 1746891263947; //1746891186990;
+uint64_t virtual_clock_origin = 1746929140609; //1746891186990;
 
 
 
@@ -106,20 +106,20 @@ float kerasarray_2D_ACK_RTT[6];
 float kerasarray_2D_SND_RTT[6];
 
 
-string str_model_file = "/proc/icc_vegas_driver";
+//string str_model_file = "/proc/icc_vegas_driver";
 
-string tshark_memory = "/tmp/ramdisk/tshark/temp.txt";
+//string tshark_memory = "/tmp/ramdisk/tshark/temp.txt";
 
-ofstream myfile;
+//ofstream myfile;
 
-ofstream tshark_file;
+//ofstream tshark_file;
 
-void write_to_drive(string par_string)
-{
-    cout << "Atualizando CC level para " << par_string <<  "em ack " << num_ack_received << endl;
-    myfile << par_string;
-    cout << "CC atualizado em ACK " << num_ack_received << endl;
-}
+//void write_to_drive(string par_string)
+//{
+    //cout << "Atualizando CC level para " << par_string <<  "em ack " << num_ack_received << endl;
+    //myfile << par_string;
+    //cout << "CC atualizado em ACK " << num_ack_received << endl;
+//}
 
 
 /*
@@ -345,6 +345,11 @@ int make_prevision(int par_experiment_round)
   else if(par_experiment_round == ROUND_REC_100MBPS)
   {
     ptModel->keras2c_model_Round_REC_100Mbps(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_POC_000004_10MBPS)
+  {
+    ptModel->keras2c_model_Round_POC_10Mbps(&myInput,&myOutput);
   }
 
   else if(par_experiment_round == ROUND_POC_000004_500MBPS)
@@ -774,7 +779,7 @@ void feature_handler(uint64_t par_ack_arrival_time, uint64_t par_packet_eco_repl
                         {
                             seq_prevision_high++;
                         
-                            if(seq_prevision_high >=10)
+                            if(seq_prevision_high >=3)
                             {
                                 sh_mem_data = 2;
                                 prod_write_data(shm_base, sh_mem_data);
@@ -1041,12 +1046,37 @@ int main(int argc, char *argv[])
         case 'b':
             rate = atoi(optarg);
             cout << "rate: " << rate << endl;
-            if(rate == 500)
+            
+            if(rate == 10)
+            {
+                ack_normalize = 273.018;
+                send_normalize = 271.082;
+                rtt_normalize = 14.679*43000; //Lembre-se que e RTT ratio. Assim, considerando 43000 o RTT maximo
+            }
+
+            else if (rate == 100)
+            {
+                ack_normalize = 33.173;
+                send_normalize = 33.013;
+                rtt_normalize = 2.963*43000;
+
+            }
+
+            else if (rate == 300)
+            {
+               ack_normalize = 9.187;
+                send_normalize = 9.601;
+                rtt_normalize = 1.54*43000;
+            }
+            
+
+            else if(rate == 500)
             {
                 ack_normalize = 5.66;
                 send_normalize = 5.73;
                 rtt_normalize = 1.351*43000;
             } 
+            
             break;
 
         
@@ -1059,27 +1089,7 @@ int main(int argc, char *argv[])
         }
 
     }
-    myfile.open(str_model_file.c_str());
-    if (myfile.is_open())
-    {
-       cout << "CC drive found!" << endl;
-    }
-    else
-    { 
-        cout << "Unable to open driver file\n";
-        exit (0);
-    }
 
-    tshark_file.open(tshark_memory.c_str());
-    if (tshark_file.is_open())
-    {
-       cout << "CC drive found!" << endl;
-    }
-    else
-    { 
-        cout << "Unable to open driver file\n";
-        exit (0);
-    }
 
     shm_fd = shm_open(SHARED_MEM_PATH, O_RDWR | O_CREAT, 0644);
     if (shm_fd == -1) {
@@ -1176,7 +1186,7 @@ int main(int argc, char *argv[])
     */
 
     stop_capture(0); 
-    myfile.close();
+    //myfile.close();
     delete ptModel;
     delete pt_tensor_fill;
 

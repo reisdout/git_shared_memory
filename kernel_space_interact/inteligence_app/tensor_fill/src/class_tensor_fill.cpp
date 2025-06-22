@@ -229,7 +229,7 @@ void class_tensor_fill::fill_tensor(int parSrc, int parDest)
 
       if(!parSrc)
       {
-        std::cout << "Entrada CNN_ACK_RTT:\n";
+        std::cout << "Entrada LSTM/CNN_ACK_RTT:\n";
         std::cout << "{" << kerasarray_2D_ACK_RTT[0]<<","
         <<kerasarray_2D_ACK_RTT[1] << ","
         <<kerasarray_2D_ACK_RTT[2]<<","
@@ -290,7 +290,7 @@ void class_tensor_fill::fill_tensor(int parSrc, int parDest)
 
       if(!parSrc)
       {
-        std::cout << "Entrada CNN_SND_RTT:\n";
+        std::cout << "Entrada LSTM/CNN_SND_RTT:\n";
         std::cout << "{" << kerasarray_2D_SND_RTT[0]<<","
         <<kerasarray_2D_SND_RTT[1] << ","
         <<kerasarray_2D_SND_RTT[2]<<","

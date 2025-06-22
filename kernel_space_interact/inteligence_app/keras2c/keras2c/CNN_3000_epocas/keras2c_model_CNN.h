@@ -14,6 +14,7 @@ void keras2c_model_Round0000002_100Mbps(const k2c_tensor* , k2c_tensor*){return;
 void keras2c_model_Round0000003_500Mbps(const k2c_tensor* , k2c_tensor*){return;};
 void keras2c_model_Round0000004_1000Mbps(const k2c_tensor* , k2c_tensor*){return;};
 void keras2c_model_Round_REC_100Mbps(const k2c_tensor* , k2c_tensor*){return;};
+void keras2c_model_Round_POC_10Mbps(const k2c_tensor* , k2c_tensor*){return;};
 void keras2c_model_Round_POC_500Mbps(const k2c_tensor* , k2c_tensor*){return;};
 void keras2c_model_Round_COMPLEXITY(const k2c_tensor* , k2c_tensor*);
 

@@ -347,12 +347,23 @@ int make_prevision(int par_experiment_round)
     ptModel->keras2c_model_Round_REC_100Mbps(&myInput,&myOutput);
   }
 
-  else if(par_experiment_round == ROUND_POC_000004_10MBPS)
+  else if(par_experiment_round == ROUND_POC_0000001_10MBPS)
   {
     ptModel->keras2c_model_Round_POC_10Mbps(&myInput,&myOutput);
   }
 
-  else if(par_experiment_round == ROUND_POC_000004_500MBPS)
+  else if(par_experiment_round == ROUND_POC_0000002_100MBPS)
+  {
+     ptModel->keras2c_model_Round_POC_100Mbps(&myInput,&myOutput);
+  }
+
+  else if(par_experiment_round == ROUND_POC_0000003_300MBPS)
+  {
+    ptModel->keras2c_model_Round_POC_300Mbps(&myInput,&myOutput);
+
+  }
+
+  else if(par_experiment_round == ROUND_POC_0000004_500MBPS)
   {
     ptModel->keras2c_model_Round_POC_500Mbps(&myInput,&myOutput);
   }

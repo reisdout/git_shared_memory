@@ -26,8 +26,12 @@ public:
     virtual void keras2c_model_Round0000003_500Mbps(const k2c_tensor* , k2c_tensor*)=0;
     virtual void keras2c_model_Round0000004_1000Mbps(const k2c_tensor* , k2c_tensor*)=0;
     virtual void keras2c_model_Round_REC_100Mbps(const k2c_tensor* , k2c_tensor*)=0;
+
     virtual void keras2c_model_Round_POC_10Mbps(const k2c_tensor* , k2c_tensor*)=0;
+    virtual void keras2c_model_Round_POC_100Mbps(const k2c_tensor* , k2c_tensor*)=0;
+    virtual void keras2c_model_Round_POC_300Mbps(const k2c_tensor* , k2c_tensor*)=0;
     virtual void keras2c_model_Round_POC_500Mbps(const k2c_tensor* , k2c_tensor*)=0;
+    
     virtual void keras2c_model_Round_COMPLEXITY(const k2c_tensor* , k2c_tensor*)=0;    
     virtual void keras2c_model_initialize()=0; 
     virtual void keras2c_model_terminate()=0; 

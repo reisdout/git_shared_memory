@@ -1,0 +1,39 @@
+sudo sysctl -w net.ipv4.tcp_congestion_control=vegas
+
+sudo tail -f /var/log/kern.log
+
+tshark -i enp4s0  -f "tcp[tcpflags] == tcp-ack and src 10.0.1.3"
+
+iperf3  -c 10.0.1.3 --cport 4002 -p 5002
+iperf3  -c 10.0.1.3 --cport 4002 -p 5002 -t 360 -P 20
+
+
+sudo ./inteligence_app -i enp4s0 -m 7 -b 500 -r 11 tcp and \(\(tcp[tcpflags] == tcp-ack and src 10.0.1.3\) or \(tcp[tcpflags] == tcp-syn and src port 4002\)\)
+
+
+sudo ./inteligence_app -i enp4s0 -m 1 -b 500 -r 11 tcp[tcpflags] == tcp-ack or tcp[tcpflags] == tcp-syn
+
+
+sudo ./kernel_ineteraction shared_memory
+
+
+DIRETORIOS DO QUADRO DE TESTES
+
+~/c++/shared_memory/git_shared_memory/kernel_space_interact/app/build
+
+~/c++/shared_memory/git_shared_memory/kernel_space_interact/inteligence_app/bin/Linux64/Release
+
+
+
+
+
+grep -vwE "sender" Vegas.txt > Vegas.csv
+
+=C2/((1-0.00005)*300)
+
+=C2/((1-0.00005)*300000)
+
+
+
+
+
